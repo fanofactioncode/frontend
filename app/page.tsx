@@ -1,5 +1,7 @@
+import HeroBox from "@/components/home/hero-box";
 import LogoIcon from "@/components/icons/logo";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 export default function Home() {
   return (
@@ -29,7 +31,7 @@ export default function Home() {
       </header>
 
       <section className="container mt-16">
-        <h1 className="text-center text-5xl font-bold w-8/12 mx-auto">
+        <h1 className="text-center text-5xl font-bold w-8/12 mx-auto leading-tight">
           Epic Cinematic Revival: The Return of a Blockbuster - Movie Rerelease
           Spectacular!
         </h1>
@@ -39,6 +41,11 @@ export default function Home() {
           vulputate donec ligula elit ut. Viverra eros ut morbi auctor odio
           enim.
         </p>
+
+        <div className="flex gap-3 mt-16 w-6/12 mx-auto items-center">
+          <Input className="h-11" />
+          <Button size="lg">Newsletter</Button>
+        </div>
       </section>
     </>
   );
