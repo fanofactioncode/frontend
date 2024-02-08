@@ -10,7 +10,12 @@ export default function Home() {
       <header className="border-b">
         <div className="container">
           <div className="flex items-center justify-between py-3">
-            <LogoIcon height={56} width={56} />
+            <Link
+              href="/"
+              className="rounded-full focus:outline-none focus:ring-0"
+            >
+              <LogoIcon height={56} width={56} />
+            </Link>
 
             <nav>
               <ul className="flex items-center gap-8">
@@ -32,11 +37,11 @@ export default function Home() {
       </header>
 
       <section className="container py-24 relative">
-        <h1 className="text-3xl transition-all duration-300 text-start sm:text-center sm:text-6xl font-bold w-full sm:w-8/12 mx-auto sm:leading-normal">
+        <h1 className="text-3xl transition-all duration-300 text-start sm:text-center sm:text-6xl font-bold w-full sm:w-8/12 mx-auto sm:leading-tight">
           Epic Cinematic Revival: The Return of a Blockbuster - Movie Rerelease
           Spectacular!
         </h1>
-        <p className="text-sm transition-all duration-300 text-start sm:text-center w-full sm:w-6/12 mx-auto mt-4">
+        <p className="transition-all duration-300 text-start sm:text-center w-full sm:w-6/12 mx-auto mt-4">
           Lorem ipsum dolor sit amet consectetur. Viverra euismod duis aliquam
           ipsum. Ac senectus turpis sed sagittis nulla feugiat vulputate. Massa
           vulputate donec ligula elit ut. Viverra eros ut morbi auctor odio
@@ -51,7 +56,7 @@ export default function Home() {
         </div>
 
         {/* Video Container */}
-        <div className="absolute flex items-center justify-center left-1/2 top-[96%] -translate-x-1/2 w-[90%] sm:w-7/12 bg-gray-600 h-1/3 sm:h-2/3 rounded-3xl">
+        <div className="absolute flex items-center justify-center left-1/2 top-[96%] -translate-x-1/2 w-[90%] sm:w-7/12 bg-primary/70 h-1/3 sm:h-2/3 rounded-3xl">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 100 100"
@@ -70,6 +75,7 @@ export default function Home() {
             <path d="M66 50L42 63.8564L42 36.1436L66 50Z" fill="white" />
           </svg>
         </div>
+        {/* <Canvas /> */}
       </section>
 
       <section className="container py-60"></section>
