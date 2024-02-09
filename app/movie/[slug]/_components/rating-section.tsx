@@ -1,4 +1,5 @@
 import React from "react";
+import { Star } from "lucide-react";
 
 export default function RatingSection() {
   return (
@@ -12,9 +13,26 @@ export default function RatingSection() {
         </p>
       </div>
 
-      <div className="w-full sm:w-3/12 space-y-2">
+      <div className="w-full sm:w-3/12">
         <h2 className="text-xl font-bold">Hype</h2>
-        <p className="text-gray-400">8 / 10 ********</p>
+
+        <div className="flex items-center gap-5 mt-3">
+          <p className="">Rating</p>
+          <div className="flex gap-2 items-center">
+            {Array.from({ length: 10 }).map((_, index) => (
+              <Star
+                key={`__${index}`}
+                size={20}
+                fill={index + 1 < 8 ? "white" : "transparent"}
+              />
+            ))}
+          </div>
+        </div>
+
+        <div className="flex items-center gap-5 mt-3">
+          <p>Duration</p>
+          <p>2h</p>
+        </div>
       </div>
     </div>
   );
