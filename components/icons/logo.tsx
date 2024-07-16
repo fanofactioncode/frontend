@@ -1,12 +1,9 @@
-type IconType = {
-  height: number;
-  width: number;
-};
+import { IconType } from "./types";
 
-const LogoIcon = ({ height, width }: IconType) => (
+export const LogoIcon = ({ size }: IconType) => (
   <svg
-    width={height}
-    height={width}
+    width={size}
+    height={size}
     viewBox="0 0 129 129"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -42,5 +39,3 @@ const LogoIcon = ({ height, width }: IconType) => (
     />
   </svg>
 );
-
-export default LogoIcon;
