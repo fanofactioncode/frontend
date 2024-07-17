@@ -1,11 +1,12 @@
+import Image from "next/image";
+import Link from "next/link";
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Header from "@/components/common/header";
 import Footer from "@/components/common/footer";
 import Newsletter from "@/components/common/newsletter";
 import SectionBadge from "@/components/ui/section-badge";
-import Image from "next/image";
-import Link from "next/link";
 
 export default function Home() {
   return (
@@ -157,6 +158,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+
       <Newsletter />
       <Footer />
     </>
