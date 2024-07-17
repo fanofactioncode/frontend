@@ -1,9 +1,9 @@
 import React from "react";
 import Link from "next/link";
+import { Globe } from "lucide-react";
 
 import { Button } from "../ui/button";
 import { LogoIcon } from "../icons";
-import { Globe } from "lucide-react";
 
 export default function Header() {
   return (

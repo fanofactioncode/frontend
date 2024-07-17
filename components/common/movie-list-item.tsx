@@ -11,7 +11,7 @@ export default function MovieListItem({
   thumbnail,
 }: MovieListItemProps) {
   return (
-    <div className="cursor-pointer border transition-all duration-300 hover:bg-green border-secondary rounded-2xl p-1">
+    <div className="cursor-pointer w-[280px] border transition-all duration-300 hover:bg-green border-secondary rounded-2xl p-1">
       <div className="relative w-full h-[400px]">
         <Image
           src={thumbnail}

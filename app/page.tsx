@@ -50,7 +50,7 @@ export default function Home() {
             viewBox="0 0 52 49"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            className="absolute bottom-5 -left-20"
+            className="absolute -bottom-5 -left-20"
           >
             <path
               d="M51.9724 0.959063L31.6694 48.7899L0.398212 7.29158L51.9724 0.959063Z"
@@ -80,7 +80,7 @@ export default function Home() {
           </Button>
         </div>
 
-        <div className="flex mt-5 gap-7 justify-between">
+        <div className="flex mt-5 justify-between">
           <MovieListItem
             title="Godzila vs Kong: The New Empire"
             thumbnail="/godzila-x-kong.webp"
