@@ -1,12 +1,12 @@
-import Image from "next/image";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import Header from "@/components/common/header";
 import Footer from "@/components/common/footer";
 import Newsletter from "@/components/common/newsletter";
 import SectionBadge from "@/components/ui/section-badge";
+import MovieListItem from "@/components/common/movie-list-item";
+import { PlayIcon } from "@/components/icons";
 
 export default function Home() {
   return (
@@ -15,44 +15,55 @@ export default function Home() {
 
       <section className="container py-24 relative">
         <h1 className="text-3xl transition-all duration-300 text-start sm:text-center sm:text-6xl font-bold w-full sm:w-8/12 mx-auto sm:leading-tight">
-          Epic Cinematic Revival: The Return of a Blockbuster - Movie Rerelease
-          Spectacular!
+          Epic{" "}
+          <span className="text-primary bg-green px-2 rounded-xl">
+            Cinematic
+          </span>{" "}
+          Revival: The Return of a Blockbuster - Movie Rerelease Spectacular!
         </h1>
-        <p className="transition-all duration-300 text-start sm:text-center w-full sm:w-6/12 mx-auto mt-4">
+        <p className="transition-all duration-300 text-start text-text sm:text-center w-full sm:w-6/12 mx-auto mt-4">
           Lorem ipsum dolor sit amet consectetur. Viverra euismod duis aliquam
           ipsum. Ac senectus turpis sed sagittis nulla feugiat vulputate. Massa
           vulputate donec ligula elit ut. Viverra eros ut morbi auctor odio
           enim.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-3 mt-16 w-full sm:w-6/12 mx-auto items-center">
-          <Input className="h-14 rounded-xl" placeholder="Join with us" />
-          <Button size="lg" className="font-semibold w-full sm:w-auto">
-            Newsletter
-          </Button>
-        </div>
-
-        {/* Video Container */}
-        <div className="relative flex mt-32 items-center justify-center bg-primary/70 w-[50vw] h-[50vh] left-2/4 -translate-x-1/2  rounded-3xl">
+        <div className="relative cursor-pointer bg-[url('/video-thumbnail.jpg')] bg-cover bg-center bg-no-repeat border-8 border-secondary group flex mt-32 items-center justify-center bg-primary/70 w-[50vw] h-[60vh] left-2/4 -translate-x-1/2 rounded-3xl">
           <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 100 100"
+            width="66"
+            height="37"
+            viewBox="0 0 66 37"
             fill="none"
-            className="cursor-pointer h-14 w-14 sm:h-24 sm:w-24 transition-all duration-500 hover:scale-105"
+            xmlns="http://www.w3.org/2000/svg"
+            className="absolute -top-12 -right-9"
           >
-            <rect
-              x="5"
-              y="5"
-              width="90"
-              height="90"
-              rx="45"
-              stroke="white"
-              strokeWidth="10"
+            <path
+              d="M4.16489 34.777L10.3715 19.3261L27.2649 26.6138L29.2286 12.6623L45.1793 20.2831L48.5572 5.83185L63.565 13.7859"
+              stroke="#FF499E"
+              strokeWidth="7"
             />
-            <path d="M66 50L42 63.8564L42 36.1436L66 50Z" fill="white" />
           </svg>
+
+          <svg
+            width="52"
+            height="49"
+            viewBox="0 0 52 49"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="absolute bottom-5 -left-20"
+          >
+            <path
+              d="M51.9724 0.959063L31.6694 48.7899L0.398212 7.29158L51.9724 0.959063Z"
+              fill="#E9EB87"
+            />
+          </svg>
+
+          <PlayIcon
+            size={68}
+            color="#ABB7C4"
+            className="transition group-hover:scale-105"
+          />
         </div>
-        {/* <Canvas /> */}
       </section>
 
       <section className="container py-24">
@@ -69,71 +80,26 @@ export default function Home() {
           </Button>
         </div>
 
-        <div className="flex mt-5 gap-7">
-          <div className="w-3/12">
-            <div className="border border-secondary rounded-xl p-1">
-              <div className="relative w-full h-[400px]">
-                <Image
-                  src="/godzila-x-kong.webp"
-                  alt="movie"
-                  className="rounded-md object-cover"
-                  fill
-                />
-              </div>
+        <div className="flex mt-5 gap-7 justify-between">
+          <MovieListItem
+            title="Godzila vs Kong: The New Empire"
+            thumbnail="/godzila-x-kong.webp"
+          />
 
-              <h4 className="text-center truncate py-3 px-4 text-black font-semibold">
-                Godzila vs Kong: The New Empire
-              </h4>
-            </div>
-          </div>
-          <div className="w-3/12">
-            <div className="border border-secondary rounded-xl p-1">
-              <div className="relative w-full h-[400px]">
-                <Image
-                  src="/godzila-x-kong.webp"
-                  alt="movie"
-                  className="rounded-md object-cover"
-                  fill
-                />
-              </div>
+          <MovieListItem
+            title="Godzila vs Kong: The New Empire"
+            thumbnail="/godzila-x-kong.webp"
+          />
 
-              <h4 className="text-center truncate py-3 px-4 text-black font-semibold">
-                Godzila vs Kong: The New Empire
-              </h4>
-            </div>
-          </div>
-          <div className="w-3/12">
-            <div className="border border-secondary rounded-xl p-1">
-              <div className="relative w-full h-[400px]">
-                <Image
-                  src="/godzila-x-kong.webp"
-                  alt="movie"
-                  className="rounded-md object-cover"
-                  fill
-                />
-              </div>
+          <MovieListItem
+            title="Godzila vs Kong: The New Empire"
+            thumbnail="/godzila-x-kong.webp"
+          />
 
-              <h4 className="text-center truncate py-3 px-4 text-black font-semibold">
-                Godzila vs Kong: The New Empire
-              </h4>
-            </div>
-          </div>
-          <div className="w-3/12">
-            <div className="border border-secondary rounded-xl p-1">
-              <div className="relative w-full h-[400px]">
-                <Image
-                  src="/godzila-x-kong.webp"
-                  alt="movie"
-                  className="rounded-md object-cover"
-                  fill
-                />
-              </div>
-
-              <h4 className="text-center truncate py-3 px-4 text-black font-semibold">
-                Godzila vs Kong: The New Empire
-              </h4>
-            </div>
-          </div>
+          <MovieListItem
+            title="Godzila vs Kong: The New Empire"
+            thumbnail="/godzila-x-kong.webp"
+          />
         </div>
       </section>
 

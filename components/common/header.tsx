@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { Button } from "../ui/button";
 import { LogoIcon } from "../icons";
+import { Globe } from "lucide-react";
 
 export default function Header() {
   return (
@@ -18,22 +19,25 @@ export default function Header() {
 
           <nav>
             <ul className="flex items-center gap-14">
-              <li className="font-medium text-sm hover:text-slate-950">
+              <li className="font-medium hover:text-slate-950">
                 <Link href="/">Home</Link>
               </li>
-              <li className="font-medium text-sm hover:text-slate-950">
+              <li className="font-medium hover:text-slate-950">
                 <Link href="/">Events</Link>
               </li>
-              <li className="font-medium text-sm hover:text-slate-950">
+              <li className="font-medium hover:text-slate-950">
                 <Link href="/">About</Link>
               </li>
-              <li className="font-medium text-sm hover:text-slate-950">
+              <li className="font-medium hover:text-slate-950">
                 <Link href="/">Contact</Link>
               </li>
             </ul>
           </nav>
 
-          <Button size="sm">Login</Button>
+          <Button variant="ghost" size="sm" className="gap-2">
+            <Globe size={20} />
+            Rajkot
+          </Button>
         </div>
       </div>
     </header>
