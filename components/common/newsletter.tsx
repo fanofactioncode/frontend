@@ -20,10 +20,11 @@ export default function Newsletter() {
         <div className="flex items-center gap-2 bg-white py-2 px-[0.6em] rounded-[1.8em] border-2 border-black">
           <Input
             placeholder="Your email"
-            className="border-none focus-visible:ring-transparent text-black sm:min-w-[300px] max-w-full"
+            type="email"
+            className="border-none focus-visible:ring-transparent text-sm text-black sm:min-w-[300px] max-w-full"
           />
-          <Button className="bg-black hover:bg-primary px-8 py-6 rounded-[1.2em] text-white">
-            Sign Up
+          <Button className="bg-black text-sm hover:bg-primary px-6 py-6 rounded-[1.4em] text-white">
+            Subscribe
           </Button>
         </div>
       </div>

@@ -1,43 +1,24 @@
 import React from "react";
 import Link from "next/link";
-import { Globe } from "lucide-react";
 
-import { Button } from "../ui/button";
 import { LogoIcon } from "../icons";
 
 export default function Header() {
   return (
-    <header className="border-b sm:border-b-transparent sticky top-0 backdrop-blur-md bg-white/40 z-50">
+    <header className="border-b sm:border-b-transparent sticky top-0 backdrop-blur-md bg-white z-50">
       <div className="container">
         <div className="flex items-center justify-between py-3">
           <Link
             href="/"
             className="rounded-full focus:outline-none focus:ring-0"
           >
-            <LogoIcon size={48} />
+            <LogoIcon className="size-12" />
           </Link>
 
-          <nav>
-            <ul className="flex items-center gap-14">
-              <li className="font-medium hover:text-slate-950">
-                <Link href="/">Home</Link>
-              </li>
-              <li className="font-medium hover:text-slate-950">
-                <Link href="/">Events</Link>
-              </li>
-              <li className="font-medium hover:text-slate-950">
-                <Link href="/">About</Link>
-              </li>
-              <li className="font-medium hover:text-slate-950">
-                <Link href="/contact">Contact</Link>
-              </li>
-            </ul>
-          </nav>
-
-          <Button variant="ghost" size="sm" className="gap-2">
-            <Globe size={20} />
-            Rajkot
-          </Button>
+          <div className="border-[0.5px] flex flex-col gap-1 border-[#ABB7C4] rounded-full px-2 py-3.5">
+            <span className="h-[2px] rounded-full inline-block w-5 bg-primary"></span>
+            <span className="h-[2px] rounded-full inline-block w-5 bg-primary"></span>
+          </div>
         </div>
       </div>
     </header>
