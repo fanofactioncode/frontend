@@ -1,12 +1,13 @@
 import { IconType } from "./types";
 
-export const LogoIcon = ({ size }: IconType) => (
+export const LogoIcon = ({ size, className }: IconType) => (
   <svg
     width={size}
     height={size}
     viewBox="0 0 129 129"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    className={className}
   >
     <circle cx="64.5" cy="64.5" r="64.5" fill="#0F2133" />
     <rect

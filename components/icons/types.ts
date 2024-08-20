@@ -1,5 +1,5 @@
 export type IconType = {
-  size: number;
+  size?: number;
   color?: string;
   className?: string;
 };

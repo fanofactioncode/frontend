@@ -29,7 +29,7 @@ export default function Header() {
                 <Link href="/">About</Link>
               </li>
               <li className="font-medium hover:text-slate-950">
-                <Link href="/">Contact</Link>
+                <Link href="/contact">Contact</Link>
               </li>
             </ul>
           </nav>
