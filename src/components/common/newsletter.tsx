@@ -6,24 +6,24 @@ import Badge from "../ui/badge";
 
 export default function Newsletter() {
   return (
-    <div className="bg-[#ABB7C4] py-16">
+    <div className="bg-secondary py-16">
       <div className="container flex flex-col items-center justify-center gap-5">
         <Badge>Stay Connected</Badge>
 
-        <h2 className="text-4xl text-black font-bold text-center leading-tight">
+        <h2 className="text-4xl text-text font-bold text-center leading-tight">
           Bring sanity back to your website
         </h2>
-        <p className="text-black text-sm">
+        <p className="text-text text-sm">
           It&apos;s free to sign up on our newsletter
         </p>
 
-        <div className="flex items-center gap-2 bg-white py-2 px-[0.6em] rounded-[1.8em] border-2 border-black">
+        <div className="flex items-center gap-2 bg-background py-2 px-[0.6em] rounded-[1.8em] border-2 border-black">
           <Input
             placeholder="Your email"
             type="email"
-            className="border-none focus-visible:ring-transparent text-sm text-black sm:min-w-[300px] max-w-full"
+            className="border-none focus-visible:ring-transparent text-sm text-text sm:min-w-[300px] max-w-full"
           />
-          <Button className="bg-black text-sm hover:bg-primary px-6 py-6 rounded-[1.4em] text-white">
+          <Button className="bg-black dark:bg-secondary-foreground text-sm hover:bg-primary px-6 py-6 rounded-[1.4em] text-white dark:text-primary-foreground">
             Subscribe
           </Button>
         </div>

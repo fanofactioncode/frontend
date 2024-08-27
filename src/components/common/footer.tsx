@@ -12,6 +12,7 @@ import {
 } from "@/components/icons";
 
 import { Button } from "../ui/button";
+import ThemeButton from "./theme-button";
 
 export default function Footer() {
   return (
@@ -155,29 +156,7 @@ export default function Footer() {
             </div>
 
             <div className="space-y-5">
-              <div className="rounded-full border flex grow-0 w-fit">
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="p-1 rounded-full border hover:bg-transparent hover:text-white"
-                >
-                  <DesktopIcon className="size-5" />
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="p-1 rounded-full hover:bg-transparent hover:text-white"
-                >
-                  <SunIcon className="size-5" />
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="p-1 rounded-full hover:bg-transparent hover:text-white"
-                >
-                  <MoonIcon className="size-5" />
-                </Button>
-              </div>
+              <ThemeButton />
               <p className="text-xs text-[#ABB7C4]">
                 All copyright reserved by @FanOfAction
               </p>

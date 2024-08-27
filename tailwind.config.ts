@@ -25,7 +25,6 @@ module.exports = {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
-          background: "hsl(var(--primary-background))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -54,7 +53,8 @@ module.exports = {
         pink: "hsl(var(--pink))",
         yellow: "hsl(var(--yellow))",
         green: "hsl(var(--green))",
-        text: "hsl(var(--sub-text))",
+        text: "hsl(var(--text))",
+        
       },
       borderRadius: {
         lg: "var(--radius)",
