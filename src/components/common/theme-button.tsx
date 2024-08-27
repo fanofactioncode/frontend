@@ -13,7 +13,7 @@ export default function ThemeButton() {
   if (!theme) return false;
 
   return (
-    <div className="rounded-full border border-[#ABB7C4] flex grow-0 w-fit">
+    <div className="rounded-full border box-border border-[#ABB7C4] flex grow-0 w-fit">
       <Button
         variant="ghost"
         size="icon"
@@ -23,7 +23,7 @@ export default function ThemeButton() {
         )}
         onClick={() => setTheme("system")}
       >
-        <DesktopIcon className="size-4" />
+        <DesktopIcon className="size-5" />
       </Button>
       <Button
         variant="ghost"
@@ -34,7 +34,7 @@ export default function ThemeButton() {
         )}
         onClick={() => setTheme("light")}
       >
-        <SunIcon className="size-4" />
+        <SunIcon className="size-5" />
       </Button>
       <Button
         variant="ghost"
@@ -45,7 +45,7 @@ export default function ThemeButton() {
         )}
         onClick={() => setTheme("dark")}
       >
-        <MoonIcon className="size-4" />
+        <MoonIcon className="size-5" />
       </Button>
     </div>
   );

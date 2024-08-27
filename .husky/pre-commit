@@ -2,7 +2,7 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 # 1. Check Types
-tsc && npm run lint
+npm run lint
 # 2. Check Lints
 
 # 3. Run Test

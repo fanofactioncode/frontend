@@ -53,8 +53,14 @@ module.exports = {
         pink: "hsl(var(--pink))",
         yellow: "hsl(var(--yellow))",
         green: "hsl(var(--green))",
-        text: "hsl(var(--text))",
-        
+        text: {
+          DEFAULT: "hsl(var(--text))",
+          sub: "hsl(var(--sub-text))",
+        },
+        button: {
+          DEFAULT: "hsl(var(--primary-button))",
+          foreground: "hsl(var(--primary-button-foreground))",
+        }
       },
       borderRadius: {
         lg: "var(--radius)",

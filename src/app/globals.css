@@ -39,6 +39,9 @@
     --text: 0 0% 0%;
     --sub-text: 0 0% 16%;
 
+    --primary-button: 0 0% 0%;
+    --primary-button-foreground: 0 0% 100%;
+
     --radius: 0.5rem;
   }
 
@@ -72,7 +75,10 @@
     --ring: 216 12.2% 83.9%;
 
     --text: 0 0% 100%;
+    --sub-text: 211 17% 72%;
 
+    --primary-button: 211 17% 72%;
+    --primary-button-foreground: 0 0% 0%;
   }
 }
 
