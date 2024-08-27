@@ -33,18 +33,36 @@ export default function Footer() {
               <h5>Feature</h5>
               <ul className="flex flex-col gap-[0.9rem] text-[#ABB7C4] text-sm">
                 <li>
-                  <Link href="/events" className="hover:underline focus-within:underline focus-within:outline-none transition-colors">
+                  <Link
+                    href="/events"
+                    className="hover:underline focus-within:underline focus-within:outline-none transition-colors"
+                  >
                     Events
                   </Link>
                 </li>
                 <li>
-                  <Link href="/about" className="hover:underline focus-within:underline focus-within:outline-none transition-colors">About</Link>
+                  <Link
+                    href="/about"
+                    className="hover:underline focus-within:underline focus-within:outline-none transition-colors"
+                  >
+                    About
+                  </Link>
                 </li>
                 <li>
-                  <Link href="/contact" className="hover:underline focus-within:underline focus-within:outline-none transition-colors">Contact</Link>
+                  <Link
+                    href="/contact"
+                    className="hover:underline focus-within:underline focus-within:outline-none transition-colors"
+                  >
+                    Contact
+                  </Link>
                 </li>
                 <li>
-                  <Link href="/request-movie" className="hover:underline focus-within:underline focus-within:outline-none transition-colors">Request a movie</Link>
+                  <Link
+                    href="/request-movie"
+                    className="hover:underline focus-within:underline focus-within:outline-none transition-colors"
+                  >
+                    Request a movie
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -53,16 +71,34 @@ export default function Footer() {
               <h5>Company</h5>
               <ul className="flex flex-col gap-[0.9rem] text-[#ABB7C4] text-sm">
                 <li>
-                  <Link href="/privacy-policy" className="hover:underline focus-within:underline focus-within:outline-none transition-colors">Privacy Policy</Link>
+                  <Link
+                    href="/privacy-policy"
+                    className="hover:underline focus-within:underline focus-within:outline-none transition-colors"
+                  >
+                    Privacy Policy
+                  </Link>
                 </li>
                 <li>
-                  <Link href="/cookies" className="hover:underline focus-within:underline focus-within:outline-none transition-colors">Cookies</Link>
+                  <Link
+                    href="/cookies"
+                    className="hover:underline focus-within:underline focus-within:outline-none transition-colors"
+                  >
+                    Cookies
+                  </Link>
                 </li>
                 <li>
-                  <Link href="/terms-and-conditions" className="hover:underline focus-within:underline focus-within:outline-none transition-colors">Terms & Conditions</Link>
+                  <Link
+                    href="/terms-and-conditions"
+                    className="hover:underline focus-within:underline focus-within:outline-none transition-colors"
+                  >
+                    Terms & Conditions
+                  </Link>
                 </li>
                 <li>
-                  <Link href="/refund-and-cancellation" className="hover:underline focus-within:underline focus-within:outline-none transition-colors">
+                  <Link
+                    href="/refund-and-cancellation"
+                    className="hover:underline focus-within:underline focus-within:outline-none transition-colors"
+                  >
                     Refund & Cancellation
                   </Link>
                 </li>
@@ -73,10 +109,18 @@ export default function Footer() {
               <h5>Contacts</h5>
               <ul className="flex flex-col gap-[0.9rem] text-[#ABB7C4] text-sm">
                 <li>
-                  <Link href="tel:+91 909090 909090" className="hover:underline focus-within:underline focus-within:outline-none transition-colors">+91 909090 909090</Link>
+                  <Link
+                    href="tel:+91 909090 909090"
+                    className="hover:underline focus-within:underline focus-within:outline-none transition-colors"
+                  >
+                    +91 909090 909090
+                  </Link>
                 </li>
                 <li>
-                  <Link href="mailto:fanofaction@gmail.com" className="hover:underline focus-within:underline focus-within:outline-none transition-colors">
+                  <Link
+                    href="mailto:fanofaction@gmail.com"
+                    className="hover:underline focus-within:underline focus-within:outline-none transition-colors"
+                  >
                     fanofaction@gmail.com
                   </Link>
                 </li>
