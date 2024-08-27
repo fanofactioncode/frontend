@@ -1,13 +1,11 @@
-import Header from "@/components/common/header";
-import Footer from "@/components/common/footer";
-import Newsletter from "@/components/common/newsletter";
+import PageLayout from "@/components/layout/page-layout";
 
 export default function Home() {
   return (
-    <>
-      <Header />
-      <Newsletter />
-      <Footer />
-    </>
+    <PageLayout>
+      <main className="container">
+        <h1>Home</h1>
+      </main>
+    </PageLayout>
   );
 }

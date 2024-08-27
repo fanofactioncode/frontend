@@ -1,19 +1,16 @@
-import Header from "@/components/common/header";
-import Footer from "@/components/common/footer";
-import Newsletter from "@/components/common/newsletter";
+import PageLayout from "@/components/layout/page-layout";
 import Badge from "@/components/ui/badge";
 
 export default function PrivacyPolicyPage() {
   return (
-    <>
-      <Header />
+    <PageLayout>
       <main className="container py-16">
         <div className="flex flex-col justify-center items-center gap-2">
           <Badge>Privacy Policy</Badge>
           <h1 className="text-center text-4xl font-bold text-black">
             We are committed to your privacy
           </h1>
-        <p className="text-sm text-center text-[#282828]">
+          <p className="text-sm text-center text-[#282828]">
             Learn more about how Dribbble collects and uses data and your rights
             as a Dribbble user.
           </p>
@@ -41,9 +38,6 @@ export default function PrivacyPolicyPage() {
           </p>
         </div>
       </main>
-
-      <Newsletter />
-      <Footer />
-    </>
+    </PageLayout>
   );
 }
