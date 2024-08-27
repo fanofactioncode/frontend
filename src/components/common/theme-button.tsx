@@ -10,6 +10,8 @@ import { DesktopIcon, MoonIcon, SunIcon } from "../icons";
 export default function ThemeButton() {
   const { theme, setTheme } = useTheme();
 
+  if (!theme) return false;
+
   return (
     <div className="rounded-full border border-[#ABB7C4] flex grow-0 w-fit">
       <Button

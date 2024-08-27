@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import dynamic from 'next/dynamic';
 
 import {
   DesktopIcon,
@@ -12,7 +13,8 @@ import {
 } from "@/components/icons";
 
 import { Button } from "../ui/button";
-import ThemeButton from "./theme-button";
+
+const ThemeButton = dynamic(() => import("./theme-button"), { ssr: false });
 
 export default function Footer() {
   return (
