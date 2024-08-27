@@ -2,13 +2,13 @@ import React from "react";
 
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
-import SectionBadge from "../ui/section-badge";
+import Badge from "../ui/badge";
 
 export default function Newsletter() {
   return (
     <div className="bg-[#ABB7C4] py-16">
       <div className="container flex flex-col items-center justify-center gap-5">
-        <SectionBadge>Stay Connected</SectionBadge>
+        <Badge>Stay Connected</Badge>
 
         <h2 className="text-4xl text-black font-bold text-center leading-tight">
           Bring sanity back to your website

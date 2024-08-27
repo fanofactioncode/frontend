@@ -1,19 +1,19 @@
 import Header from "@/components/common/header";
 import Footer from "@/components/common/footer";
 import Newsletter from "@/components/common/newsletter";
-import SectionBadge from "@/components/ui/section-badge";
+import Badge from "@/components/ui/badge";
 
 export default function PrivacyPolicyPage() {
   return (
     <>
       <Header />
-      <main className="container py-14">
+      <main className="container py-16">
         <div className="flex flex-col justify-center items-center gap-2">
-          <SectionBadge>Privacy Policy</SectionBadge>
+          <Badge>Privacy Policy</Badge>
           <h1 className="text-center text-4xl font-bold text-black">
             We are committed to your privacy
           </h1>
-          <p className="text-sm text-center text-[#282828]">
+        <p className="text-sm text-center text-[#282828]">
             Learn more about how Dribbble collects and uses data and your rights
             as a Dribbble user.
           </p>

@@ -15,7 +15,7 @@ import { Button } from "../ui/button";
 
 export default function Footer() {
   return (
-    <footer className="bg-primary-background py-16 text-white">
+    <footer className="bg-[#070F18] py-16 text-white">
       <div className="container">
         <div className="flex flex-col gap-10">
           <div className="space-y-4">
@@ -31,7 +31,7 @@ export default function Footer() {
           <div className="flex flex-col sm:flex-row justify-between items-start gap-10">
             <div className="space-y-5">
               <h5>Feature</h5>
-              <ul className="flex flex-col gap-[0.9rem] text-secondary text-sm">
+              <ul className="flex flex-col gap-[0.9rem] text-[#ABB7C4] text-sm">
                 <li>
                   <Link href="/events" className="hover:underline focus-within:underline focus-within:outline-none transition-colors">
                     Events
@@ -51,7 +51,7 @@ export default function Footer() {
 
             <div className="space-y-5">
               <h5>Company</h5>
-              <ul className="flex flex-col gap-[0.9rem] text-secondary text-sm">
+              <ul className="flex flex-col gap-[0.9rem] text-[#ABB7C4] text-sm">
                 <li>
                   <Link href="/privacy-policy" className="hover:underline focus-within:underline focus-within:outline-none transition-colors">Privacy Policy</Link>
                 </li>
@@ -71,7 +71,7 @@ export default function Footer() {
 
             <div className="space-y-5">
               <h5>Contacts</h5>
-              <ul className="flex flex-col gap-[0.9rem] text-secondary text-sm">
+              <ul className="flex flex-col gap-[0.9rem] text-[#ABB7C4] text-sm">
                 <li>
                   <Link href="tel:+91 909090 909090" className="hover:underline focus-within:underline focus-within:outline-none transition-colors">+91 909090 909090</Link>
                 </li>
@@ -115,21 +115,21 @@ export default function Footer() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="p-1 rounded-full border"
+                  className="p-1 rounded-full border hover:bg-transparent hover:text-white"
                 >
                   <DesktopIcon className="size-5" />
                 </Button>
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="p-1 rounded-full"
+                  className="p-1 rounded-full hover:bg-transparent hover:text-white"
                 >
                   <SunIcon className="size-5" />
                 </Button>
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="p-1 rounded-full"
+                  className="p-1 rounded-full hover:bg-transparent hover:text-white"
                 >
                   <MoonIcon className="size-5" />
                 </Button>

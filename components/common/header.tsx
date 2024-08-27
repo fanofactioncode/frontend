@@ -5,7 +5,7 @@ import { LogoIcon } from "../icons";
 
 export default function Header() {
   return (
-    <header className="sticky top-0 backdrop-blur-md bg-white z-50">
+    <header className="sticky top-0 backdrop-blur-md bg-white/50 z-50">
       <div className="container">
         <div className="flex items-center justify-between py-3">
           <Link
