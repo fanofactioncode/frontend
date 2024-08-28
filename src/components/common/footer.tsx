@@ -94,7 +94,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/refund-and-cancellation"
+                    href="/refund-and-cancellation-policy"
                     className="hover:underline focus-within:underline focus-within:outline-none transition-colors"
                   >
                     Refund & Cancellation
