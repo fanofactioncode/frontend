@@ -9,7 +9,7 @@ export default function PrivacyPolicyPage() {
         <h1 className="text-center text-4xl sm:text-6xl font-bold text-text mt-2">
           We are committed to your privacy
         </h1>
-        <p className="text-sm sm:text-base text-center text-text-sub mt-6">
+        <p className="text-sm sm:text-base text-center text-text-sub mt-2 sm:mt-6">
           Learn more about how Dribbble collects and uses data and your rights
           as a Dribbble user.
         </p>
@@ -40,7 +40,7 @@ export default function PrivacyPolicyPage() {
         </div>
 
         <div className="space-y-3">
-          <h2 className="text-base sm:text-lg text-text uppercase font-semibold">
+          <h2 className="text-base sm:text-xl text-text uppercase font-semibold">
             Information We Collect
           </h2>
           <p>
@@ -85,7 +85,7 @@ export default function PrivacyPolicyPage() {
         </div>
 
         <div className="space-y-3">
-          <h2 className="text-base sm:text-lg text-text uppercase font-semibold">
+          <h2 className="text-base sm:text-xl text-text uppercase font-semibold">
             How We Use Your Information
           </h2>
           <p>We use the information collected for the following purposes:</p>
@@ -119,7 +119,7 @@ export default function PrivacyPolicyPage() {
         </div>
 
         <div className="space-y-3">
-          <h2 className="text-base sm:text-lg text-text uppercase font-semibold">
+          <h2 className="text-base sm:text-xl text-text uppercase font-semibold">
             Sharing Your Information
           </h2>
           <p>
@@ -156,7 +156,7 @@ export default function PrivacyPolicyPage() {
         </div>
 
         <div className="space-y-3">
-          <h2 className="text-base sm:text-lg text-text uppercase font-semibold">
+          <h2 className="text-base sm:text-xl text-text uppercase font-semibold">
             Your Choices
           </h2>
           <p>
@@ -182,7 +182,7 @@ export default function PrivacyPolicyPage() {
         </div>
 
         <div className="space-y-3">
-          <h2 className="text-base sm:text-lg text-text uppercase font-semibold">
+          <h2 className="text-base sm:text-xl text-text uppercase font-semibold">
             Security
           </h2>
           <p>
@@ -194,7 +194,7 @@ export default function PrivacyPolicyPage() {
         </div>
 
         <div className="space-y-3">
-          <h2 className="text-base sm:text-lg text-text uppercase font-semibold">
+          <h2 className="text-base sm:text-xl text-text uppercase font-semibold">
             Children&apos;s Privacy
           </h2>
           <p>
@@ -206,7 +206,7 @@ export default function PrivacyPolicyPage() {
         </div>
 
         <div className="space-y-3">
-          <h2 className="text-base sm:text-lg text-text uppercase font-semibold">
+          <h2 className="text-base sm:text-xl text-text uppercase font-semibold">
             Changes to this Privacy Policy
           </h2>
           <p>
@@ -218,7 +218,7 @@ export default function PrivacyPolicyPage() {
         </div>
 
         <div className="space-y-3">
-          <h2 className="text-base sm:text-lg text-text uppercase font-semibold">
+          <h2 className="text-base sm:text-xl text-text uppercase font-semibold">
             Contact Us
           </h2>
           <p>
