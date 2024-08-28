@@ -39,7 +39,63 @@ export default function RefundAndCancellationPolicyPage() {
             </h3>
             <p>We offer refunds under the following circumstances:</p>
 
-            <div className="border rounded-xl overflow-hidden">
+            <div className="hidden sm:block border rounded-xl overflow-hidden">
+              <table className="table-fixed w-full">
+                <thead className="bg-text-sub/10 p-4">
+                  <tr>
+                    <th className="text-sm text-left px-9 py-5 font-semibold text-text">
+                      Events
+                    </th>
+                    <th className="text-sm text-left px-9 py-5 font-semibold text-text">
+                      How to
+                    </th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <td className="px-9 py-5">
+                      <p className="text-sm">Cancelled Events</p>
+                    </td>
+                    <td className="px-9 py-5">
+                      <p className="text-sm">
+                        In the event of a screening cancellation, you will be
+                        entitled to a full refund. We will make reasonable
+                        efforts to notify ticket holders of any cancellations
+                        and initiate the refund process automatically.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="px-9 py-5">
+                      <p className="text-sm">Rescheduled Events</p>
+                    </td>
+                    <td className="px-9 py-5">
+                      <p className="text-sm">
+                        If an event is rescheduled, your tickets will remain
+                        valid for the new date and time. If you are unable to
+                        attend the rescheduled screening, you are eligible for a
+                        refund.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="px-9 py-5">
+                      <p className="text-sm">Cancellation Request</p>
+                    </td>
+                    <td className="px-9 py-5">
+                      <p className="text-sm">
+                        If you wish to request a refund for reasons other than
+                        event cancellation or rescheduling, please refer to
+                        section 2.
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div className="sm:hidden border rounded-xl overflow-hidden">
               <div className="bg-text-sub/10 p-4">
                 <h4 className="text-sm font-semibold text-text">
                   Cancelled Events
@@ -55,7 +111,7 @@ export default function RefundAndCancellationPolicyPage() {
               </div>
             </div>
 
-            <div className="border rounded-xl overflow-hidden">
+            <div className="sm:hidden border rounded-xl overflow-hidden">
               <div className="bg-text-sub/10 p-4">
                 <h4 className="text-sm font-semibold text-text">
                   Rescheduled Events
@@ -70,7 +126,7 @@ export default function RefundAndCancellationPolicyPage() {
               </div>
             </div>
 
-            <div className="border rounded-xl overflow-hidden">
+            <div className="sm:hidden border rounded-xl overflow-hidden">
               <div className="bg-text-sub/10 p-4">
                 <h4 className="text-sm font-semibold text-text">
                   Cancellation Request
