@@ -2,12 +2,12 @@ import React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 
 const badgeVariants = cva(
-  "bg-white dark:border-primary dark:text-primary dark:bg-primary-foreground border border-black text-sm rounded-xl text-black",
+  "bg-white dark:border-primary dark:text-primary dark:bg-primary-foreground border border-black text-sm text-black",
   {
     variants: {
       size: {
-        default: "text-xs px-[0.9em] py-[0.4em]",
-        lg: "text-base sm:text-lg px-[1em] py-[0.5em]",
+        default: "text-xs px-[0.9em] py-[0.4em] rounded-xl",
+        lg: "text-base sm:text-base px-[0.9em] py-[0.4em] rounded-2xl",
       },
     },
     defaultVariants: {

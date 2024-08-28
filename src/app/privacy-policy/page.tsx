@@ -6,10 +6,10 @@ export default function PrivacyPolicyPage() {
     <main className="container py-16 sm:py-24 sm:px-28">
       <div className="flex flex-col justify-center items-center gap-2">
         <Badge size="lg">Privacy Policy</Badge>
-        <h1 className="text-center text-4xl sm:text-6xl font-bold text-text">
+        <h1 className="text-center text-4xl sm:text-6xl font-bold text-text mt-2">
           We are committed to your privacy
         </h1>
-        <p className="text-sm sm:text-base text-center text-text-sub">
+        <p className="text-sm sm:text-base text-center text-text-sub mt-6">
           Learn more about how Dribbble collects and uses data and your rights
           as a Dribbble user.
         </p>
