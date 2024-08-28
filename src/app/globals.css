@@ -4,6 +4,8 @@
 
 @layer base {
   :root {
+    --footer: 212 55% 6%;
+
     --background: 0 0% 100%;
     --foreground: 212 55% 6%;
 
@@ -84,7 +86,7 @@
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-border selection:duration-300 selection:transition-colors selection:bg-primary selection:text-secondary;
   }
   body {
     @apply bg-background text-black;

@@ -6,14 +6,14 @@ import Badge from "../ui/badge";
 
 export default function Newsletter() {
   return (
-    <div className="bg-secondary py-16">
-      <div className="container flex flex-col items-center justify-center gap-5">
+    <div className="bg-secondary py-16 sm:py-[6.5rem]">
+      <div className="container sm:max-w-[700px] flex flex-col items-center justify-center gap-5">
         <Badge>Stay Connected</Badge>
 
-        <h2 className="text-4xl text-text font-bold text-center leading-tight">
+        <h2 className="text-4xl sm:text-6xl text-text font-bold text-center leading-tight sm:leading-none">
           Bring sanity back to your website
         </h2>
-        <p className="text-text text-sm">
+        <p className="text-text text-sm sm:text-base">
           It&apos;s free to sign up on our newsletter
         </p>
 

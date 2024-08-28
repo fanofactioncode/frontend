@@ -60,7 +60,8 @@ module.exports = {
         button: {
           DEFAULT: "hsl(var(--primary-button))",
           foreground: "hsl(var(--primary-button-foreground))",
-        }
+        },
+        footer: "hsl(var(--footer))",
       },
       borderRadius: {
         lg: "var(--radius)",

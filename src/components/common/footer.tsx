@@ -13,8 +13,8 @@ const ThemeButton = dynamic(() => import("./theme-button"), { ssr: false });
 
 export default function Footer() {
   return (
-    <footer className="bg-[#070F18] py-16 text-white">
-      <div className="container">
+    <footer className="bg-footer py-16 text-white">
+      <div className="container sm:px-14">
         <div className="flex flex-col sm:flex-row sm:justify-between gap-10">
           <div className="space-y-4 sm:w-96">
             <LogoIcon className="size-14" />
