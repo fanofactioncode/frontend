@@ -1,11 +1,5 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-# 1. Check Types
-npm run lint
-# 2. Check Lints
-
-# 3. Run Test
-# npm test
-
-# 4. Build Application
+pnpm lint-staged
+pnpm lint
