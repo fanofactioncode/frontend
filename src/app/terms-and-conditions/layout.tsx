@@ -1,5 +1,6 @@
-import PageLayout from "@/components/layout/page-layout";
 import React from "react";
+
+import PageLayout from "@/components/layout/page-layout";
 
 export default function TermsAndConditionLayout({
   children,

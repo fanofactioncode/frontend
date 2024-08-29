@@ -15,7 +15,7 @@ export default function Footer() {
   return (
     <footer className="bg-footer py-16 text-white">
       <div className="container sm:px-14">
-        <div className="flex flex-col sm:flex-row sm:justify-between gap-10">
+        <div className="flex flex-col gap-10 sm:flex-row sm:justify-between">
           <div className="space-y-4 sm:w-96">
             <LogoIcon className="size-14" />
             <p className="text-sm">
@@ -26,14 +26,14 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row justify-between items-start gap-10 sm:gap-14">
+          <div className="flex flex-col items-start justify-between gap-10 sm:flex-row sm:gap-14">
             <div className="space-y-5">
               <h5>Feature</h5>
-              <ul className="flex flex-col gap-[0.9rem] text-[#ABB7C4] text-sm">
+              <ul className="flex flex-col gap-[0.9rem] text-sm text-[#ABB7C4]">
                 <li>
                   <Link
                     href="/events"
-                    className="hover:underline focus-within:underline focus-within:outline-none transition-colors"
+                    className="transition-colors focus-within:underline focus-within:outline-none hover:underline"
                   >
                     Events
                   </Link>
@@ -41,7 +41,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/about"
-                    className="hover:underline focus-within:underline focus-within:outline-none transition-colors"
+                    className="transition-colors focus-within:underline focus-within:outline-none hover:underline"
                   >
                     About
                   </Link>
@@ -49,7 +49,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/contact"
-                    className="hover:underline focus-within:underline focus-within:outline-none transition-colors"
+                    className="transition-colors focus-within:underline focus-within:outline-none hover:underline"
                   >
                     Contact
                   </Link>
@@ -57,7 +57,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/request-movie"
-                    className="hover:underline focus-within:underline focus-within:outline-none transition-colors"
+                    className="transition-colors focus-within:underline focus-within:outline-none hover:underline"
                   >
                     Request a movie
                   </Link>
@@ -67,11 +67,11 @@ export default function Footer() {
 
             <div className="space-y-5">
               <h5>Company</h5>
-              <ul className="flex flex-col gap-[0.9rem] text-[#ABB7C4] text-sm">
+              <ul className="flex flex-col gap-[0.9rem] text-sm text-[#ABB7C4]">
                 <li>
                   <Link
                     href="/privacy-policy"
-                    className="hover:underline focus-within:underline focus-within:outline-none transition-colors"
+                    className="transition-colors focus-within:underline focus-within:outline-none hover:underline"
                   >
                     Privacy Policy
                   </Link>
@@ -79,7 +79,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/terms-and-conditions"
-                    className="hover:underline focus-within:underline focus-within:outline-none transition-colors"
+                    className="transition-colors focus-within:underline focus-within:outline-none hover:underline"
                   >
                     Terms & Conditions
                   </Link>
@@ -87,7 +87,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/refund-and-cancellation-policy"
-                    className="hover:underline focus-within:underline focus-within:outline-none transition-colors"
+                    className="transition-colors focus-within:underline focus-within:outline-none hover:underline"
                   >
                     Refund & Cancellation
                   </Link>
@@ -97,11 +97,11 @@ export default function Footer() {
 
             <div className="space-y-5">
               <h5>Contacts</h5>
-              <ul className="flex flex-col gap-[0.9rem] text-[#ABB7C4] text-sm">
+              <ul className="flex flex-col gap-[0.9rem] text-sm text-[#ABB7C4]">
                 <li>
                   <Link
                     href="tel:+91 909090 909090"
-                    className="hover:underline focus-within:underline focus-within:outline-none transition-colors"
+                    className="transition-colors focus-within:underline focus-within:outline-none hover:underline"
                   >
                     +91 909090 909090
                   </Link>
@@ -109,7 +109,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="mailto:fanofaction@gmail.com"
-                    className="hover:underline focus-within:underline focus-within:outline-none transition-colors"
+                    className="transition-colors focus-within:underline focus-within:outline-none hover:underline"
                   >
                     fanofaction@gmail.com
                   </Link>
@@ -145,11 +145,11 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="space-y-5 sm:space-y-0 mt-10 sm:mt-20 sm:flex sm:justify-between sm:items-center">
+        <div className="mt-10 space-y-5 sm:mt-20 sm:flex sm:items-center sm:justify-between sm:space-y-0">
           <div className="sm:order-2">
             <ThemeButton />
           </div>
-          <p className="text-xs sm:text-sm text-[#ABB7C4]">
+          <p className="text-xs text-[#ABB7C4] sm:text-sm">
             All copyright reserved by @FanOfAction
           </p>
         </div>

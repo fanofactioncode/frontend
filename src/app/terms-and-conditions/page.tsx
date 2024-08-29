@@ -4,26 +4,26 @@ import Badge from "@/components/ui/badge";
 
 export default function TermsAndConditionsPage() {
   return (
-    <main className="container py-16 sm:py-24 sm:px-28">
-      <div className="flex flex-col justify-center items-center gap-2">
+    <main className="container py-16 sm:px-28 sm:py-24">
+      <div className="flex flex-col items-center justify-center gap-2">
         <Badge size="lg">Terms of service</Badge>
-        <h1 className="text-center text-4xl sm:text-6xl font-bold text-text mt-2">
+        <h1 className="mt-2 text-center text-4xl font-bold text-text sm:text-6xl">
           Our terms of service
         </h1>
-        <p className="text-sm sm:text-base text-center text-text-sub mt-2 sm:mt-6">
+        <p className="mt-2 text-center text-sm text-text-sub sm:mt-6 sm:text-base">
           Read our terms below to learn more about your rights and
           responsibilities as a Dribbble user.
         </p>
       </div>
-      <section className="py-16 space-y-14 text-sm sm:text-base text-text-sub leading-5">
+      <section className="space-y-14 py-16 text-sm leading-5 text-text-sub sm:text-base">
         <div className="space-y-5 sm:space-y-8">
-          <h3 className="text-base sm:text-lg text-text uppercase font-semibold">
+          <h3 className="text-base font-semibold uppercase text-text sm:text-lg">
             LAST UPDATED AUGUST 12, 2024
           </h3>
         </div>
 
         <div className="space-y-3">
-          <h2 className="text-base sm:text-xl text-text uppercase font-semibold">
+          <h2 className="text-base font-semibold uppercase text-text sm:text-xl">
             Acceptance of Terms
           </h2>
           <p>
@@ -36,7 +36,7 @@ export default function TermsAndConditionsPage() {
         </div>
 
         <div className="space-y-3">
-          <h2 className="text-base sm:text-xl text-text uppercase font-semibold">
+          <h2 className="text-base font-semibold uppercase text-text sm:text-xl">
             Ticket Purchases
           </h2>
           <p>
@@ -53,7 +53,7 @@ export default function TermsAndConditionsPage() {
         </div>
 
         <div className="space-y-3">
-          <h2 className="text-base sm:text-xl text-text uppercase font-semibold">
+          <h2 className="text-base font-semibold uppercase text-text sm:text-xl">
             Cancellation Policy
           </h2>
           <p>
@@ -65,7 +65,7 @@ export default function TermsAndConditionsPage() {
         </div>
 
         <div className="space-y-3">
-          <h2 className="text-base sm:text-xl text-text uppercase font-semibold">
+          <h2 className="text-base font-semibold uppercase text-text sm:text-xl">
             Screening Policies
           </h2>
           <p>
@@ -80,7 +80,7 @@ export default function TermsAndConditionsPage() {
         </div>
 
         <div className="space-y-3">
-          <h2 className="text-base sm:text-xl text-text uppercase font-semibold">
+          <h2 className="text-base font-semibold uppercase text-text sm:text-xl">
             Film Schedule
           </h2>
           <p>
@@ -91,7 +91,7 @@ export default function TermsAndConditionsPage() {
         </div>
 
         <div className="space-y-3">
-          <h2 className="text-base sm:text-xl text-text uppercase font-semibold">
+          <h2 className="text-base font-semibold uppercase text-text sm:text-xl">
             Copyright and Licensing
           </h2>
           <p>
@@ -103,7 +103,7 @@ export default function TermsAndConditionsPage() {
         </div>
 
         <div className="space-y-3">
-          <h2 className="text-base sm:text-xl text-text uppercase font-semibold">
+          <h2 className="text-base font-semibold uppercase text-text sm:text-xl">
             Liability
           </h2>
           <p>
@@ -114,7 +114,7 @@ export default function TermsAndConditionsPage() {
         </div>
 
         <div className="space-y-3">
-          <h2 className="text-base sm:text-xl text-text uppercase font-semibold">
+          <h2 className="text-base font-semibold uppercase text-text sm:text-xl">
             Age Restrictions
           </h2>
           <p>
@@ -129,7 +129,7 @@ export default function TermsAndConditionsPage() {
         </div>
 
         <div className="space-y-3">
-          <h2 className="text-base sm:text-xl text-text uppercase font-semibold">
+          <h2 className="text-base font-semibold uppercase text-text sm:text-xl">
             Privacy Policy
           </h2>
           <p>
@@ -139,7 +139,7 @@ export default function TermsAndConditionsPage() {
         </div>
 
         <div className="space-y-3">
-          <h2 className="text-base sm:text-xl text-text uppercase font-semibold">
+          <h2 className="text-base font-semibold uppercase text-text sm:text-xl">
             Changes to Terms and Conditions
           </h2>
           <p>
@@ -150,7 +150,7 @@ export default function TermsAndConditionsPage() {
         </div>
 
         <div className="space-y-3">
-          <h2 className="text-base sm:text-xl text-text uppercase font-semibold">
+          <h2 className="text-base font-semibold uppercase text-text sm:text-xl">
             Contact Information
           </h2>
           <p>

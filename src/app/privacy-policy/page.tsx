@@ -1,22 +1,23 @@
-import Badge from "@/components/ui/badge";
 import Link from "next/link";
+
+import Badge from "@/components/ui/badge";
 
 export default function PrivacyPolicyPage() {
   return (
-    <main className="container py-16 sm:py-24 sm:px-28">
-      <div className="flex flex-col justify-center items-center gap-2">
+    <main className="container py-16 sm:px-28 sm:py-24">
+      <div className="flex flex-col items-center justify-center gap-2">
         <Badge size="lg">Privacy Policy</Badge>
-        <h1 className="text-center text-4xl sm:text-6xl font-bold text-text mt-2">
+        <h1 className="mt-2 text-center text-4xl font-bold text-text sm:text-6xl">
           We are committed to your privacy
         </h1>
-        <p className="text-sm sm:text-base text-center text-text-sub mt-2 sm:mt-6">
+        <p className="mt-2 text-center text-sm text-text-sub sm:mt-6 sm:text-base">
           Learn more about how Dribbble collects and uses data and your rights
           as a Dribbble user.
         </p>
       </div>
-      <section className="py-16 space-y-14 text-sm sm:text-base text-text-sub leading-5">
+      <section className="space-y-14 py-16 text-sm leading-5 text-text-sub sm:text-base">
         <div className="space-y-5 sm:space-y-8">
-          <h3 className="text-base sm:text-lg text-text uppercase font-semibold">
+          <h3 className="text-base font-semibold uppercase text-text sm:text-lg">
             LAST UPDATED AUGUST 12, 2024
           </h3>
           <p>
@@ -40,7 +41,7 @@ export default function PrivacyPolicyPage() {
         </div>
 
         <div className="space-y-3">
-          <h2 className="text-base sm:text-xl text-text uppercase font-semibold">
+          <h2 className="text-base font-semibold uppercase text-text sm:text-xl">
             Information We Collect
           </h2>
           <p>
@@ -49,7 +50,7 @@ export default function PrivacyPolicyPage() {
           </p>
 
           <ul className="space-y-3">
-            <li className="relative ps-5 before:absolute before:left-0 before:top-[0.5em] before:w-[5px] before:h-[5px] before:bg-primary before:rounded-full">
+            <li className="relative ps-5 before:absolute before:left-0 before:top-[0.5em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-primary">
               <span className="font-semibold text-text">
                 Personal Information :
               </span>{" "}
@@ -57,7 +58,7 @@ export default function PrivacyPolicyPage() {
               collect personal information such as your name, email address,
               postal address, and payment information when necessary.
             </li>
-            <li className="relative ps-5 before:absolute before:left-0 before:top-[0.5em] before:w-[5px] before:h-[5px] before:bg-primary before:rounded-full">
+            <li className="relative ps-5 before:absolute before:left-0 before:top-[0.5em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-primary">
               <span className="font-semibold text-text">
                 Usage Information :
               </span>{" "}
@@ -65,7 +66,7 @@ export default function PrivacyPolicyPage() {
               website, including your browsing history, IP address, device type,
               and operating system.
             </li>
-            <li className="relative ps-5 before:absolute before:left-0 before:top-[0.5em] before:w-[5px] before:h-[5px] before:bg-primary before:rounded-full">
+            <li className="relative ps-5 before:absolute before:left-0 before:top-[0.5em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-primary">
               <span className="font-semibold text-text">
                 Cookies and Tracking Technologies :
               </span>{" "}
@@ -74,7 +75,7 @@ export default function PrivacyPolicyPage() {
               enhance your user experience. You can manage your cookie
               preferences through your browser settings.
             </li>
-            <li className="relative ps-5 before:absolute before:left-0 before:top-[0.5em] before:w-[5px] before:h-[5px] before:bg-primary before:rounded-full">
+            <li className="relative ps-5 before:absolute before:left-0 before:top-[0.5em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-primary">
               <span className="font-semibold text-text">
                 User-Generated Content :
               </span>{" "}
@@ -85,32 +86,32 @@ export default function PrivacyPolicyPage() {
         </div>
 
         <div className="space-y-3">
-          <h2 className="text-base sm:text-xl text-text uppercase font-semibold">
+          <h2 className="text-base font-semibold uppercase text-text sm:text-xl">
             How We Use Your Information
           </h2>
           <p>We use the information collected for the following purposes:</p>
 
           <ul className="space-y-3">
-            <li className="relative ps-5 before:absolute before:left-0 before:top-[0.5em] before:w-[5px] before:h-[5px] before:bg-primary before:rounded-full">
+            <li className="relative ps-5 before:absolute before:left-0 before:top-[0.5em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-primary">
               <span className="font-semibold text-text">
                 Provide Services :
               </span>{" "}
               To provide you with access to our website, including personalized
               content and recommendations based on your preferences.
             </li>
-            <li className="relative ps-5 before:absolute before:left-0 before:top-[0.5em] before:w-[5px] before:h-[5px] before:bg-primary before:rounded-full">
+            <li className="relative ps-5 before:absolute before:left-0 before:top-[0.5em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-primary">
               <span className="font-semibold text-text">Communicate :</span> To
               communicate with you about your account, services updates, and
               promotional offers.
             </li>
-            <li className="relative ps-5 before:absolute before:left-0 before:top-[0.5em] before:w-[5px] before:h-[5px] before:bg-primary before:rounded-full">
+            <li className="relative ps-5 before:absolute before:left-0 before:top-[0.5em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-primary">
               <span className="font-semibold text-text">
                 Improve Our Services :
               </span>{" "}
               To analyze usage patterns, perform market research, and enhance
               our website&apos;s functionality and user experience.
             </li>
-            <li className="relative ps-5 before:absolute before:left-0 before:top-[0.5em] before:w-[5px] before:h-[5px] before:bg-primary before:rounded-full">
+            <li className="relative ps-5 before:absolute before:left-0 before:top-[0.5em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-primary">
               <span className="font-semibold text-text">Security :</span> To
               protect our website and users from unauthorized access, fraud, and
               other illegal activities.
@@ -119,7 +120,7 @@ export default function PrivacyPolicyPage() {
         </div>
 
         <div className="space-y-3">
-          <h2 className="text-base sm:text-xl text-text uppercase font-semibold">
+          <h2 className="text-base font-semibold uppercase text-text sm:text-xl">
             Sharing Your Information
           </h2>
           <p>
@@ -128,7 +129,7 @@ export default function PrivacyPolicyPage() {
           </p>
 
           <ul className="space-y-3">
-            <li className="relative ps-5 before:absolute before:left-0 before:top-[0.5em] before:w-[5px] before:h-[5px] before:bg-primary before:rounded-full">
+            <li className="relative ps-5 before:absolute before:left-0 before:top-[0.5em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-primary">
               <span className="font-semibold text-text">
                 Service Providers :
               </span>{" "}
@@ -138,14 +139,14 @@ export default function PrivacyPolicyPage() {
               information and use it solely for the purpose of providing
               services to us.
             </li>
-            <li className="relative ps-5 before:absolute before:left-0 before:top-[0.5em] before:w-[5px] before:h-[5px] before:bg-primary before:rounded-full">
+            <li className="relative ps-5 before:absolute before:left-0 before:top-[0.5em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-primary">
               <span className="font-semibold text-text">
                 Legal Obligations :
               </span>{" "}
               We may disclose your information in response to legal requests,
               court orders, or to comply with applicable laws and regulations.
             </li>
-            <li className="relative ps-5 before:absolute before:left-0 before:top-[0.5em] before:w-[5px] before:h-[5px] before:bg-primary before:rounded-full">
+            <li className="relative ps-5 before:absolute before:left-0 before:top-[0.5em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-primary">
               <span className="font-semibold text-text">
                 Business Transfers :
               </span>{" "}
@@ -156,7 +157,7 @@ export default function PrivacyPolicyPage() {
         </div>
 
         <div className="space-y-3">
-          <h2 className="text-base sm:text-xl text-text uppercase font-semibold">
+          <h2 className="text-base font-semibold uppercase text-text sm:text-xl">
             Your Choices
           </h2>
           <p>
@@ -164,14 +165,14 @@ export default function PrivacyPolicyPage() {
           </p>
 
           <ul className="space-y-3">
-            <li className="relative ps-5 before:absolute before:left-0 before:top-[0.5em] before:w-[5px] before:h-[5px] before:bg-primary before:rounded-full">
+            <li className="relative ps-5 before:absolute before:left-0 before:top-[0.5em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-primary">
               <span className="font-semibold text-text">
                 Access and Correction :
               </span>{" "}
               You may access, update, or correct your personal information by
               logging into your account settings.
             </li>
-            <li className="relative ps-5 before:absolute before:left-0 before:top-[0.5em] before:w-[5px] before:h-[5px] before:bg-primary before:rounded-full">
+            <li className="relative ps-5 before:absolute before:left-0 before:top-[0.5em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-primary">
               <span className="font-semibold text-text">
                 Marketing Communications :
               </span>{" "}
@@ -182,7 +183,7 @@ export default function PrivacyPolicyPage() {
         </div>
 
         <div className="space-y-3">
-          <h2 className="text-base sm:text-xl text-text uppercase font-semibold">
+          <h2 className="text-base font-semibold uppercase text-text sm:text-xl">
             Security
           </h2>
           <p>
@@ -194,7 +195,7 @@ export default function PrivacyPolicyPage() {
         </div>
 
         <div className="space-y-3">
-          <h2 className="text-base sm:text-xl text-text uppercase font-semibold">
+          <h2 className="text-base font-semibold uppercase text-text sm:text-xl">
             Children&apos;s Privacy
           </h2>
           <p>
@@ -206,7 +207,7 @@ export default function PrivacyPolicyPage() {
         </div>
 
         <div className="space-y-3">
-          <h2 className="text-base sm:text-xl text-text uppercase font-semibold">
+          <h2 className="text-base font-semibold uppercase text-text sm:text-xl">
             Changes to this Privacy Policy
           </h2>
           <p>
@@ -218,7 +219,7 @@ export default function PrivacyPolicyPage() {
         </div>
 
         <div className="space-y-3">
-          <h2 className="text-base sm:text-xl text-text uppercase font-semibold">
+          <h2 className="text-base font-semibold uppercase text-text sm:text-xl">
             Contact Us
           </h2>
           <p>

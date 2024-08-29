@@ -1,7 +1,8 @@
 import React from "react";
 
-import { IconProps } from "./types";
 import { cn } from "@/lib/utils";
+
+import type { IconProps } from "./types";
 
 export function PlayIcon({ size, color, className }: IconProps) {
   return (
