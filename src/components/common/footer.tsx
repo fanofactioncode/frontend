@@ -78,14 +78,6 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/cookies"
-                    className="hover:underline focus-within:underline focus-within:outline-none transition-colors"
-                  >
-                    Cookies
-                  </Link>
-                </li>
-                <li>
-                  <Link
                     href="/terms-and-conditions"
                     className="hover:underline focus-within:underline focus-within:outline-none transition-colors"
                   >
