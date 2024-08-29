@@ -86,7 +86,7 @@
 
 @layer base {
   * {
-    @apply border-border selection:duration-300 selection:transition-colors selection:bg-primary selection:text-secondary;
+    @apply border-border selection:bg-primary selection:text-secondary selection:transition-colors selection:duration-300;
   }
   body {
     @apply bg-background text-black;

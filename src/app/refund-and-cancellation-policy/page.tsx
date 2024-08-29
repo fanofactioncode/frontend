@@ -4,26 +4,26 @@ import Badge from "@/components/ui/badge";
 
 export default function RefundAndCancellationPolicyPage() {
   return (
-    <main className="container py-16 sm:py-24 sm:px-28">
-      <div className="flex flex-col justify-center items-center gap-2">
+    <main className="container py-16 sm:px-28 sm:py-24">
+      <div className="flex flex-col items-center justify-center gap-2">
         <Badge size="lg">Refund and Cancellation Policy</Badge>
-        <h1 className="text-center text-3xl sm:text-6xl font-bold text-text mt-2">
+        <h1 className="mt-2 text-center text-3xl font-bold text-text sm:text-6xl">
           You better understand our refund and cancellation policy
         </h1>
-        <p className="text-sm sm:text-base text-center text-text-sub mt-2 sm:mt-6">
+        <p className="mt-2 text-center text-sm text-text-sub sm:mt-6 sm:text-base">
           Read our terms below to about our refund and cancellation policy
         </p>
       </div>
-      <section className="py-16 space-y-14 text-sm sm:text-base text-text-sub leading-5">
+      <section className="space-y-14 py-16 text-sm leading-5 text-text-sub sm:text-base">
         <div className="space-y-5 sm:space-y-8">
-          <h3 className="text-base sm:text-lg text-text uppercase font-semibold">
+          <h3 className="text-base font-semibold uppercase text-text sm:text-lg">
             LAST UPDATED AUGUST 12, 2024
           </h3>
         </div>
 
         <div className="space-y-12">
           <div className="space-y-3">
-            <h2 className="text-base sm:text-xl text-text uppercase font-semibold">
+            <h2 className="text-base font-semibold uppercase text-text sm:text-xl">
               Refund Policy
             </h2>
             <p>
@@ -34,19 +34,19 @@ export default function RefundAndCancellationPolicyPage() {
           </div>
 
           <div className="space-y-3">
-            <h3 className="text-base sm:text-xl text-text font-semibold">
+            <h3 className="text-base font-semibold text-text sm:text-xl">
               Refund Eligibility
             </h3>
             <p>We offer refunds under the following circumstances:</p>
 
-            <div className="hidden sm:block border rounded-xl overflow-hidden">
-              <table className="table-fixed w-full">
+            <div className="hidden overflow-hidden rounded-xl border sm:block">
+              <table className="w-full table-fixed">
                 <thead className="bg-text-sub/10 p-4">
                   <tr>
-                    <th className="text-sm text-left px-9 py-5 font-semibold text-text">
+                    <th className="px-9 py-5 text-left text-sm font-semibold text-text">
                       Events
                     </th>
-                    <th className="text-sm text-left px-9 py-5 font-semibold text-text">
+                    <th className="px-9 py-5 text-left text-sm font-semibold text-text">
                       How to
                     </th>
                   </tr>
@@ -95,7 +95,7 @@ export default function RefundAndCancellationPolicyPage() {
               </table>
             </div>
 
-            <div className="sm:hidden border rounded-xl overflow-hidden">
+            <div className="overflow-hidden rounded-xl border sm:hidden">
               <div className="bg-text-sub/10 p-4">
                 <h4 className="text-sm font-semibold text-text">
                   Cancelled Events
@@ -111,7 +111,7 @@ export default function RefundAndCancellationPolicyPage() {
               </div>
             </div>
 
-            <div className="sm:hidden border rounded-xl overflow-hidden">
+            <div className="overflow-hidden rounded-xl border sm:hidden">
               <div className="bg-text-sub/10 p-4">
                 <h4 className="text-sm font-semibold text-text">
                   Rescheduled Events
@@ -126,7 +126,7 @@ export default function RefundAndCancellationPolicyPage() {
               </div>
             </div>
 
-            <div className="sm:hidden border rounded-xl overflow-hidden">
+            <div className="overflow-hidden rounded-xl border sm:hidden">
               <div className="bg-text-sub/10 p-4">
                 <h4 className="text-sm font-semibold text-text">
                   Cancellation Request
@@ -142,7 +142,7 @@ export default function RefundAndCancellationPolicyPage() {
           </div>
 
           <div className="space-y-3">
-            <h3 className="text-base sm:text-xl text-text font-semibold">
+            <h3 className="text-base font-semibold text-text sm:text-xl">
               How to Request a Refund
             </h3>
             <p>
@@ -158,7 +158,7 @@ export default function RefundAndCancellationPolicyPage() {
           </div>
 
           <div className="space-y-3">
-            <h3 className="text-base sm:text-xl text-text font-semibold">
+            <h3 className="text-base font-semibold text-text sm:text-xl">
               Refund Timeframes
             </h3>
             <p>
@@ -176,7 +176,7 @@ export default function RefundAndCancellationPolicyPage() {
           </div>
 
           <div className="space-y-3">
-            <h3 className="text-base sm:text-xl text-text font-semibold">
+            <h3 className="text-base font-semibold text-text sm:text-xl">
               Non-Refundable Fees
             </h3>
             <p>Processing fees, if applicable, are non-refundable.</p>
@@ -192,12 +192,12 @@ export default function RefundAndCancellationPolicyPage() {
         </div>
 
         <div className="space-y-14">
-          <h2 className="text-base sm:text-xl text-text uppercase font-semibold">
+          <h2 className="text-base font-semibold uppercase text-text sm:text-xl">
             Cancellation Policy
           </h2>
 
           <div className="space-y-3">
-            <h3 className="text-base sm:text-lg text-text font-semibold">
+            <h3 className="text-base font-semibold text-text sm:text-lg">
               Cancellation by Customers
             </h3>
             <p>
@@ -208,7 +208,7 @@ export default function RefundAndCancellationPolicyPage() {
           </div>
 
           <div className="space-y-3">
-            <h3 className="text-base sm:text-lg text-text font-semibold">
+            <h3 className="text-base font-semibold text-text sm:text-lg">
               Cancellation Procedures
             </h3>
             <p>
@@ -223,7 +223,7 @@ export default function RefundAndCancellationPolicyPage() {
           </div>
 
           <div className="space-y-3">
-            <h3 className="text-base sm:text-lg text-text font-semibold">
+            <h3 className="text-base font-semibold text-text sm:text-lg">
               Cancellation Requirements
             </h3>
             <p>
@@ -239,7 +239,7 @@ export default function RefundAndCancellationPolicyPage() {
           </div>
 
           <div className="space-y-3">
-            <h3 className="text-base sm:text-lg text-text font-semibold">
+            <h3 className="text-base font-semibold text-text sm:text-lg">
               Cancellation by FanOfAction
             </h3>
             <p>
@@ -250,7 +250,7 @@ export default function RefundAndCancellationPolicyPage() {
           </div>
 
           <div className="space-y-3">
-            <h3 className="text-sm sm:text-base text-text font-semibold">
+            <h3 className="text-sm font-semibold text-text sm:text-base">
               Contact Information
             </h3>
             <p>

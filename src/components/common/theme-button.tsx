@@ -13,13 +13,13 @@ export default function ThemeButton() {
   if (!theme) return false;
 
   return (
-    <div className="rounded-full border box-border border-[#ABB7C4] flex grow-0 w-fit">
+    <div className="box-border flex w-fit grow-0 rounded-full border border-[#ABB7C4]">
       <Button
         variant="ghost"
         size="icon"
         className={cn(
-          "p-1.5 h-auto w-auto rounded-full border border-transparent hover:bg-transparent hover:text-white",
-          theme === "system" && "border-[#ABB7C4]",
+          "h-auto w-auto rounded-full border border-transparent p-1.5 hover:bg-transparent hover:text-white",
+          theme === "system" && "border-[#ABB7C4]"
         )}
         onClick={() => setTheme("system")}
       >
@@ -29,8 +29,8 @@ export default function ThemeButton() {
         variant="ghost"
         size="icon"
         className={cn(
-          "p-1.5 h-auto w-auto rounded-full border border-transparent hover:bg-transparent hover:text-white",
-          theme === "light" && "border-[#ABB7C4]",
+          "h-auto w-auto rounded-full border border-transparent p-1.5 hover:bg-transparent hover:text-white",
+          theme === "light" && "border-[#ABB7C4]"
         )}
         onClick={() => setTheme("light")}
       >
@@ -40,8 +40,8 @@ export default function ThemeButton() {
         variant="ghost"
         size="icon"
         className={cn(
-          "p-1.5 h-auto w-auto rounded-full border border-transparent hover:bg-transparent hover:text-white",
-          theme === "dark" && "border-[#ABB7C4]",
+          "h-auto w-auto rounded-full border border-transparent p-1.5 hover:bg-transparent hover:text-white",
+          theme === "dark" && "border-[#ABB7C4]"
         )}
         onClick={() => setTheme("dark")}
       >

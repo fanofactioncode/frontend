@@ -7,7 +7,7 @@ export default function InputPicker() {
     <div className="flex flex-col gap-2 sm:flex-1">
       <div className="flex flex-row items-center gap-2">
         {/* <MovieIcon size={18} color="#B9F18C" /> */}
-        <p className="text-base text-text font-semibold">Movie</p>
+        <p className="text-base font-semibold text-text">Movie</p>
         {/* <ArrowDownIcon
           size={18}
           color="black"
