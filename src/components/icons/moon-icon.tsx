@@ -1,8 +1,8 @@
 import React from "react";
 
-import { IconType } from "./types";
+import { IconProps } from "./types";
 
-export function MoonIcon({ size, className }: IconType) {
+export function MoonIcon({ size, className }: IconProps) {
   return (
     <svg
       width={size}

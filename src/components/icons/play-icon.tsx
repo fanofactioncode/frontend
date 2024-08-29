@@ -1,9 +1,9 @@
 import React from "react";
 
-import { IconType } from "./types";
+import { IconProps } from "./types";
 import { cn } from "@/lib/utils";
 
-export function PlayIcon({ size, color, className }: IconType) {
+export function PlayIcon({ size, color, className }: IconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

@@ -9,3 +9,5 @@ export { MoonIcon } from "./moon-icon";
 export { MovieIcon } from "./movie-icon";
 export { MapIcon } from "./map-icon";
 export { ArrowDownIcon } from "./arrow-down-icon";
+
+export type { IconProps } from "./types";

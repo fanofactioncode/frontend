@@ -1,8 +1,8 @@
 import React from "react";
 
-import { IconType } from "./types";
+import { IconProps } from "./types";
 
-export function MovieIcon({ size, color, className }: IconType) {
+export function MovieIcon({ size, color, className }: IconProps) {
   return (
     <svg
       width={size}

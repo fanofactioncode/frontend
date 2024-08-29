@@ -1,6 +1,6 @@
-import { IconType } from "./types";
+import { IconProps } from "./types";
 
-export const LogoIcon = ({ size, className }: IconType) => (
+export const LogoIcon = ({ size, className }: IconProps) => (
   <svg
     width={size}
     height={size}
