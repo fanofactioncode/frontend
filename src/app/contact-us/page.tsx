@@ -68,7 +68,7 @@ export default function ContactUsPage() {
           <div className="flex flex-col gap-7 sm:flex-row">
             <div className="flex flex-col items-start gap-2 sm:flex-1">
               <Badge>Contact Info</Badge>
-              <h2 className="text-4xl font-bold text-text">
+              <h2 className="text-3xl font-bold text-text sm:text-4xl">
                 We are always happy to assist you
               </h2>
             </div>
