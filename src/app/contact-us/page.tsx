@@ -1,14 +1,15 @@
 import React from "react";
+import Link from "next/link";
 
 import Badge from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import {
   FacebookCircleIcon,
   InstagramCircleIcon,
   TwitterCircleIcon,
 } from "@/components/icons";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 
 export default function ContactUsPage() {
   return (
@@ -23,10 +24,31 @@ export default function ContactUsPage() {
               Get in touch with us. We&apos;re here to assist you.
             </h1>
 
-            <div className="bottom-0 right-0 flex flex-col gap-2 sm:absolute">
-              <FacebookCircleIcon />
-              <InstagramCircleIcon />
-              <TwitterCircleIcon />
+            <div className="bottom-0 right-0 flex flex-col gap-2 sm:absolute sm:bottom-24">
+              <Link
+                href="https://www.facebook.com/WeAreFanOfAction/"
+                aria-label="Facebook"
+                target="_blank"
+                tabIndex={-1}
+              >
+                <FacebookCircleIcon />
+              </Link>
+              <Link
+                href="https://www.instagram.com/fanofaction"
+                aria-label="Instagram"
+                target="_blank"
+                tabIndex={-1}
+              >
+                <InstagramCircleIcon />
+              </Link>
+              <Link
+                href="https://www.youtube.com/@WeAreFanOfAction"
+                aria-label="Youtube"
+                target="_blank"
+                tabIndex={-1}
+              >
+                <TwitterCircleIcon />
+              </Link>
             </div>
           </div>
         </div>
