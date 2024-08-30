@@ -48,7 +48,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/contact"
+                    href="/contact-us"
                     className="transition-colors focus-within:underline focus-within:outline-none hover:underline"
                   >
                     Contact

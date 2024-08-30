@@ -9,6 +9,9 @@ export { MoonIcon } from "./moon-icon";
 export { MovieIcon } from "./movie-icon";
 export { MapIcon } from "./map-icon";
 export { ArrowDownIcon } from "./arrow-down-icon";
+export { FacebookCircleIcon } from "./facebook-circle-icon";
+export { TwitterCircleIcon } from "./twitter-circle-icon";
+export { InstagramCircleIcon } from "./instagram-circle-icon";
 
 import type { IconProps } from "./types";
 
