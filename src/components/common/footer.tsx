@@ -40,7 +40,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/about"
+                    href="/about-us"
                     className="transition-colors focus-within:underline focus-within:outline-none hover:underline"
                   >
                     About
