@@ -10,4 +10,7 @@ export { MovieIcon } from "./movie-icon";
 export { MapIcon } from "./map-icon";
 export { ArrowDownIcon } from "./arrow-down-icon";
 
-export type { IconProps } from "./types";
+import type { IconProps } from "./types";
+
+export type IconElement = React.ComponentType<IconProps>;
+export { IconProps };

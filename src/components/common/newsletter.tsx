@@ -23,7 +23,7 @@ export default function Newsletter() {
             type="email"
             className="max-w-full border-none text-sm text-text focus-visible:ring-transparent sm:min-w-[300px]"
           />
-          <Button className="rounded-[1.4em] px-6 py-6 text-sm hover:bg-primary">
+          <Button className="rounded-[1.4em] px-6 py-6 text-sm">
             Subscribe
           </Button>
         </div>
