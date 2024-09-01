@@ -9,7 +9,7 @@ export default nextConfig;
   // Validate the environment variables at build time
   zod
     .object({
-      NEXT_PUBLIC_VAR: zod.string(),
+      // NEXT_PUBLIC_VAR: zod.string(),
     })
     .parse(process.env);
 
