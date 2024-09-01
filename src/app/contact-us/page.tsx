@@ -11,6 +11,8 @@ import {
   TwitterCircleIcon,
 } from "@/components/icons";
 
+import { createContact } from "./_action/create-contact";
+
 export default function ContactUsPage() {
   return (
     <>
@@ -19,7 +21,7 @@ export default function ContactUsPage() {
           <div className="sm:flex sm:items-center sm:justify-center">
             <Badge>Get Started</Badge>
           </div>
-          <div className="mt-3 flex items-start justify-between gap-3">
+          <div className="mt-3 flex items-start justify-between gap-6">
             <h1 className="text-4xl font-bold text-text sm:text-center sm:text-5xl sm:leading-tight">
               Get in touch with us. We&apos;re here to assist you.
             </h1>
@@ -52,15 +54,19 @@ export default function ContactUsPage() {
             </div>
           </div>
         </div>
-        <div className="my-8 space-y-4 sm:mx-auto sm:my-14 sm:max-w-[500px]">
-          <Input placeholder="Name" />
-          <Input placeholder="Email" />
-          <Input placeholder="Subject" />
-          <Textarea placeholder="Message" />
-        </div>
-        <div className="w-full sm:mx-auto sm:max-w-[500px]">
-          <Button className="w-full">Leave us message</Button>
-        </div>
+        <form action={createContact} method="post">
+          <div className="my-8 space-y-4 sm:mx-auto sm:my-14 sm:max-w-[500px]">
+            <Input name="name" placeholder="Name" />
+            <Input name="email" placeholder="Email" />
+            <Input name="subject" placeholder="Subject" />
+            <Textarea name="message" placeholder="Message" />
+          </div>
+          <div className="w-full sm:mx-auto sm:max-w-[500px]">
+            <Button type="submit" className="w-full">
+              Leave us message
+            </Button>
+          </div>
+        </form>
       </main>
 
       <section className="bg-[#ABB7C4]/10 py-16">
