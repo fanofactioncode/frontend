@@ -12,6 +12,9 @@ export { ArrowDownIcon } from "./arrow-down-icon";
 export { FacebookCircleIcon } from "./facebook-circle-icon";
 export { TwitterCircleIcon } from "./twitter-circle-icon";
 export { InstagramCircleIcon } from "./instagram-circle-icon";
+export { ChevronBackwardIcon } from "./chevron-backward-icon";
+export { SearchIcon } from "./search-icon";
+export { TrendingIcon } from "./trending-icon";
 
 import type { IconProps } from "./types";
 
