@@ -45,6 +45,10 @@
     --primary-button-foreground: 0 0% 100%;
 
     --radius: 0.5rem;
+
+    --slide-height: 19rem;
+    --slide-spacing: 1rem;
+    --slide-size: 100%;
   }
 
   .dark {
@@ -90,5 +94,25 @@
   }
   body {
     @apply bg-background text-black;
+  }
+
+  .embla {
+    overflow: hidden;
+    margin: auto;
+    --slide-height: 19rem;
+    --slide-spacing: 1rem;
+    --slide-size: 100%;
+  }
+  .embla__container {
+    display: flex;
+    touch-action: pan-y pinch-zoom;
+    /* margin-left: calc(var(--slide-spacing) * -1); */
+  }
+  .embla__slide {
+    transform: translate3d(0, 0, 0);
+    flex: 0 0 100%;
+    min-width: 0;
+    padding-left: 0.85em;
+    padding-right: 0.85em;
   }
 }
