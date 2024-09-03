@@ -19,7 +19,7 @@ export default function MovieRequestForm() {
           Icon={MovieIcon}
           title="Movie"
           text="Which movie do you want to see ?"
-          onClick={() => router.push("/request-movie/select-city")}
+          onClick={() => router.push("/request-movie/select-movie")}
         />
 
         <Divider />
@@ -28,7 +28,7 @@ export default function MovieRequestForm() {
           Icon={MapIcon}
           title="Location"
           text="Which city you want to see ?"
-          onClick={() => router.push("/request-movie/select-movie")}
+          onClick={() => router.push("/request-movie/select-city")}
         />
 
         <Button className="hidden sm:flex">Submit</Button>

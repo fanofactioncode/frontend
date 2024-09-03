@@ -14,7 +14,7 @@ export default function SelectMoviePage() {
       </div>
 
       <div className="mt-2 flex-1 space-y-2">
-        <h2 className="px-4 text-sm font-semibold">
+        <h2 className="px-4 text-sm font-semibold text-text">
           We received this suggestions
         </h2>
 
@@ -27,7 +27,7 @@ export default function SelectMoviePage() {
 
             <div className="flex items-center gap-1">
               <span>22k</span>
-              <TrendingIcon size={20} color="black" />
+              <TrendingIcon size={20} className="fill-primary" />
             </div>
           </Link>
 
@@ -39,7 +39,7 @@ export default function SelectMoviePage() {
 
             <div className="flex items-center gap-1">
               <span>22k</span>
-              <TrendingIcon size={20} color="black" />
+              <TrendingIcon size={20} className="fill-primary" />
             </div>
           </Link>
 
@@ -51,7 +51,7 @@ export default function SelectMoviePage() {
 
             <div className="flex items-center gap-1">
               <span>22k</span>
-              <TrendingIcon size={20} color="black" />
+              <TrendingIcon size={20} className="fill-primary" />
             </div>
           </Link>
         </div>

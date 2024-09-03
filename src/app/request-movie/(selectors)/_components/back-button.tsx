@@ -11,7 +11,7 @@ export default function BackButton() {
 
   return (
     <Button variant="ghost" size="icon" onClick={() => router.back()}>
-      <ChevronBackwardIcon className="size-6" color="black" />
+      <ChevronBackwardIcon className="size-6 fill-text" />
     </Button>
   );
 }

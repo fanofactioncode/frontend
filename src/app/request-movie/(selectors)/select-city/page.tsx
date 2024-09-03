@@ -7,28 +7,32 @@ export default function SelectCityPage() {
   return (
     <>
       <div className="container space-y-6 py-4">
-        <h2 className="text-base font-semibold">
+        <h2 className="text-base font-semibold text-text">
           Currently available on these cities
         </h2>
 
         <div className="grid grid-cols-3 gap-3">
-          <div className="flex items-center justify-center rounded-xl border border-secondary bg-secondary/30 p-2">
-            <p className="truncate text-center text-sm">Rajkot</p>
+          <div className="flex items-center justify-center rounded-xl border border-secondary bg-secondary/30 p-2 dark:bg-secondary">
+            <p className="truncate text-center text-sm text-text-sub">Rajkot</p>
           </div>
-          <div className="flex items-center justify-center rounded-xl border border-secondary bg-secondary/30 p-2">
-            <p className="truncate text-center text-sm">Morbi</p>
+          <div className="flex items-center justify-center rounded-xl border border-secondary bg-secondary/30 p-2 dark:bg-secondary">
+            <p className="truncate text-center text-sm text-text-sub">Morbi</p>
           </div>
-          <div className="flex items-center justify-center rounded-xl border border-secondary bg-secondary/30 p-2">
-            <p className="truncate text-center text-sm">Ahmedabad</p>
+          <div className="flex items-center justify-center rounded-xl border border-secondary bg-secondary/30 p-2 dark:bg-secondary">
+            <p className="truncate text-center text-sm text-text-sub">
+              Ahmedabad
+            </p>
           </div>
-          <div className="flex items-center justify-center rounded-xl border border-secondary bg-secondary/30 p-2">
-            <p className="truncate text-center text-sm">Bhubaneshwar</p>
+          <div className="flex items-center justify-center rounded-xl border border-secondary bg-secondary/30 p-2 dark:bg-secondary">
+            <p className="truncate text-center text-sm text-text-sub">
+              Bhubaneshwar
+            </p>
           </div>
-          <div className="flex items-center justify-center rounded-xl border border-secondary bg-secondary/30 p-2">
-            <p className="truncate text-center text-sm">Mumbai</p>
+          <div className="flex items-center justify-center rounded-xl border border-secondary bg-secondary/30 p-2 dark:bg-secondary">
+            <p className="truncate text-center text-sm text-text-sub">Mumbai</p>
           </div>
-          <div className="flex items-center justify-center rounded-xl border border-secondary bg-secondary/30 p-2">
-            <p className="truncate text-center text-sm">Delhi</p>
+          <div className="flex items-center justify-center rounded-xl border border-secondary bg-secondary/30 p-2 dark:bg-secondary">
+            <p className="truncate text-center text-sm text-text-sub">Delhi</p>
           </div>
         </div>
       </div>
@@ -38,92 +42,92 @@ export default function SelectCityPage() {
       </div>
 
       <div className="py-4">
-        <h2 className="px-4 text-base font-semibold">
+        <h2 className="px-4 text-base font-semibold text-text">
           In which city you want us to reach ?
         </h2>
 
         <div className="mt-3">
           <Link
             href="http://google.com"
-            className="block w-full border-b-[0.5px] border-secondary px-4 py-3 text-sm"
+            className="block w-full border-b-[0.5px] border-secondary px-4 py-3 text-sm text-text-sub"
           >
             Lorem, ipsum.
           </Link>
           <Link
             href="http://google.com"
-            className="block w-full border-b-[0.5px] border-secondary px-4 py-3 text-sm"
+            className="block w-full border-b-[0.5px] border-secondary px-4 py-3 text-sm text-text-sub"
           >
             Lorem, ipsum.
           </Link>
           <Link
             href="http://google.com"
-            className="block w-full border-b-[0.5px] border-secondary px-4 py-3 text-sm"
+            className="block w-full border-b-[0.5px] border-secondary px-4 py-3 text-sm text-text-sub"
           >
             Lorem, ipsum.
           </Link>
           <Link
             href="http://google.com"
-            className="block w-full border-b-[0.5px] border-secondary px-4 py-3 text-sm"
+            className="block w-full border-b-[0.5px] border-secondary px-4 py-3 text-sm text-text-sub"
           >
             Lorem, ipsum.
           </Link>
           <Link
             href="http://google.com"
-            className="block w-full border-b-[0.5px] border-secondary px-4 py-3 text-sm"
+            className="block w-full border-b-[0.5px] border-secondary px-4 py-3 text-sm text-text-sub"
           >
             Lorem, ipsum.
           </Link>
           <Link
             href="http://google.com"
-            className="block w-full border-b-[0.5px] border-secondary px-4 py-3 text-sm"
+            className="block w-full border-b-[0.5px] border-secondary px-4 py-3 text-sm text-text-sub"
           >
             Lorem, ipsum.
           </Link>
           <Link
             href="http://google.com"
-            className="block w-full border-b-[0.5px] border-secondary px-4 py-3 text-sm"
+            className="block w-full border-b-[0.5px] border-secondary px-4 py-3 text-sm text-text-sub"
           >
             Lorem, ipsum.
           </Link>
           <Link
             href="http://google.com"
-            className="block w-full border-b-[0.5px] border-secondary px-4 py-3 text-sm"
+            className="block w-full border-b-[0.5px] border-secondary px-4 py-3 text-sm text-text-sub"
           >
             Lorem, ipsum.
           </Link>
           <Link
             href="http://google.com"
-            className="block w-full border-b-[0.5px] border-secondary px-4 py-3 text-sm"
+            className="block w-full border-b-[0.5px] border-secondary px-4 py-3 text-sm text-text-sub"
           >
             Lorem, ipsum.
           </Link>
           <Link
             href="http://google.com"
-            className="block w-full border-b-[0.5px] border-secondary px-4 py-3 text-sm"
+            className="block w-full border-b-[0.5px] border-secondary px-4 py-3 text-sm text-text-sub"
           >
             Lorem, ipsum.
           </Link>
           <Link
             href="http://google.com"
-            className="block w-full border-b-[0.5px] border-secondary px-4 py-3 text-sm"
+            className="block w-full border-b-[0.5px] border-secondary px-4 py-3 text-sm text-text-sub"
           >
             Lorem, ipsum.
           </Link>
           <Link
             href="http://google.com"
-            className="block w-full border-b-[0.5px] border-secondary px-4 py-3 text-sm"
+            className="block w-full border-b-[0.5px] border-secondary px-4 py-3 text-sm text-text-sub"
           >
             Lorem, ipsum.
           </Link>
           <Link
             href="http://google.com"
-            className="block w-full border-b-[0.5px] border-secondary px-4 py-3 text-sm"
+            className="block w-full border-b-[0.5px] border-secondary px-4 py-3 text-sm text-text-sub"
           >
             Lorem, ipsum.
           </Link>
           <Link
             href="http://google.com"
-            className="block w-full border-b-[0.5px] border-secondary px-4 py-3 text-sm"
+            className="block w-full border-b-[0.5px] border-secondary px-4 py-3 text-sm text-text-sub"
           >
             Lorem, ipsum.
           </Link>
