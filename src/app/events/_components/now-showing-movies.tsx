@@ -14,7 +14,8 @@ export default function NowShowingMovies() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
     Autoplay({
       playOnInit: true,
-      delay: 4000,
+      delay: 3000,
+      stopOnInteraction: false,
     }),
   ]);
 
