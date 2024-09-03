@@ -6,17 +6,22 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+
+import { DotButton, useDotButton } from "./careusel-dot-button";
 
 export default function NowShowingMovies() {
-  const [emblaRef] = useEmblaCarousel({ loop: true }, [
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
     Autoplay({
       playOnInit: true,
       delay: 4000,
     }),
   ]);
 
+  const { selectedIndex, onDotButtonClick } = useDotButton(emblaApi);
+
   return (
-    <div className="embla py-4 pb-0" ref={emblaRef}>
+    <div className="embla relative py-4" ref={emblaRef}>
       <div className="embla__container">
         <div className="embla__slide m-auto">
           <div className="relative flex h-[190px] overflow-hidden rounded-2xl">
@@ -102,6 +107,19 @@ export default function NowShowingMovies() {
             </div>
           </div>
         </div>
+      </div>
+
+      <div className="absolute bottom-0 left-1/2 flex -translate-x-1/2 items-center gap-3">
+        {Array.from({ length: 3 }).map((_, index) => (
+          <DotButton
+            key={index}
+            onClick={() => onDotButtonClick(index)}
+            className={cn(
+              "size-2 rounded-full bg-secondary",
+              selectedIndex === index && "bg-primary"
+            )}
+          />
+        ))}
       </div>
     </div>
   );

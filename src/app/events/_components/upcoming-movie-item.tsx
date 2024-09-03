@@ -4,19 +4,23 @@ import Image from "next/image";
 type Languages = "English" | "हिन्दी" | "தமிழ்";
 
 export interface UpcomingMovieItemProps {
+  poster: string;
   name: string;
   languages: Languages[];
   rating: number;
 }
 
 export default function UpcomingMovieItem({
+  poster,
   name,
   languages,
   rating,
 }: UpcomingMovieItemProps) {
   return (
     <div className="space-y-2 overflow-hidden">
-      <div className="h-52 rounded-lg bg-gray-400"></div>
+      <div className="relative h-52 w-full overflow-hidden rounded-lg">
+        <Image src={poster} alt={name} fill className="object-cover" />
+      </div>
       <div className="space-y-1.5">
         <h2 className="truncate text-sm font-semibold text-text">{name}</h2>
         <p className="truncate text-xs text-text-sub">
