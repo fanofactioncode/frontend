@@ -22,20 +22,22 @@ export default function MovieCarouselItem({
         alt="Planet of the Apes"
         fill
       />
-      <div className="z-10 mt-0 flex h-full w-7/12 flex-col items-start justify-center gap-3 bg-gradient-to-r from-primary from-35% via-primary/80 via-75% to-transparent to-100% py-8 pr-4 ps-6 dark:from-secondary dark:via-secondary/80">
-        <div className="relative h-full w-full">
+      <div className="z-10 mt-0 flex h-full w-7/12 flex-col items-start justify-center gap-2 bg-gradient-to-r from-primary from-35% via-primary/80 via-75% to-transparent to-100% py-8 pr-4 ps-6 dark:from-secondary dark:via-secondary/80">
+        <div className="relative w-8/12">
           <Image
             src={movieLogo}
             alt="Planet of the Apes"
-            fill
-            className="h-full w-full object-contain pr-10"
+            width={0}
+            height={0}
+            sizes="100vw"
+            className="h-auto w-full"
           />
         </div>
-        <p className="text-xs text-white">{language}</p>
+        <p className="text-xs font-semibold text-white/70">{language}</p>
         <Button
           size="sm"
           variant="secondary"
-          className="rounded-xl p-5 text-sm dark:bg-primary dark:text-black"
+          className="mt-2 rounded-lg p-2 px-4 text-sm dark:bg-primary dark:text-black"
         >
           Book Tickets
         </Button>

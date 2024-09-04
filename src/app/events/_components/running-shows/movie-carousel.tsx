@@ -20,12 +20,12 @@ const movies: MovieCarouselItemProps[] = [
   {
     poster: "/assets/planet-of-the-apes.png",
     movieLogo: "/assets/planet-of-the-apes-logo.png",
-    language: "English",
+    language: "English | हिन्दी",
   },
   {
     poster: "/assets/furiosa.png",
     movieLogo: "/assets/furiosa-logo.png",
-    language: "English",
+    language: "हिन्दी",
   },
   {
     poster: "/assets/bad-boys.png",
@@ -66,13 +66,13 @@ export default function MovieCarousel() {
         className="absolute right-6 top-1/2 z-10 size-5 -translate-y-1/2"
       />
 
-      <div className="absolute bottom-0 left-1/2 flex -translate-x-1/2 items-center gap-3">
+      <div className="absolute bottom-0 left-1/2 flex -translate-x-1/2 items-center gap-1.5">
         {movies.map((_, index) => (
           <DotButton
             key={index}
             onClick={() => onDotButtonClick(index)}
             className={cn(
-              "size-2 rounded-full bg-secondary",
+              "size-1.5 rounded-full bg-secondary",
               selectedIndex === index && "bg-primary"
             )}
           />
