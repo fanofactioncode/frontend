@@ -35,7 +35,7 @@ export default function UpcomingMovieItem({
         </p>
         <div className="flex items-center gap-2">
           <Image src="/imdb-logo.svg" width={30} height={30} alt="IMDb" />
-          <p className="text-xs text-text-sub">{rating} / 10</p>
+          <p className="text-xs text-text-sub">{rating}/10</p>
         </div>
       </div>
     </div>
