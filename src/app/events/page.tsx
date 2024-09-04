@@ -1,9 +1,9 @@
 import React from "react";
 
-import NowShowingMovies from "./_components/now-showing-movies";
 import UpcomingMovieItem, {
   UpcomingMovieItemProps,
 } from "./_components/upcoming-movie-item";
+import RunningShows from "./_components/running-shows";
 
 async function getUpcommingMovies(): Promise<UpcomingMovieItemProps[]> {
   return [
@@ -39,10 +39,10 @@ export default async function EventsPage() {
 
   return (
     <>
-      <NowShowingMovies />
+      <RunningShows />
       <div className="container space-y-4 py-14 pt-10">
         <h1 className="text-lg font-bold text-text">Upcoming Events</h1>
-        <div className="grid grid-cols-2 gap-x-5 gap-y-10">
+        <div className="grid grid-cols-2 gap-x-5 gap-y-10 sm:grid-cols-4 sm:gap-x-12 md:grid-cols-5">
           {upcommingMovies.map((movie) => (
             <UpcomingMovieItem key={movie.name} {...movie} />
           ))}

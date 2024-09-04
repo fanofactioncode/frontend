@@ -18,8 +18,15 @@ export default function UpcomingMovieItem({
 }: UpcomingMovieItemProps) {
   return (
     <div className="space-y-2 overflow-hidden">
-      <div className="relative h-52 w-full overflow-hidden rounded-lg">
-        <Image src={poster} alt={name} fill className="object-cover" />
+      <div className="relative overflow-hidden rounded-lg">
+        <Image
+          src={poster}
+          alt={name}
+          width={0}
+          height={0}
+          sizes="100vw"
+          className="h-auto w-full"
+        />
       </div>
       <div className="space-y-1.5">
         <h2 className="truncate text-sm font-semibold text-text">{name}</h2>
