@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 type Languages = "English" | "हिन्दी" | "தமிழ்";
 
@@ -17,7 +18,7 @@ export default function UpcomingMovieItem({
   rating,
 }: UpcomingMovieItemProps) {
   return (
-    <div className="space-y-2 overflow-hidden">
+    <Link href={`/events/${name}`} className="space-y-2 overflow-hidden">
       <div className="relative overflow-hidden rounded-lg">
         <Image
           src={poster}
@@ -38,6 +39,6 @@ export default function UpcomingMovieItem({
           <p className="text-xs text-text-sub">{rating}/10</p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

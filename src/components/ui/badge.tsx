@@ -1,6 +1,8 @@
 import React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 
+import { cn } from "@/lib/utils";
+
 const badgeVariants = cva(
   "bg-white dark:border-primary dark:text-primary dark:bg-primary-foreground border border-black text-sm text-black",
   {
@@ -18,8 +20,12 @@ const badgeVariants = cva(
 
 export interface BadgeProps
   extends React.HTMLAttributes<HTMLSpanElement>,
-    VariantProps<typeof badgeVariants> {}
+    VariantProps<typeof badgeVariants> {
+  className?: string;
+}
 
-export default function Badge({ children, size }: BadgeProps) {
-  return <span className={badgeVariants({ size })}>{children}</span>;
+export default function Badge({ children, size, className }: BadgeProps) {
+  return (
+    <span className={cn(badgeVariants({ size }), className)}>{children}</span>
+  );
 }
