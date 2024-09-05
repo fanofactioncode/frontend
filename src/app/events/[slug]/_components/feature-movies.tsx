@@ -44,7 +44,7 @@ export default function FeatureMovies() {
   const movies = getUpcomingMovies();
 
   return (
-    <section>
+    <section className="py-5">
       <div className="container space-y-2">
         <Badge className="rounded-xl">Feature movies</Badge>
         <h2 className="text-lg font-bold text-text">
