@@ -4,6 +4,7 @@ import Image from "next/image";
 import Badge from "@/components/ui/badge";
 
 import CastAndCrew from "./_components/cast-and-crew";
+import FeatureMovies from "./_components/feature-movies";
 
 export default function EventDetailsPage() {
   return (
@@ -57,6 +58,7 @@ export default function EventDetailsPage() {
         </p>
       </main>
       <CastAndCrew />
+      <FeatureMovies />
     </>
   );
 }
