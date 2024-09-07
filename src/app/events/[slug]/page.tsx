@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 import Badge from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -67,7 +68,9 @@ export default function EventDetailsPage() {
         <CastAndCrew />
 
         <div className="sticky bottom-0 border-b border-t bg-background p-4">
-          <Button className="w-full">Waitlist / Buy Tickets</Button>
+          <Button asChild className="w-full">
+            <Link href={"/booking/movie-id-here"}>Waitlist / Buy Tickets</Link>
+          </Button>
         </div>
       </main>
       <FeatureMovies />

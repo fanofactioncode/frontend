@@ -15,6 +15,8 @@ export { InstagramCircleIcon } from "./instagram-circle-icon";
 export { ChevronBackwardIcon } from "./chevron-backward-icon";
 export { SearchIcon } from "./search-icon";
 export { TrendingIcon } from "./trending-icon";
+export { MoreInfoIcon } from "./more-info-icon";
+export { GetLocationIcon } from "./get-location-icon";
 
 import type { IconProps } from "./types";
 
