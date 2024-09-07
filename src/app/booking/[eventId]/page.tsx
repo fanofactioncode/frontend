@@ -34,7 +34,7 @@ export default function BookingPage() {
         </div>
 
         <div className="flex items-center gap-2 py-5">
-          <div className="flex h-[75px] w-[55px] items-center justify-center rounded-lg bg-secondary p-3">
+          <div className="flex h-[75px] w-[65px] items-center justify-center rounded-lg bg-secondary p-3">
             <p className="text-base font-bold text-primary">Jul</p>
           </div>
 
