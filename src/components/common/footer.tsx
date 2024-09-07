@@ -123,7 +123,7 @@ export default function Footer() {
                   aria-label="Instagram"
                   target="_blank"
                 >
-                  <InstagramIcon className="size-6" />
+                  <InstagramIcon className="size-6 fill-white" />
                 </Link>
 
                 <Link
@@ -131,7 +131,7 @@ export default function Footer() {
                   aria-label="Facebook"
                   target="_blank"
                 >
-                  <FacebookIcon className="size-6" />
+                  <FacebookIcon className="size-6 fill-white" />
                 </Link>
 
                 <Link
@@ -139,7 +139,7 @@ export default function Footer() {
                   aria-label="Youtube"
                   target="_blank"
                 >
-                  <YoutubeIcon className="size-6" />
+                  <YoutubeIcon className="size-6 fill-white" />
                 </Link>
               </div>
             </div>

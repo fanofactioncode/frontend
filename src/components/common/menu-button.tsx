@@ -1,18 +1,20 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { motion, MotionConfig } from "framer-motion";
 
+import { useNavigation } from "@/provider/navigation-provider";
+
 export default function MenuButton() {
-  const [active, setActive] = useState<boolean>();
+  const { isOpen, toggleNavigation } = useNavigation();
 
   return (
     <MotionConfig transition={{ duration: 0.5, ease: "easeInOut" }}>
       <motion.button
         initial={false}
-        onClick={() => setActive(!active)}
+        onClick={toggleNavigation}
         className="relative size-9 rounded-full border-[1px] border-secondary dark:border-primary"
-        animate={active ? "open" : "close"}
+        animate={isOpen ? "open" : "close"}
       >
         <motion.span
           style={{
