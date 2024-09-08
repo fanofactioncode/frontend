@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 import Badge from "@/components/ui/badge";
 
@@ -27,8 +28,11 @@ export default function TermsAndConditionsPage() {
             Acceptance of Terms
           </h2>
           <p>
-            By accessing or using the services provided by FanOfAction,
-            including but not limited to purchasing tickets for movie
+            By accessing or using the services provided by{" "}
+            <Link href="/" className="underline">
+              FanOfAction
+            </Link>
+            , including but not limited to purchasing tickets for movie
             screenings, you agree to comply with and be bound by these Terms and
             Conditions. If you do not agree to these terms, please do not use
             our services.
@@ -95,10 +99,13 @@ export default function TermsAndConditionsPage() {
             Copyright and Licensing
           </h2>
           <p>
-            All films screened by FanOfAction are protected by copyright law.
-            Unauthorized recording or distribution of the films is strictly
-            prohibited. We hold the necessary licenses and permissions to screen
-            films in public venues.
+            All films screened by{" "}
+            <Link href="/" className="underline">
+              FanOfAction
+            </Link>{" "}
+            are protected by copyright law. Unauthorized recording or
+            distribution of the films is strictly prohibited. We hold the
+            necessary licenses and permissions to screen films in public venues.
           </p>
         </div>
 
@@ -107,9 +114,12 @@ export default function TermsAndConditionsPage() {
             Liability
           </h2>
           <p>
-            FanOfAction and our theater partners are not responsible for any
-            loss, damage, injury, or theft of personal belongings that may occur
-            during your attendance at our screenings.
+            <Link href="/" className="underline">
+              FanOfAction
+            </Link>{" "}
+            and our theater partners are not responsible for any loss, damage,
+            injury, or theft of personal belongings that may occur during your
+            attendance at our screenings.
           </p>
         </div>
 
@@ -122,9 +132,12 @@ export default function TermsAndConditionsPage() {
             check film details and ratings before purchasing tickets.
           </p>
           <p>
-            By using FanOfAction, you acknowledge that you have read and
-            understood this Privacy Policy and agree to its terms and
-            conditions.
+            By using{" "}
+            <Link href="/" className="underline">
+              FanOfAction
+            </Link>
+            , you acknowledge that you have read and understood this Privacy
+            Policy and agree to its terms and conditions.
           </p>
         </div>
 
@@ -133,8 +146,11 @@ export default function TermsAndConditionsPage() {
             Privacy Policy
           </h2>
           <p>
-            We collect and store personal information as described in our
-            Privacy Policy, which is accessible on our website.
+            We collect and store personal information as described in our{" "}
+            <Link href="/privacy-policy" className="underline">
+              Privacy Policy
+            </Link>
+            , which is accessible on our website.
           </p>
         </div>
 
@@ -155,7 +171,15 @@ export default function TermsAndConditionsPage() {
           </h2>
           <p>
             If you have any questions or concerns about these Terms and
-            Conditions, please contact us at: info@fanofaction.com.
+            Conditions, please contact us at:{" "}
+            <Link
+              href="mailto:info@fanofaction.com"
+              target="_blank"
+              className="underline"
+            >
+              info@fanofaction.com
+            </Link>
+            .
           </p>
         </div>
       </section>
