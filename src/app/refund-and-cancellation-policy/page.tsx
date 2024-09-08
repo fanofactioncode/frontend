@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 import Badge from "@/components/ui/badge";
 
@@ -27,9 +28,13 @@ export default function RefundAndCancellationPolicyPage() {
               Refund Policy
             </h2>
             <p>
-              At FanOfAction, we aim to provide our customers with an
-              exceptional movie screening experience. This Refund Policy
-              outlines our guidelines and procedures for processing refunds.
+              At{" "}
+              <Link href="/" className="underline">
+                FanOfAction
+              </Link>
+              , we aim to provide our customers with an exceptional movie
+              screening experience. This Refund Policy outlines our guidelines
+              and procedures for processing refunds.
             </p>
           </div>
 
@@ -150,10 +155,18 @@ export default function RefundAndCancellationPolicyPage() {
               steps:
             </p>
             <p>
-              Contact our customer support team at info@fanofaction.com within
-              days of the event time. Provide your booking details, including
-              the order number, name, and contact information. State the reason
-              for your refund request.
+              Contact our customer support team at{" "}
+              <Link
+                href="mailto:info@fanofaction.com"
+                target="_blank"
+                rel="noreferrer"
+                className="underline"
+              >
+                info@fanofaction.com
+              </Link>{" "}
+              within days of the event time. Provide your booking details,
+              including the order number, name, and contact information. State
+              the reason for your refund request.
             </p>
           </div>
 
@@ -213,7 +226,16 @@ export default function RefundAndCancellationPolicyPage() {
             </h3>
             <p>
               To initiate the cancellation process, contact our customer support
-              team at info@fanofaction.com.
+              team at 
+              <Link
+                href="mailto:info@fanofaction.com"
+                className="underline"
+                target="_blank"
+                rel="noreferrer"
+              >
+                info@fanofaction.com
+              </Link>
+              .
             </p>
             <p>
               Provide your booking details, including the order number, name,
@@ -255,7 +277,16 @@ export default function RefundAndCancellationPolicyPage() {
             </h3>
             <p>
               If you have any questions or concerns regarding our Refund and
-              Cancellation Policy, please contact us at info@fanofaction.com.
+              Cancellation Policy, please contact us at{" "}
+              <Link
+                className="underline"
+                href="mailto:info@fanofaction.com"
+                target="_blank"
+                rel="noreferrer"
+              >
+                info@fanofaction.com
+              </Link>
+              .
             </p>
           </div>
         </div>
