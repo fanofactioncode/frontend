@@ -1,13 +1,14 @@
 import PageLayout from "@/components/layout/page-layout";
 
 import UpcomingShows from "./upcoming-shows";
+import SuggestMovie from "./suggest-movie";
 
 export default function Home() {
   return (
     <PageLayout>
       <main className="container py-16">
         <div className="space-y-4">
-          <h1 className="text-balance text-center text-3xl font-bold text-text">
+          <h1 className="text-balance text-center text-4xl font-bold leading-tight text-text">
             Epic{" "}
             <span className="rounded-xl bg-[#B9F18C] px-1.5 py-0.5 dark:bg-[#FF499E]">
               Cinematic
@@ -23,6 +24,7 @@ export default function Home() {
       </main>
 
       <UpcomingShows />
+      <SuggestMovie />
     </PageLayout>
   );
 }
