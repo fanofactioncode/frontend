@@ -13,7 +13,7 @@ export default function Newsletter() {
         <h2 className="text-center text-4xl font-bold leading-tight text-text sm:text-6xl sm:leading-none">
           Bring sanity back to your website
         </h2>
-        <p className="text-sm text-text sm:text-base">
+        <p className="text-center text-sm text-text sm:text-base">
           It&apos;s free to sign up on our newsletter
         </p>
 
