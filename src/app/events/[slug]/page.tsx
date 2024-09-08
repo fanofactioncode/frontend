@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import Badge from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { PlayIcon } from "@/components/icons";
 
 import CastAndCrew from "./_components/cast-and-crew";
 import FeatureMovies from "./_components/feature-movies";
@@ -13,13 +14,22 @@ export default function EventDetailsPage() {
     <>
       <main className="relative">
         <div className="container">
-          <div className="relative my-3 h-[166px] overflow-hidden rounded-xl">
+          <div className="group relative my-3 h-[166px] overflow-hidden rounded-xl">
             <Image
               src="/assets/planet-of-the-apes.png"
               alt="Platnet of the Apes"
               fill
               objectFit="cover"
             />
+
+            <div className="absolute z-10 h-full w-full bg-[radial-gradient(rgba(16,33,50,0)_0%,rgba(16,33,50,0.5)_100%)]"></div>
+
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+              <PlayIcon
+                color="white"
+                className="size-10 transition-all duration-300 group-hover:scale-125"
+              />
+            </div>
           </div>
 
           <div className="flex gap-3">

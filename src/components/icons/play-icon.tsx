@@ -7,23 +7,26 @@ import type { IconProps } from "./types";
 export function PlayIcon({ size, color, className }: IconProps) {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 100 100"
-      fill="none"
       width={size}
       height={size}
+      viewBox="0 0 50 50"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
       className={cn(className)}
     >
       <rect
-        x="5"
-        y="5"
-        width="90"
-        height="90"
-        rx="45"
+        x="2.5"
+        y="2.5"
+        width="45"
+        height="45"
+        rx="22.5"
         stroke={color}
-        strokeWidth="10"
+        strokeWidth="5"
       />
-      <path d="M66 50L42 63.8564L42 36.1436L66 50Z" fill={color} />
+      <path
+        d="M32 23.2679C33.3333 24.0377 33.3333 25.9623 32 26.7321L23 31.9282C21.6667 32.698 20 31.7358 20 30.1962L20 19.8038C20 18.2642 21.6667 17.302 23 18.0718L32 23.2679Z"
+        fill={color}
+      />
     </svg>
   );
 }
