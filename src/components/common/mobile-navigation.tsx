@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
@@ -14,6 +14,14 @@ const ThemeButton = dynamic(() => import("./theme-button"), { ssr: false });
 export default function MobileNavigation() {
   const { isOpen, toggleNavigation } = useNavigation();
 
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "auto";
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isOpen]);
+
   return (
     <motion.nav
       className="fixed top-0 z-40 h-screen w-full bg-background/90 py-20 backdrop-blur-md"
@@ -26,9 +34,10 @@ export default function MobileNavigation() {
         },
       }}
       initial="close"
+      transition={{ duration: 0.5, ease: "easeInOut", type: "spring" }}
       animate={isOpen ? "open" : "close"}
     >
-      <ul className="w-full space-y-3 px-4 py-8">
+      <ul className="w-full space-y-3 px-5 py-8">
         <li className="w-full py-3 text-xl font-medium text-text">
           <Link href="/" className="block" onClick={() => toggleNavigation()}>
             Home
@@ -62,13 +71,31 @@ export default function MobileNavigation() {
           </Link>
         </li>
       </ul>
-      <div className="flex items-center gap-4 px-4">
-        <FacebookIcon className="size-8 fill-text" />
-        <InstagramIcon className="size-8 fill-text" />
-        <YoutubeIcon className="size-8 fill-text" />
+      <div className="flex items-center gap-4 px-5">
+        <Link
+          href="https://www.facebook.com/WeAreFanOfAction/"
+          aria-label="Facebook"
+          target="_blank"
+        >
+          <FacebookIcon className="size-6 fill-text" />
+        </Link>
+        <Link
+          href="https://www.instagram.com/fanofaction"
+          aria-label="Instagram"
+          target="_blank"
+        >
+          <InstagramIcon className="size-6 fill-text" />
+        </Link>
+        <Link
+          href="https://www.youtube.com/@WeAreFanOfAction"
+          aria-label="Youtube"
+          target="_blank"
+        >
+          <YoutubeIcon className="size-6 fill-text" />
+        </Link>
       </div>
 
-      <div className="absolute bottom-28 right-6 [&>button]:border-foreground [&>div]:border-foreground [&>svg]:fill-foreground [&>svg]:stroke-foreground">
+      <div className="absolute bottom-28 right-6 [&>button]:!border-foreground [&>div]:border-foreground [&>svg]:fill-foreground [&>svg]:stroke-foreground">
         <ThemeButton />
       </div>
     </motion.nav>
