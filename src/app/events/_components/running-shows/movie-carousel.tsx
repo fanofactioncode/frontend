@@ -18,16 +18,19 @@ import {
 
 const movies: MovieCarouselItemProps[] = [
   {
+    name: "Planet of the Apes",
     poster: "/assets/planet-of-the-apes.png",
     movieLogo: "/assets/planet-of-the-apes-logo.png",
     language: "English | हिन्दी",
   },
   {
+    name: "Furiosa",
     poster: "/assets/furiosa.png",
     movieLogo: "/assets/furiosa-logo.png",
     language: "हिन्दी",
   },
   {
+    name: "Bad Boys",
     poster: "/assets/bad-boys.png",
     movieLogo: "/assets/bad-boys-logo.png",
     language: "English",
