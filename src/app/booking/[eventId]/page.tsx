@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 
 import { GetLocationIcon, MoreInfoIcon } from "@/components/icons";
+import { Button } from "@/components/ui/button";
 
 export default function BookingPage() {
   return (
@@ -56,14 +57,17 @@ export default function BookingPage() {
             </p>
           </div>
 
-          <div className="flex h-[75px] w-[70px] flex-col items-center justify-center rounded-lg border border-secondary bg-background p-3">
+          <Button
+            variant="outline"
+            className="flex h-[75px] w-[70px] flex-col items-center justify-center rounded-lg border border-secondary bg-background p-3"
+          >
             <p className="text-center text-xs font-bold text-primary dark:text-white">
               Tuesday
             </p>
             <p className="text-2xl font-bold text-primary dark:text-white">
               08
             </p>
-          </div>
+          </Button>
         </div>
       </main>
 
@@ -89,23 +93,26 @@ export default function BookingPage() {
           </div>
 
           <div className="flex flex-wrap items-center gap-4">
-            <div className="flex w-[120px] items-center justify-center rounded-xl border border-secondary dark:border-primary">
-              <p className="py-3 text-sm font-semibold text-[#21C179]">
-                11:00 PM
-              </p>
-            </div>
+            <Button
+              variant="outline"
+              className="flex h-auto min-w-[100px] items-center justify-center rounded-xl border border-secondary py-3 text-sm font-semibold text-[#21C179] hover:bg-transparent hover:text-[#21C179] dark:border-primary"
+            >
+              11:00 PM
+            </Button>
 
-            <div className="flex w-[120px] items-center justify-center rounded-xl border border-secondary dark:border-primary">
-              <p className="py-3 text-sm font-semibold text-[#21C179]">
-                03:00 PM
-              </p>
-            </div>
+            <Button
+              variant="outline"
+              className="flex h-auto min-w-[100px] items-center justify-center rounded-xl border border-secondary py-3 text-sm font-semibold text-[#21C179] hover:bg-transparent hover:text-[#21C179] dark:border-primary"
+            >
+              03:00 PM
+            </Button>
 
-            <div className="flex w-[120px] items-center justify-center rounded-xl border border-secondary dark:border-primary">
-              <p className="py-3 text-sm font-semibold text-[#21C179]">
-                06:00 PM
-              </p>
-            </div>
+            <Button
+              variant="outline"
+              className="flex h-auto min-w-[100px] items-center justify-center rounded-xl border border-secondary py-3 text-sm font-semibold text-[#21C179] hover:bg-transparent hover:text-[#21C179] dark:border-primary"
+            >
+              06:00 PM
+            </Button>
           </div>
         </div>
         <div className="h-3 bg-secondary/10 dark:bg-secondary/30"></div>
