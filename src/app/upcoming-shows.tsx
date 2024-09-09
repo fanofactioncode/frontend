@@ -62,7 +62,7 @@ export default function UpcomingShows() {
       <div className="embla relative px-4 pb-11 pt-4" ref={emblaRef}>
         <div className="flex gap-4">
           {movies.map(({ name, languages, poster, rating }, index) => (
-            <div key={name + index} className="w-[140px] shrink-0 space-y-2">
+            <div key={name + index} className="w-[150px] shrink-0 space-y-2">
               <div className="relative overflow-hidden rounded-lg">
                 <Image
                   src={poster}
@@ -70,7 +70,7 @@ export default function UpcomingShows() {
                   width={0}
                   height={0}
                   sizes="100vw"
-                  className="h-auto w-[140px] object-cover"
+                  className="h-auto w-full object-cover"
                 />
               </div>
               <div className="space-y-1.5">
