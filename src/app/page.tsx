@@ -9,16 +9,16 @@ import SuggestMovie from "./suggest-movie";
 export default function Home() {
   return (
     <PageLayout>
-      <main className="container flex flex-col gap-8 py-16">
+      <main className="container flex max-w-[970px] flex-col gap-8 py-16">
         <div className="space-y-4">
-          <h1 className="text-balance text-center text-4xl font-extrabold leading-tight text-text">
+          <h1 className="text-balance text-center text-4xl font-extrabold leading-tight text-text md:text-5xl md:leading-tight">
             Epic{" "}
             <span className="rounded-xl bg-[#B9F18C] px-1.5 py-0.5 dark:bg-[#FF499E]">
               Cinematic
             </span>{" "}
             Revival: The Return of a Blockbuster - Movie Rerelease Spectacular!
           </h1>
-          <p className="text-center text-sm text-text-sub">
+          <p className="text-center text-sm text-text-sub md:px-32 md:text-base">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem
             quam aliquam id nam? Incidunt quidem voluptatibus facilis soluta
             itaque eveniet!
@@ -57,7 +57,7 @@ export default function Home() {
             />
           </svg>
 
-          <div className="relative h-[200px] overflow-hidden rounded-2xl border-4 border-secondary">
+          <div className="relative h-[200px] overflow-hidden rounded-2xl border-4 border-secondary md:h-[450px] md:rounded-3xl md:border-[10px]">
             <Image
               src="/video-thumbnail.jpg"
               alt="Fan of action intro video thumbnail"
@@ -69,7 +69,7 @@ export default function Home() {
 
             <PlayIcon
               color="white"
-              className="absolute left-1/2 top-1/2 size-12 -translate-x-1/2 -translate-y-1/2"
+              className="absolute left-1/2 top-1/2 size-12 -translate-x-1/2 -translate-y-1/2 md:size-24"
             />
           </div>
         </div>
