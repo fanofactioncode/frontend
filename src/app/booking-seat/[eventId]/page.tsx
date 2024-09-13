@@ -102,7 +102,6 @@ export default function BookingSeatPage() {
             <p className="text-sm font-medium text-text">17</p>
           </div>
 
-          {/* M */}
           <div className="grid size-8 place-content-center rounded-sm">
             <p className="text-sm text-text">K</p>
           </div>
@@ -164,7 +163,6 @@ export default function BookingSeatPage() {
             <p className="text-sm font-medium text-text">17</p>
           </div>
 
-          {/* J */}
           <div className="grid size-8 place-content-center rounded-sm">
             <p className="text-sm text-text">J</p>
           </div>
@@ -226,7 +224,6 @@ export default function BookingSeatPage() {
             <p className="text-sm font-medium text-text">17</p>
           </div>
 
-          {/* I */}
           <div className="grid size-8 place-content-center rounded-sm">
             <p className="text-sm text-text">I</p>
           </div>
@@ -288,7 +285,6 @@ export default function BookingSeatPage() {
             <p className="text-sm font-medium text-text">17</p>
           </div>
 
-          {/* H */}
           <div className="grid size-8 place-content-center rounded-sm">
             <p className="text-sm text-text">H</p>
           </div>
@@ -350,7 +346,6 @@ export default function BookingSeatPage() {
             <p className="text-sm font-medium text-text">17</p>
           </div>
 
-          {/* G */}
           <div className="grid size-8 place-content-center rounded-sm">
             <p className="text-sm text-text">G</p>
           </div>
@@ -412,7 +407,6 @@ export default function BookingSeatPage() {
             <p className="text-sm font-medium text-text">17</p>
           </div>
 
-          {/* F */}
           <div className="grid size-8 place-content-center rounded-sm">
             <p className="text-sm text-text">F</p>
           </div>
@@ -474,7 +468,6 @@ export default function BookingSeatPage() {
             <p className="text-sm font-medium text-text">17</p>
           </div>
 
-          {/* E */}
           <div className="grid size-8 place-content-center rounded-sm">
             <p className="text-sm text-text">E</p>
           </div>
@@ -536,7 +529,6 @@ export default function BookingSeatPage() {
             <p className="text-sm font-medium text-text">17</p>
           </div>
 
-          {/* D */}
           <div className="grid size-8 place-content-center rounded-sm">
             <p className="text-sm text-text">D</p>
           </div>
@@ -598,7 +590,6 @@ export default function BookingSeatPage() {
             <p className="text-sm font-medium text-text">17</p>
           </div>
 
-          {/* C */}
           <div className="grid size-8 place-content-center rounded-sm">
             <p className="text-sm text-text">C</p>
           </div>
@@ -660,7 +651,6 @@ export default function BookingSeatPage() {
             <p className="text-sm font-medium text-text">17</p>
           </div>
 
-          {/* B */}
           <div className="grid size-8 place-content-center rounded-sm">
             <p className="text-sm text-text">B</p>
           </div>
@@ -722,7 +712,6 @@ export default function BookingSeatPage() {
             <p className="text-sm font-medium text-text">17</p>
           </div>
 
-          {/* A */}
           <div className="grid size-8 place-content-center rounded-sm">
             <p className="text-sm text-text">A</p>
           </div>

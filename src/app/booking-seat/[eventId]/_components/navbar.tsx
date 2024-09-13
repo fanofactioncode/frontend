@@ -16,25 +16,28 @@ export default function Navbar() {
         <div className="container flex items-center justify-between">
           <Button
             variant="ghost"
-            className="flex items-center p-0"
+            className="flex items-center px-2 sm:p-0"
             onClick={() => router.back()}
           >
             <ChevronLeftIcon className="size-6" />
-            <LogoIcon className="size-12" />
+            <LogoIcon className="hidden size-12 sm:block" />
           </Button>
 
-          <div className="flex flex-col items-center justify-center">
-            <div className="flex items-center gap-2">
-              <h1 className="text-xl font-bold">
+          <div className="flex w-full flex-1 flex-col items-start justify-center sm:items-center">
+            <div className="flex flex-1 items-center gap-2">
+              <h1 className="text-sm font-bold sm:text-xl">
                 The Ministry of Ungentlemanly Warfare
               </h1>
               <div className="size-1.5 rounded-full bg-black"></div>
-              <h1 className="text-xl font-bold">Hindi</h1>
+              <h1 className="text-sm font-bold sm:text-xl">Hindi</h1>
             </div>
-            <p className="text-text">at Cinepolis Vandana, Rajkot</p>
+            <p className="text-sm sm:text-text">at Cinepolis Vandana, Rajkot</p>
           </div>
 
-          <Button variant="ghost" className="invisible flex items-center p-0">
+          <Button
+            variant="ghost"
+            className="invisible hidden items-center p-0 sm:flex"
+          >
             <ChevronLeftIcon className="size-6" />
             <LogoIcon className="size-12" />
           </Button>
@@ -42,7 +45,7 @@ export default function Navbar() {
       </header>
 
       <div className="border-b py-2">
-        <div className="container flex items-center justify-between">
+        <div className="container flex flex-wrap items-center justify-between">
           <div className="flex items-center gap-2">
             <Button
               variant="secondary"
