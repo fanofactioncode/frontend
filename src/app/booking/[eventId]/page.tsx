@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import Image from "next/image";
 
 import { GetLocationIcon, MoreInfoIcon } from "@/components/icons";
@@ -95,23 +96,26 @@ export default function BookingPage() {
           <div className="flex flex-wrap items-center gap-4">
             <Button
               variant="outline"
-              className="flex h-auto min-w-[100px] items-center justify-center rounded-xl border border-secondary py-3 text-sm font-semibold text-[#21C179] hover:bg-transparent hover:text-[#21C179] dark:border-primary"
+              className="flex !h-12 min-w-[100px] items-center justify-center rounded-xl border border-secondary py-2 text-sm font-semibold text-[#21C179] hover:bg-transparent hover:text-[#21C179] dark:border-primary"
+              asChild
             >
-              11:00 PM
+              <Link href="/booking-seat/movie-id">11:00 PM</Link>
             </Button>
 
             <Button
               variant="outline"
-              className="flex h-auto min-w-[100px] items-center justify-center rounded-xl border border-secondary py-3 text-sm font-semibold text-[#21C179] hover:bg-transparent hover:text-[#21C179] dark:border-primary"
+              className="flex !h-12 min-w-[100px] items-center justify-center rounded-xl border border-secondary py-2 text-sm font-semibold text-[#21C179] hover:bg-transparent hover:text-[#21C179] dark:border-primary"
+              asChild
             >
-              03:00 PM
+              <Link href="/booking-seat/movie-id">03:00 PM</Link>
             </Button>
 
             <Button
               variant="outline"
-              className="flex h-auto min-w-[100px] items-center justify-center rounded-xl border border-secondary py-3 text-sm font-semibold text-[#21C179] hover:bg-transparent hover:text-[#21C179] dark:border-primary"
+              className="flex !h-12 min-w-[100px] items-center justify-center rounded-xl border border-secondary py-2 text-sm font-semibold text-[#21C179] hover:bg-transparent hover:text-[#21C179] dark:border-primary"
+              asChild
             >
-              06:00 PM
+              <Link href="/booking-seat/movie-id">06:00 PM</Link>
             </Button>
           </div>
         </div>
@@ -136,23 +140,37 @@ export default function BookingPage() {
           </div>
 
           <div className="flex flex-wrap items-center gap-4">
-            <div className="flex w-[120px] items-center justify-center rounded-xl border border-secondary dark:border-primary">
-              <p className="py-3 text-sm font-semibold text-[#21C179]">
-                11:00 PM
-              </p>
-            </div>
+            <Button
+              variant="outline"
+              className="flex !h-12 min-w-[100px] items-center justify-center rounded-xl border border-secondary py-2 text-sm font-semibold text-[#21C179] hover:bg-transparent hover:text-[#21C179] dark:border-primary"
+              asChild
+            >
+              <Link href="/booking-seat/movie-id">11:00 PM</Link>
+            </Button>
 
-            <div className="flex w-[120px] items-center justify-center rounded-xl border border-secondary dark:border-primary">
-              <p className="py-3 text-sm font-semibold text-[#21C179]">
-                03:00 PM
-              </p>
-            </div>
+            <Button
+              variant="outline"
+              className="flex !h-12 min-w-[100px] items-center justify-center rounded-xl border border-secondary py-2 text-sm font-semibold text-[#21C179] hover:bg-transparent hover:text-[#21C179] dark:border-primary"
+              asChild
+            >
+              <Link href="/booking-seat/movie-id">03:00 PM</Link>
+            </Button>
 
-            <div className="flex w-[120px] items-center justify-center rounded-xl border border-secondary dark:border-primary">
-              <p className="py-3 text-sm font-semibold text-[#21C179]">
-                06:00 PM
-              </p>
-            </div>
+            <Button
+              variant="outline"
+              className="flex !h-12 min-w-[100px] items-center justify-center rounded-xl border border-secondary py-2 text-sm font-semibold text-[#21C179] hover:bg-transparent hover:text-[#21C179] dark:border-primary"
+              asChild
+            >
+              <Link href="/booking-seat/movie-id">06:00 PM</Link>
+            </Button>
+
+            <Button
+              variant="outline"
+              className="flex !h-12 min-w-[100px] items-center justify-center rounded-xl border border-secondary py-2 text-sm font-semibold text-[#21C179] hover:bg-transparent hover:text-[#21C179] dark:border-primary"
+              asChild
+            >
+              <Link href="/booking-seat/movie-id">09:00 PM</Link>
+            </Button>
           </div>
         </div>
         <div className="h-3 bg-secondary/10 dark:bg-secondary/30"></div>
