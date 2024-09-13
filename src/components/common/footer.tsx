@@ -15,8 +15,8 @@ export default function Footer() {
   return (
     <footer className="bg-footer py-16 text-white">
       <div className="container sm:px-14">
-        <div className="flex flex-col gap-10 sm:flex-row sm:justify-between">
-          <div className="space-y-4 sm:w-96">
+        <div className="flex flex-col gap-10 sm:justify-between md:flex-row">
+          <div className="space-y-4 md:w-96">
             <LogoIcon className="size-14" />
             <p className="text-sm">
               We breathe new life into classic action movies, delivering the
@@ -27,7 +27,7 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-col items-start justify-between gap-10 sm:flex-row sm:gap-14">
-            <div className="space-y-5">
+            <div className="flex-1 space-y-5 md:flex-auto">
               <h5>Feature</h5>
               <ul className="flex flex-col gap-[0.9rem] text-sm text-[#ABB7C4]">
                 <li>
@@ -65,7 +65,7 @@ export default function Footer() {
               </ul>
             </div>
 
-            <div className="space-y-5">
+            <div className="flex-1 space-y-5 md:flex-auto">
               <h5>Company</h5>
               <ul className="flex flex-col gap-[0.9rem] text-sm text-[#ABB7C4]">
                 <li>
@@ -95,7 +95,7 @@ export default function Footer() {
               </ul>
             </div>
 
-            <div className="space-y-5">
+            <div className="flex-1 space-y-5 md:flex-auto">
               <h5>Contacts</h5>
               <ul className="flex flex-col gap-[0.9rem] text-sm text-[#ABB7C4]">
                 <li>
@@ -145,6 +145,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
+
         <div className="mt-10 space-y-5 sm:mt-20 sm:flex sm:items-center sm:justify-between sm:space-y-0">
           <div className="sm:order-2">
             <ThemeButton />
