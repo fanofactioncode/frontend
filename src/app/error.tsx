@@ -3,7 +3,7 @@
 import PageLayout from "@/components/layout/page-layout";
 import { Button } from "@/components/ui/button";
 
-export default function Error({
+export default function ErrorPage({
   error,
   reset,
 }: {
@@ -13,7 +13,7 @@ export default function Error({
   return (
     <PageLayout>
       <main className="py-28">
-        <div className="container flex flex-col items-center justify-center">
+        <div className="container flex max-w-[867px] flex-col items-center justify-center bg-red-500">
           <h1 className="text-[150px] font-bold text-text/20">500</h1>
           <h2 className="text-center text-3xl font-bold text-text">
             Something is not right

@@ -1,6 +1,13 @@
 "use client";
 
-import { useState, createContext, useContext } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import {
+  useState,
+  createContext,
+  useContext,
+  useEffect,
+  useCallback,
+} from "react";
 
 export interface NavigationContextProps {
   isOpen: boolean;
@@ -10,11 +17,37 @@ export interface NavigationContextProps {
 const NavigationContext = createContext<NavigationContextProps | null>(null);
 
 export const NavigationProvider = ({ children }: React.PropsWithChildren) => {
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
   const [isNavigationOpen, setIsNavigationOpen] = useState<boolean>(false);
 
   const toggleNavigation = () => {
     setIsNavigationOpen(!isNavigationOpen);
   };
+
+  const showNavigation = useCallback(() => {
+    router.push("?open-menu=true");
+    setIsNavigationOpen(true);
+  }, []);
+
+  const hideNavigation = useCallback(() => {
+    router.refresh();
+    setIsNavigationOpen(false);
+  }, []);
+
+  useEffect(() => {
+    // Close the rolldown menu when the browser's back button has been pressed
+    if (isNavigationOpen && !searchParams.has("open-menu")) {
+      hideNavigation();
+    }
+  }, [pathname, searchParams, isNavigationOpen, hideNavigation]);
+
+  useEffect(() => {
+    if (isNavigationOpen) showNavigation();
+    else hideNavigation();
+  }, [isNavigationOpen]);
 
   return (
     <NavigationContext.Provider

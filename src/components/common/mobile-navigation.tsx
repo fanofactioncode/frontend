@@ -8,6 +8,7 @@ import dynamic from "next/dynamic";
 import { useNavigation } from "@/provider/navigation-provider";
 
 import { FacebookIcon, InstagramIcon, YoutubeIcon } from "../icons";
+import { Button } from "../ui/button";
 
 const ThemeButton = dynamic(() => import("./theme-button"), { ssr: false });
 
@@ -70,6 +71,14 @@ export default function MobileNavigation() {
             Contact
           </Link>
         </li>
+
+        <li>
+          <Button asChild>
+            <Link href="/request-movie" onClick={() => toggleNavigation()}>
+              Request a movie
+            </Link>
+          </Button>
+        </li>
       </ul>
       <div className="flex items-center gap-4 px-5">
         <Link
@@ -95,7 +104,7 @@ export default function MobileNavigation() {
         </Link>
       </div>
 
-      <div className="absolute bottom-28 right-6 [&>button]:!border-foreground [&>div]:border-foreground [&>svg]:fill-foreground [&>svg]:stroke-foreground">
+      <div className="absolute bottom-24 right-6 [&>button]:!border-foreground [&>div]:border-foreground [&>svg]:fill-foreground [&>svg]:stroke-foreground">
         <ThemeButton />
       </div>
     </motion.nav>
