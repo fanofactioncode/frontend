@@ -15,7 +15,7 @@ export default function MenuButton() {
 
   const handleMenuButtonClick = () => {
     if (!isOpen) router.push("?open-menu=true");
-    else router.replace(pathname);
+    else router.refresh();
 
     toggleNavigation();
   };
