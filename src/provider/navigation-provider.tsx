@@ -1,58 +1,48 @@
 "use client";
 
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import {
   useState,
   createContext,
   useContext,
-  useEffect,
   useCallback,
+  useMemo,
 } from "react";
 
 export interface NavigationContextProps {
   isOpen: boolean;
   toggleNavigation: () => void;
+  openNavigation: () => void;
+  closeNavigation: () => void;
 }
 
 const NavigationContext = createContext<NavigationContextProps | null>(null);
 
 export const NavigationProvider = ({ children }: React.PropsWithChildren) => {
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-
   const [isNavigationOpen, setIsNavigationOpen] = useState<boolean>(false);
 
-  const toggleNavigation = () => {
+  const toggleNavigation = useCallback(() => {
     setIsNavigationOpen(!isNavigationOpen);
-  };
+  }, [setIsNavigationOpen, isNavigationOpen]);
 
-  const showNavigation = useCallback(() => {
-    router.push("?open-menu=true");
-    setIsNavigationOpen(true);
-  }, []);
-
-  const hideNavigation = useCallback(() => {
-    router.refresh();
+  const closeNavigation = useCallback(() => {
     setIsNavigationOpen(false);
   }, []);
 
-  useEffect(() => {
-    // Close the rolldown menu when the browser's back button has been pressed
-    if (isNavigationOpen && !searchParams.has("open-menu")) {
-      hideNavigation();
-    }
-  }, [pathname, searchParams, isNavigationOpen, hideNavigation]);
+  const openNavigation = useCallback(() => {
+    setIsNavigationOpen(true);
+  }, []);
 
-  useEffect(() => {
-    if (isNavigationOpen) showNavigation();
-    else hideNavigation();
-  }, [isNavigationOpen]);
+  const value: NavigationContextProps = useMemo(() => {
+    return {
+      isOpen: isNavigationOpen,
+      toggleNavigation,
+      openNavigation,
+      closeNavigation,
+    };
+  }, [isNavigationOpen, toggleNavigation, openNavigation, closeNavigation]);
 
   return (
-    <NavigationContext.Provider
-      value={{ isOpen: isNavigationOpen, toggleNavigation }}
-    >
+    <NavigationContext.Provider value={value}>
       {children}
     </NavigationContext.Provider>
   );

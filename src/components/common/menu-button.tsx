@@ -1,18 +1,37 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { motion, MotionConfig } from "framer-motion";
 
 import { useNavigation } from "@/provider/navigation-provider";
 
 export default function MenuButton() {
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
   const { isOpen, toggleNavigation } = useNavigation();
+
+  const handleMenuButtonClick = () => {
+    if (!isOpen) router.push("?open-menu=true");
+    else router.replace(pathname);
+
+    toggleNavigation();
+  };
+
+  useEffect(() => {
+    // close the rollback menu when the browser's back button has been changed
+    if (isOpen && !searchParams.has("open-menu")) {
+      toggleNavigation();
+    }
+  }, [pathname, searchParams]);
 
   return (
     <MotionConfig transition={{ duration: 0.5, ease: "easeInOut" }}>
       <motion.button
         initial={false}
-        onClick={toggleNavigation}
+        onClick={handleMenuButtonClick}
         className="relative size-9 rounded-full border-[1px] border-secondary dark:border-primary"
         animate={isOpen ? "open" : "close"}
       >

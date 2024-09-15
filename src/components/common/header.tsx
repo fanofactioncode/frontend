@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import Link from "next/link";
 
 import { LogoIcon } from "../icons";
@@ -19,7 +19,9 @@ export default function Header() {
               <LogoIcon className="size-12" />
             </Link>
 
-            <MenuButton />
+            <Suspense fallback={null}>
+              <MenuButton />
+            </Suspense>
           </div>
         </div>
       </header>
