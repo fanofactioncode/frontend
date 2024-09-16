@@ -13,7 +13,7 @@ export default function ErrorPage({
   return (
     <PageLayout>
       <main className="py-28">
-        <div className="container flex max-w-[867px] flex-col items-center justify-center bg-red-500">
+        <div className="container flex max-w-[867px] flex-col items-center justify-center">
           <h1 className="text-[150px] font-bold text-text/20">500</h1>
           <h2 className="text-center text-3xl font-bold text-text">
             Something is not right
