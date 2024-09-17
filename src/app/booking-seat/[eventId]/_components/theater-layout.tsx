@@ -6,13 +6,54 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 import { theaterLayoutReponse } from "../_mock/response";
+import { ILayout, ISeat } from "../_types/response.type";
 
 import Screen from "./screen";
 
 export default function TheaterLayout() {
-  const [selectedSeats, setSelectedSeats] = useState<string[]>([]);
+  const [selectedSeats, setSelectedSeats] = useState<ISeat[]>([]);
+  const [choosedSection, setChoosedSection] = useState<ILayout | null>(null);
 
-  const _gridColsRepeat = `grid-cols-[repeat(${theaterLayoutReponse.maxSeats + 1},_minmax(0,_32px))]`;
+  function checkIfItIsSpace(seat: ISeat): boolean {
+    return seat.type === "space";
+  }
+
+  function checkIsItPreviouslyChoosedSection(layout: ILayout): boolean {
+    if (choosedSection === null) return true;
+
+    return layout.type === choosedSection.type;
+  }
+
+  function isAlreadySelectedSeat(seat: ISeat): boolean {
+    return selectedSeats.some((selectedSeat) => selectedSeat.id === seat.id);
+  }
+
+  function isAlreadyBookedSeat(seat: ISeat): boolean {
+    return seat.bookingStatus === "booked";
+  }
+
+  function selectSeat(seat: ISeat) {
+    setSelectedSeats((prev) => [...prev, seat]);
+  }
+
+  function unselectSeat(seat: ISeat) {
+    setSelectedSeats((prev) =>
+      prev.filter((selectedSeat) => selectedSeat.id !== seat.id)
+    );
+  }
+
+  function isMaximumNumberOfSeatsSelected(): boolean {
+    return selectedSeats.length >= 10;
+  }
+
+  function selectSection(layout: ILayout) {
+    setChoosedSection(layout);
+  }
+
+  const isAnySeatSelected = selectedSeats.length > 0 && choosedSection !== null;
+  const ticketPrice = choosedSection?.price ?? 0;
+  const totalPrice = ticketPrice * selectedSeats.length;
+  const totalNumberOfSeatsSelected = selectedSeats.length;
 
   return (
     <>
@@ -28,41 +69,50 @@ export default function TheaterLayout() {
             <div
               key={layout.type}
               className={cn(
-                "mt-2 grid grid-cols-[repeat(24,_minmax(0,_32px))] items-center justify-center gap-2"
-                //   gridColsRepeat
+                "mt-2 grid items-center justify-center gap-1 sm:gap-2"
               )}
+              style={{
+                gridTemplateColumns: `repeat(${theaterLayoutReponse.maxSeats + 1}, minmax(0, 32px))`,
+              }}
             >
               {layout.rows.map((row) => (
                 <>
                   <div className="grid size-8 select-none place-content-center rounded-sm">
                     <p className="text-sm text-text">{row.label}</p>
                   </div>
-                  {row.seats.map((seat) => (
+                  {row.seats.map((seat, idx) => (
                     <button
-                      key={seat.id}
+                      key={layout.type + seat.label + seat.id + idx}
                       className={cn(
-                        "grid size-8 cursor-pointer select-none place-content-center rounded-sm border-2 border-[#b9f18c] text-sm font-medium text-text transition-all duration-150 hover:border-[#102132] hover:bg-[#102132]/80 hover:text-white",
-                        seat?.type === "space" ? "invisible" : "",
-                        selectedSeats.includes(seat.id) &&
+                        "grid size-6 cursor-pointer select-none place-content-center rounded-sm border-2 border-[#b9f18c] text-xs font-medium text-text transition-all duration-150 hover:border-[#102132] hover:bg-[#102132]/80 hover:text-white sm:size-8 sm:text-sm",
+                        checkIfItIsSpace(seat) ? "invisible" : "",
+                        isAlreadySelectedSeat(seat) &&
                           "border-[#102132] bg-[#102132] text-white hover:bg-[#102132]",
-                        seat?.bookingStatus === "booked" &&
+                        isAlreadyBookedSeat(seat) &&
                           "cursor-not-allowed border-[#E1E1E1] bg-[#E1E1E1] text-[#2D2D2D] hover:border-[#E1E1E1] hover:bg-[#E1E1E1] hover:text-[#2D2D2D]"
                       )}
-                      disabled={seat?.bookingStatus === "booked"}
+                      disabled={isAlreadyBookedSeat(seat)}
                       onClick={() => {
-                        if (seat.type === "space") return;
+                        if (checkIfItIsSpace(seat)) return;
 
-                        if (selectedSeats.includes(seat.id)) {
-                          setSelectedSeats(
-                            selectedSeats.filter((id) => id !== seat.id)
-                          );
-                        } else {
-                          if (selectedSeats.length < 10) {
-                            setSelectedSeats([...selectedSeats, seat.id]);
-                          } else {
-                            alert("Enough is enough");
+                        if (!checkIsItPreviouslyChoosedSection(layout)) {
+                          if (confirm("You are going to other section")) {
+                            selectSection(layout);
+                            setSelectedSeats([seat]);
                           }
+
+                          return;
                         }
+
+                        selectSection(layout);
+
+                        if (isAlreadySelectedSeat(seat))
+                          return unselectSeat(seat);
+
+                        if (isMaximumNumberOfSeatsSelected())
+                          return alert("Enough is enough");
+
+                        selectSeat(seat);
                       }}
                     >
                       {seat.label}
@@ -75,15 +125,17 @@ export default function TheaterLayout() {
         ))}
       </main>
 
-      {selectedSeats.length > 0 && (
-        <div className="sticky bottom-0 bg-secondary/35 py-5">
+      {isAnySeatSelected && (
+        <div className="sticky bottom-0 bg-secondary py-5">
           <div className="container flex items-center justify-between">
             <div>
-              <p className="text-lg font-bold text-text">₹ 160.00</p>
-              <p className="text-base text-text-sub">Ticket 4 x 160.00</p>
+              <p className="text-lg font-bold text-text">₹ {ticketPrice}</p>
+              <p className="text-base text-text-sub">
+                Ticket {totalNumberOfSeatsSelected} x {ticketPrice}
+              </p>
             </div>
 
-            <Button>Pay ₹ {160.0 * selectedSeats.length}</Button>
+            <Button>Pay ₹ {totalPrice}</Button>
           </div>
         </div>
       )}

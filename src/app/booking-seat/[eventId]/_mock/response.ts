@@ -1,7 +1,7 @@
 import { ILayoutResponse } from "../_types/response.type";
 
 export const theaterLayoutReponse: ILayoutResponse = {
-  maxSeats: 21,
+  maxSeats: 23,
   layout: [
     {
       type: "Premium",
