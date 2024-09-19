@@ -57,13 +57,14 @@ export default function Home() {
             />
           </svg>
 
-          <div className="relative h-[200px] overflow-hidden rounded-2xl border-4 border-secondary md:h-[450px] md:rounded-3xl md:border-[10px]">
+          <div className="relative aspect-video overflow-hidden rounded-2xl border-4 border-secondary md:rounded-3xl md:border-8">
             <Image
               src="/video-thumbnail.jpg"
               alt="Fan of action intro video thumbnail"
               width={0}
               height={0}
               sizes="100vw"
+              objectFit="cover"
               className="h-auto w-full"
             />
 
