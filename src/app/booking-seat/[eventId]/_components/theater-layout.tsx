@@ -2,13 +2,13 @@
 
 import React, { useState } from "react";
 
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 import { theaterLayoutReponse } from "../_mock/response";
 import { ILayout, ISeat } from "../_types/response.type";
 
 import Screen from "./screen";
+import BookingFooter from "./booking-footer";
 
 export default function TheaterLayout() {
   const [selectedSeats, setSelectedSeats] = useState<ISeat[]>([]);
@@ -37,9 +37,12 @@ export default function TheaterLayout() {
   }
 
   function unselectSeat(seat: ISeat) {
-    setSelectedSeats((prev) =>
-      prev.filter((selectedSeat) => selectedSeat.id !== seat.id)
+    const newSelectedSeats = selectedSeats.filter(
+      (selectedSeat) => selectedSeat.id !== seat.id
     );
+    setSelectedSeats(newSelectedSeats);
+
+    if (newSelectedSeats.length === 0) setChoosedSection(null);
   }
 
   function isMaximumNumberOfSeatsSelected(): boolean {
@@ -125,20 +128,12 @@ export default function TheaterLayout() {
         ))}
       </main>
 
-      {isAnySeatSelected && (
-        <div className="sticky bottom-0 bg-secondary py-5">
-          <div className="container flex items-center justify-between">
-            <div>
-              <p className="text-lg font-bold text-text">₹ {ticketPrice}</p>
-              <p className="text-base text-text-sub">
-                Ticket {totalNumberOfSeatsSelected} x {ticketPrice}
-              </p>
-            </div>
-
-            <Button>Pay ₹ {totalPrice}</Button>
-          </div>
-        </div>
-      )}
+      <BookingFooter
+        isAnySeatSelected={isAnySeatSelected}
+        ticketPrice={ticketPrice}
+        totalNumberOfSeatsSelected={totalNumberOfSeatsSelected}
+        totalPrice={totalPrice}
+      />
     </>
   );
 }
