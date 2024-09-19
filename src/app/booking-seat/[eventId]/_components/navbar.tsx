@@ -47,7 +47,7 @@ export default function Navbar() {
       </header>
 
       <div className="border-b bg-background py-2">
-        <div className="container flex flex-wrap items-center justify-between gap-4">
+        <div className="container flex flex-wrap items-center justify-between gap-6">
           <div className="flex items-center gap-2">
             <Button
               variant="secondary"
@@ -65,7 +65,7 @@ export default function Navbar() {
             </Button>
           </div>
 
-          <div className="flex items-center gap-8">
+          <div className="flex flex-1 items-center justify-between sm:flex-none sm:justify-normal sm:gap-8">
             <div className="flex items-center gap-2">
               <div className="size-4 rounded-sm border-2 border-[#B9F18C]"></div>
               <p className="text-xs font-semibold uppercase text-text">
