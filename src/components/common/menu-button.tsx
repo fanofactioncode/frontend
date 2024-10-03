@@ -32,7 +32,7 @@ export default function MenuButton() {
       <motion.button
         initial={false}
         onClick={handleMenuButtonClick}
-        className="relative size-9 rounded-full border-[1px] border-secondary dark:border-primary"
+        className="relative size-9 rounded-full border-[1px] border-secondary dark:border-primary md:hidden"
         animate={isOpen ? "open" : "close"}
       >
         <motion.span
