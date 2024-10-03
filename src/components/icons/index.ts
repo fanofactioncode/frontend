@@ -17,6 +17,11 @@ export { SearchIcon } from "./search-icon";
 export { TrendingIcon } from "./trending-icon";
 export { MoreInfoIcon } from "./more-info-icon";
 export { GetLocationIcon } from "./get-location-icon";
+export { ReReleaseIcon } from "./re-release-icon";
+export { RecommendationIcon } from "./recommendation-icon";
+export { ReviewIcon } from "./review-icon";
+export { ArrowRightIcon } from "./arrow-right-icon";
+export { TicketIcon } from "./ticket-icon";
 
 import type { IconProps } from "./types";
 
