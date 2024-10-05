@@ -114,4 +114,12 @@
     padding-left: 0.85em;
     padding-right: 0.85em;
   }
+
+  .touce-action-pinch-zoom {
+    touch-action: pan-y pinch-zoom;
+  }
+
+  .translate-3d-0 {
+    transform: translate3d(0, 0, 0);
+  }
 }

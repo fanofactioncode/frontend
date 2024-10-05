@@ -3,29 +3,27 @@ import Image from "next/image";
 
 import Badge from "@/components/ui/badge";
 import {
-  ArrowRightIcon,
   PlayIcon,
   RecommendationIcon,
   ReReleaseIcon,
   ReviewIcon,
 } from "@/components/icons";
-import { Button } from "@/components/ui/button";
 import PreviousEvents from "@/components/common/previous-events";
 
 export default function AboutUsPage() {
   return (
     <>
-      <main className="container py-16 sm:flex sm:py-24">
-        <div className="flex flex-col gap-10 sm:flex-row">
-          <div className="flex flex-1 flex-col items-center justify-center gap-2 sm:items-start sm:justify-start">
-            <h1 className="text-center text-4xl font-bold text-text sm:text-balance sm:text-left sm:text-6xl sm:font-extrabold sm:leading-tight">
+      <main className="container py-16 md:flex md:py-24">
+        <div className="flex flex-col gap-10 md:flex-row">
+          <div className="flex flex-1 flex-col items-center justify-center gap-2 md:items-start md:justify-start">
+            <h1 className="text-balance text-center text-4xl font-bold text-text sm:text-5xl sm:leading-tight md:text-left md:text-6xl md:font-extrabold md:leading-tight">
               Are you{" "}
               <span className="rounded-xl bg-[#B9F18C] px-1.5 py-0.5 dark:bg-[#FF499E]">
                 excited
               </span>{" "}
               about us, want to know more ?
             </h1>
-            <p className="text-center text-sm text-text-sub sm:text-start sm:text-base">
+            <p className="text-center text-sm text-text-sub sm:text-base md:text-start">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi
               sapiente alias perspiciatis, ipsam blanditiis quidem soluta non.
               Obcaecati ipsam qui officia nemo rem, quasi facere, vero, eius
@@ -33,7 +31,7 @@ export default function AboutUsPage() {
             </p>
           </div>
 
-          <div className="relative aspect-video flex-1 overflow-hidden rounded-2xl border-4 border-secondary bg-gray-400 dark:border-primary">
+          <div className="relative aspect-video flex-1 cursor-pointer overflow-hidden rounded-2xl border-4 border-secondary bg-gray-400 dark:border-primary md:border-8">
             <Image
               src="/video-thumbnail.jpg"
               alt="Fan of action intro video thumbnail"
@@ -55,13 +53,13 @@ export default function AboutUsPage() {
       <section className="container py-16 sm:py-24">
         <div className="flex w-full flex-col items-center justify-center gap-3">
           <Badge>What we do</Badge>
-          <h2 className="text-center text-4xl font-bold text-text">
+          <h2 className="text-center text-4xl font-bold text-text md:max-w-[840px] md:text-5xl">
             Do you want to know what we do for you ?
           </h2>
         </div>
 
-        <div className="mt-16 space-y-16 sm:flex sm:items-start sm:gap-16 sm:space-y-0">
-          <div className="space-y-4 rounded-2xl border border-secondary bg-[#F8F8F8] px-6 py-9 dark:border-secondary dark:bg-secondary/50 sm:space-y-5 sm:px-9 sm:py-14">
+        <div className="mt-16 space-y-16 sm:flex-wrap sm:items-start md:flex md:gap-16 md:space-y-0">
+          <div className="flex-1 space-y-4 rounded-2xl border border-secondary bg-[#F8F8F8] px-6 py-9 dark:border-secondary dark:bg-secondary/50 sm:space-y-5 sm:px-9 sm:py-14">
             <div className="flex size-16 items-center justify-center rounded-full bg-[#FFC300]/15">
               <ReReleaseIcon className="size-8 stroke-[#FFC300]" />
             </div>
@@ -74,7 +72,7 @@ export default function AboutUsPage() {
             </p>
           </div>
 
-          <div className="space-y-4 rounded-2xl border border-secondary bg-[#F8F8F8] px-6 py-9 dark:border-secondary dark:bg-secondary/50 sm:space-y-5 sm:px-9 sm:py-14">
+          <div className="flex-1 space-y-4 rounded-2xl border border-secondary bg-[#F8F8F8] px-6 py-9 dark:border-secondary dark:bg-secondary/50 sm:space-y-5 sm:px-9 sm:py-14">
             <div className="flex size-16 items-center justify-center rounded-full bg-[#6C00FF]/15">
               <RecommendationIcon className="size-8 stroke-[#6C00FF]" />
             </div>
@@ -87,7 +85,7 @@ export default function AboutUsPage() {
             </p>
           </div>
 
-          <div className="space-y-4 rounded-2xl border border-secondary bg-[#F8F8F8] px-6 py-9 dark:border-secondary dark:bg-secondary/50 sm:space-y-5 sm:px-9 sm:py-14">
+          <div className="flex-1 space-y-4 rounded-2xl border border-secondary bg-[#F8F8F8] px-6 py-9 dark:border-secondary dark:bg-secondary/50 sm:space-y-5 sm:px-9 sm:py-14">
             <div className="flex size-16 items-center justify-center rounded-full bg-[#00BDFF]/15">
               <ReviewIcon className="size-8 stroke-[#00BDFF]" />
             </div>
@@ -104,7 +102,7 @@ export default function AboutUsPage() {
 
       <section className="py-16 sm:py-24">
         <div className="container">
-          <div className="space-y-3 sm:w-1/2">
+          <div className="space-y-3 md:w-1/2">
             <Badge>Previously on</Badge>
             <h2 className="text-4xl font-bold text-text sm:text-5xl">
               Here is some of our previous events, you may love
@@ -113,15 +111,6 @@ export default function AboutUsPage() {
               Here are some of our previously done events. If you missed you can
               book it inside your city. Hurray!
             </p>
-          </div>
-          <div className="flex items-end justify-end py-4">
-            <Button
-              variant="outline"
-              size="icon"
-              className="!rounded-full border-secondary"
-            >
-              <ArrowRightIcon className="size-3.5 stroke-primary" />
-            </Button>
           </div>
         </div>
 
