@@ -5,16 +5,16 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 
 import { cn } from "@/lib/utils";
+import {
+  usePrevNextButtons,
+  NextButton,
+  PrevButton,
+} from "@/components/common/carousel-arrow-buttons";
 
 import { DotButton, useDotButton } from "./carousel-dot-button";
 import MovieCarouselItem, {
   type MovieCarouselItemProps,
 } from "./movie-carousel-item";
-import {
-  usePrevNextButtons,
-  NextButton,
-  PrevButton,
-} from "./carousel-arrow-buttons";
 
 const movies: MovieCarouselItemProps[] = [
   {
