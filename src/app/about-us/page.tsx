@@ -58,7 +58,7 @@ export default function AboutUsPage() {
           </h2>
         </div>
 
-        <div className="mt-16 space-y-16 sm:flex-wrap sm:items-start md:flex md:gap-16 md:space-y-0">
+        <div className="mt-16 space-y-16 sm:flex-wrap sm:items-start sm:gap-4 md:flex md:gap-6 md:space-y-0 lg:gap-16">
           <div className="flex-1 space-y-4 rounded-2xl border border-secondary bg-[#F8F8F8] px-6 py-9 dark:border-secondary dark:bg-secondary/50 sm:space-y-5 sm:px-9 sm:py-14">
             <div className="flex size-16 items-center justify-center rounded-full bg-[#FFC300]/15">
               <ReReleaseIcon className="size-8 stroke-[#FFC300]" />
