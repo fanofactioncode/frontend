@@ -14,8 +14,8 @@ export default function AboutUsPage() {
   return (
     <>
       <main className="container py-16 md:flex md:py-24">
-        <div className="flex flex-col gap-10 md:flex-row">
-          <div className="flex flex-1 flex-col items-center justify-center gap-2 md:items-start md:justify-start">
+        <div className="flex flex-col items-start gap-10 md:flex-row">
+          <div className="flex w-full flex-col items-center justify-center gap-2 md:w-1/2 md:items-start md:justify-start">
             <h1 className="text-balance text-center text-4xl font-bold text-text sm:text-5xl sm:leading-tight md:text-left md:text-6xl md:font-extrabold md:leading-tight">
               Are you{" "}
               <span className="rounded-xl bg-[#B9F18C] px-1.5 py-0.5 dark:bg-[#FF499E]">
@@ -31,7 +31,7 @@ export default function AboutUsPage() {
             </p>
           </div>
 
-          <div className="relative aspect-video flex-1 cursor-pointer overflow-hidden rounded-2xl border-4 border-secondary bg-gray-400 dark:border-primary md:border-8">
+          <div className="relative aspect-video w-full cursor-pointer overflow-hidden rounded-2xl border-4 border-secondary bg-gray-400 dark:border-primary md:w-1/2 md:border-8">
             <Image
               src="/video-thumbnail.jpg"
               alt="Fan of action intro video thumbnail"
