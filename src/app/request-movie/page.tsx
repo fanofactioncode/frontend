@@ -7,8 +7,8 @@ import MovieRequestForm from "./_components/form";
 export default function RequestMoviePage() {
   return (
     <PageLayout>
-      <main className="container py-16 sm:py-24">
-        <h1 className="mx-auto max-w-[750px] text-center text-4xl font-bold leading-snug text-text sm:text-6xl">
+      <main className="container py-16 sm:py-24 sm:pb-40">
+        <h1 className="mx-auto max-w-[850px] text-center text-4xl font-bold leading-snug text-text sm:text-6xl sm:font-extrabold">
           What you want to{" "}
           <span className="rounded-xl bg-[#B9F18C] px-1.5 py-0.5 dark:bg-[#FF499E]">
             watch

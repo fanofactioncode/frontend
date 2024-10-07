@@ -14,7 +14,7 @@ export default function MovieRequestForm() {
 
   return (
     <>
-      <div className="mx-auto mt-8 flex max-w-[750px] flex-col gap-6 rounded-2xl border border-secondary p-6 dark:border-primary sm:mt-12 sm:flex-row sm:items-center">
+      <div className="mx-auto mt-8 flex max-w-[890px] flex-col overflow-hidden rounded-2xl border border-secondary dark:border-primary sm:mt-12 sm:flex-row sm:items-center sm:gap-6">
         <ItemPicker
           Icon={MovieIcon}
           title="Movie"
@@ -22,7 +22,9 @@ export default function MovieRequestForm() {
           onClick={() => router.push("/request-movie/select-movie")}
         />
 
-        <Divider />
+        <div className="px-6 py-0 sm:px-0 sm:py-6">
+          <Divider />
+        </div>
 
         <ItemPicker
           Icon={MapIcon}
@@ -31,7 +33,9 @@ export default function MovieRequestForm() {
           onClick={() => router.push("/request-movie/select-city")}
         />
 
-        <Button className="hidden sm:flex">Submit</Button>
+        <div className="hidden p-6 ps-0 sm:flex">
+          <Button className="px-12">Submit</Button>
+        </div>
       </div>
 
       <Button className="mt-8 w-full sm:hidden">Submit</Button>

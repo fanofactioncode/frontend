@@ -16,7 +16,10 @@ export default function ItemPicker({
   onClick,
 }: ItemPickerProps) {
   return (
-    <div className="flex flex-col gap-2 sm:flex-1" onClick={onClick}>
+    <div
+      className="flex cursor-pointer flex-col gap-2 p-6 sm:flex-1"
+      onClick={onClick}
+    >
       <div className="flex flex-row items-center gap-2">
         <Icon size={18} color="#B9F18C" />
         <p className="select-none text-base font-semibold text-text">{title}</p>
