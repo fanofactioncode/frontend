@@ -22,7 +22,7 @@ export default function ContactUsPage() {
             <Badge>Get Started</Badge>
           </div>
           <div className="mt-3 flex items-start justify-between gap-6">
-            <h1 className="text-4xl font-bold text-text sm:text-center sm:text-5xl sm:leading-tight">
+            <h1 className="text-4xl font-extrabold text-text sm:text-center sm:text-5xl sm:leading-tight">
               Get in touch with us. We&apos;re here to assist you.
             </h1>
 

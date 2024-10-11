@@ -53,7 +53,7 @@ export default function MovieCarousel() {
     <div className="embla relative py-4" ref={emblaRef}>
       <div className="embla__container">
         {movies.map((movie) => (
-          <div className="embla__slide container md:px-4" key={movie.poster}>
+          <div className="shrink-0` container" key={movie.poster}>
             <MovieCarouselItem {...movie} />
           </div>
         ))}
