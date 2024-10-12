@@ -50,10 +50,10 @@ export default function MovieCarousel() {
   const { selectedIndex, onDotButtonClick } = useDotButton(emblaApi);
 
   return (
-    <div className="embla relative py-4" ref={emblaRef}>
+    <div className="embla relative py-4 md:pb-6 md:pt-4" ref={emblaRef}>
       <div className="embla__container">
         {movies.map((movie) => (
-          <div className="container shrink-0" key={movie.poster}>
+          <div className="container shrink-0 md:px-4" key={movie.poster}>
             <MovieCarouselItem {...movie} />
           </div>
         ))}
@@ -75,7 +75,7 @@ export default function MovieCarousel() {
             key={index}
             onClick={() => onDotButtonClick(index)}
             className={cn(
-              "size-1.5 rounded-full bg-secondary",
+              "size-1.5 rounded-full bg-secondary md:size-2.5",
               selectedIndex === index && "bg-primary"
             )}
           />

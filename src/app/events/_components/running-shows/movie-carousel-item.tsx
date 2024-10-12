@@ -18,7 +18,7 @@ export default function MovieCarouselItem({
   language,
 }: MovieCarouselItemProps) {
   return (
-    <div className="relative flex h-[200px] overflow-hidden rounded-2xl sm:h-[450px] sm:rounded-3xl">
+    <div className="relative flex h-[200px] overflow-hidden rounded-2xl sm:h-[480px] sm:rounded-3xl">
       <Image
         src={poster}
         className="z-0 h-full w-full object-cover"
@@ -36,7 +36,10 @@ export default function MovieCarouselItem({
             className="h-auto w-full sm:w-60"
           />
         </div>
-        <p className="text-xs font-semibold text-white/70">{language}</p>
+
+        <p className="text-xs font-semibold text-white/70 md:text-sm md:font-medium md:text-white">
+          {language}
+        </p>
         <Button
           size="sm"
           variant="secondary"

@@ -59,7 +59,7 @@ export default async function UpcomingMovies() {
       <h1 className="text-lg font-bold text-text sm:text-3xl">
         Upcoming Events
       </h1>
-      <div className="grid grid-cols-2 gap-x-5 gap-y-10 sm:grid-cols-4 sm:gap-8 md:grid-cols-6">
+      <div className="grid grid-cols-2 gap-x-5 gap-y-10 sm:grid-cols-4 sm:gap-8 md:grid-cols-5">
         {movies.map((movie) => (
           <UpcomingMovieItem key={movie.name} {...movie} />
         ))}

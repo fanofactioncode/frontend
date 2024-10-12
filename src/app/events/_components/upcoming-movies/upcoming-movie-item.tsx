@@ -18,8 +18,11 @@ export default function UpcomingMovieItem({
   rating,
 }: UpcomingMovieItemProps) {
   return (
-    <Link href={`/events/${name}`} className="space-y-2 overflow-hidden">
-      <div className="relative overflow-hidden rounded-lg">
+    <Link
+      href={`/events/${name}`}
+      className="space-y-2 overflow-hidden md:space-y-4"
+    >
+      <div className="relative overflow-hidden rounded-lg md:rounded-xl">
         <Image
           src={poster}
           alt={name}
@@ -29,14 +32,16 @@ export default function UpcomingMovieItem({
           className="h-auto w-full"
         />
       </div>
-      <div className="space-y-1.5">
-        <h2 className="truncate text-sm font-semibold text-text">{name}</h2>
-        <p className="truncate text-xs text-text-sub">
+      <div className="space-y-1.5 md:space-y-2">
+        <h2 className="truncate text-sm font-semibold text-text md:text-base">
+          {name}
+        </h2>
+        <p className="truncate text-xs text-text-sub md:text-sm">
           {languages.join(" | ")}
         </p>
         <div className="flex items-center gap-2">
           <Image src="/imdb-logo.svg" width={30} height={30} alt="IMDb" />
-          <p className="text-xs text-text-sub">{rating}/10</p>
+          <p className="text-xs text-text-sub md:text-sm">{rating}/10</p>
         </div>
       </div>
     </Link>
