@@ -3,7 +3,7 @@
 import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
 
-import Badge from "@/components/ui/badge";
+import { Badge } from "@/components/ui/badge";
 
 import { UpcomingMovieItemProps } from "../../_components/upcoming-movies/upcoming-movie-item";
 

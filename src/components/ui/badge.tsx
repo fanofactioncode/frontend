@@ -24,7 +24,7 @@ export interface BadgeProps
   className?: string;
 }
 
-export default function Badge({ children, size, className }: BadgeProps) {
+export function Badge({ children, size, className }: BadgeProps) {
   return (
     <span className={cn(badgeVariants({ size }), className)}>{children}</span>
   );

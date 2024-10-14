@@ -1,8 +1,9 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { StarIcon } from "lucide-react";
 
-import Badge from "@/components/ui/badge";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { PlayIcon } from "@/components/icons";
 
@@ -120,7 +121,7 @@ export default function EventDetailsPage() {
               className="-z-10 h-full w-full object-cover"
               fill
             />
-            <div className="z-50 flex h-full w-8/12 items-start gap-[1.875rem] bg-gradient-to-r from-primary from-35% via-primary/80 via-75% to-transparent to-100% p-[3.75rem] dark:from-secondary dark:via-secondary/80">
+            <div className="z-50 flex h-full items-start gap-[1.875rem] bg-gradient-to-r from-primary from-35% via-primary/80 via-75% to-transparent to-100% p-[3.75rem] dark:from-secondary dark:via-secondary/80 sm:w-full md:w-9/12">
               <div className="relative w-52 shrink-0 overflow-hidden rounded-xl">
                 <Image
                   src="/assets/planet-of-the-apes-potrate.png"
@@ -152,8 +153,9 @@ export default function EventDetailsPage() {
                   <Badge className="border-none bg-[#ABB7C4] dark:bg-[#ABB7C4] dark:text-black">
                     2 hr 15 min
                   </Badge>
-                  <Badge className="border-none bg-[#ABB7C4] dark:bg-[#ABB7C4] dark:text-black">
+                  <Badge className="flex items-center gap-2 border-none bg-[#ABB7C4] dark:bg-[#ABB7C4] dark:text-black">
                     7.5
+                    <StarIcon size={14} />
                   </Badge>
                 </div>
 

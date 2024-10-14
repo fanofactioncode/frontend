@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-import Badge from "@/components/ui/badge";
+import { Badge } from "@/components/ui/badge";
 
 export default function TermsAndConditionsPage() {
   return (

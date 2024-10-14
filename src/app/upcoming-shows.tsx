@@ -5,7 +5,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import Link from "next/link";
 import { LucideArrowRight } from "lucide-react";
 
-import Badge from "@/components/ui/badge";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
 const movies = [
