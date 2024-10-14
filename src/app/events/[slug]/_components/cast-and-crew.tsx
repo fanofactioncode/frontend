@@ -68,7 +68,7 @@ export default function CastAndCrew() {
   });
 
   return (
-    <section className="space-y-3 py-12">
+    <section className="space-y-3 py-12 sm:hidden">
       <h2 className="px-4 text-lg font-bold text-text">Cast & Crew</h2>
 
       <div className="embla relative px-4" ref={emblaRef}>
