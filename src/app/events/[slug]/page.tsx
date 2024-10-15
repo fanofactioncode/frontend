@@ -160,9 +160,11 @@ export default function EventDetailsPage() {
                 </div>
 
                 <div></div>
-                <Button className="mt-11 bg-white text-primary hover:bg-white/65 dark:text-secondary">
-                  Book Tickets
-                </Button>
+                <Link href={`/booking/the-ministry-of-ungentlemanly-warfare`}>
+                  <Button className="mt-11 bg-white text-primary hover:bg-white/65 dark:text-secondary">
+                    Book Tickets
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>

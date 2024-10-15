@@ -23,7 +23,7 @@ export default function BookingPage() {
               The Ministry of Ungentlemanly Warfare
             </h1>
             <p className="text-sm text-text">Action, Adventure, Comedy</p>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2">
               <Badge>2 hr 15 min</Badge>
               <Badge className="flex items-center gap-2">
                 7.8 <StarIcon size={14} />
@@ -46,6 +46,7 @@ export default function BookingPage() {
             </div>
           </div>
         </div>
+
         <div className="relative h-[120px] overflow-hidden rounded-2xl md:hidden">
           <Image
             src="/assets/bad-boys.png"
@@ -190,7 +191,7 @@ export default function BookingPage() {
             </Button>
           </div>
 
-          <div className="absolute bottom-0 hidden h-[1px] w-full bg-input md:block"></div>
+          <div className="absolute bottom-0 left-1/2 hidden h-[1px] w-[calc(100%-6rem)] -translate-x-1/2 bg-input md:block"></div>
         </div>
         <div className="h-3 bg-secondary/10 dark:bg-secondary/30 md:hidden"></div>
         <div className="container relative space-y-6 py-6 md:flex md:space-y-0">
@@ -259,7 +260,7 @@ export default function BookingPage() {
             </Button>
           </div>
 
-          <div className="absolute bottom-0 hidden h-[1px] w-full bg-input md:block"></div>
+          <div className="absolute bottom-0 left-1/2 hidden h-[1px] w-[calc(100%-6rem)] -translate-x-1/2 bg-input md:block"></div>
         </div>
         <div className="h-3 bg-secondary/10 dark:bg-secondary/30 md:hidden"></div>
       </section>

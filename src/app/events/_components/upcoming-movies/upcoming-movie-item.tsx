@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-type Languages = "English" | "हिन्दी" | "தமிழ்";
+export type Languages = "English" | "हिन्दी" | "தமிழ்";
 
 export interface UpcomingMovieItemProps {
   poster: string;

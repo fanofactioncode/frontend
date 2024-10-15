@@ -39,7 +39,7 @@ export default function UpcomingShows() {
   const [emblaRef] = useEmblaCarousel({ skipSnaps: true });
 
   return (
-    <section className="py-5">
+    <section className="py-5 md:hidden">
       <div className="container space-y-2">
         <Badge className="rounded-xl">Next to watch</Badge>
         <div className="flex items-center justify-between">

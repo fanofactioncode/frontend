@@ -37,13 +37,18 @@ export default function MovieCarouselItem({
           />
         </div>
 
-        <p className="text-xs font-semibold text-white/70 md:text-sm md:font-medium md:text-white">
+        <p className="text-xs font-semibold text-white/70 md:mt-2 md:text-base md:font-medium md:text-white">
           {language}
         </p>
+        <Link href={`/booking/${name.toLowerCase().replaceAll(" ", "-")}`}>
+          <Button className="mt-2 hidden bg-white text-black hover:bg-white/90 sm:flex">
+            Book Tickets
+          </Button>
+        </Link>
         <Button
           size="sm"
           variant="secondary"
-          className="mt-2 rounded-lg p-2 px-4 text-sm dark:bg-primary dark:text-black"
+          className="mt-2 rounded-lg p-2 px-4 text-sm dark:bg-primary dark:text-black sm:hidden"
           asChild
         >
           <Link href={`/booking/${name.toLowerCase().replaceAll(" ", "-")}`}>
