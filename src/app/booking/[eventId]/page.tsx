@@ -13,6 +13,8 @@ import {
 } from "@/components/ui/tooltip";
 import { GetLocationIcon, MoreInfoIcon, PlayIcon } from "@/components/icons";
 
+import ShowDates from "./_components/show-dates";
+
 export default function BookingPage() {
   return (
     <>
@@ -72,49 +74,8 @@ export default function BookingPage() {
             </div>
           </div>
         </div>
-
-        <div className="flex items-center gap-2 py-5">
-          <div className="flex h-[75px] w-[65px] items-center justify-center rounded-lg bg-secondary p-3">
-            <p className="text-base font-bold text-primary">Jul</p>
-          </div>
-
-          <Button
-            variant="outline"
-            className="flex !h-[75px] !w-[70px] flex-col items-center justify-center rounded-lg border border-secondary bg-background p-3"
-          >
-            <p className="text-center text-xs font-bold text-primary dark:text-white">
-              Sunday
-            </p>
-            <p className="text-2xl font-bold text-primary dark:text-white">
-              06
-            </p>
-          </Button>
-
-          <Button
-            variant="outline"
-            className="flex !h-[75px] !w-[70px] flex-col items-center justify-center rounded-lg border border-secondary bg-background p-3"
-          >
-            <p className="text-center text-xs font-bold text-primary dark:text-white">
-              Monday
-            </p>
-            <p className="text-2xl font-bold text-primary dark:text-white">
-              07
-            </p>
-          </Button>
-
-          <Button
-            variant="outline"
-            className="flex !h-[75px] !w-[70px] flex-col items-center justify-center rounded-lg border border-secondary bg-background p-3"
-          >
-            <p className="text-center text-xs font-bold text-primary dark:text-white">
-              Tuesday
-            </p>
-            <p className="text-2xl font-bold text-primary dark:text-white">
-              08
-            </p>
-          </Button>
-        </div>
       </main>
+      <ShowDates />
 
       <section>
         <div className="h-3 bg-secondary/10 dark:bg-secondary/30 md:hidden"></div>
@@ -191,7 +152,7 @@ export default function BookingPage() {
             </Button>
           </div>
 
-          <div className="absolute bottom-0 left-1/2 hidden h-[1px] w-[calc(100%-6rem)] -translate-x-1/2 bg-input md:block"></div>
+          <div className="absolute bottom-0 left-1/2 hidden h-[1px] w-[calc(100%-2rem)] -translate-x-1/2 bg-input md:block"></div>
         </div>
         <div className="h-3 bg-secondary/10 dark:bg-secondary/30 md:hidden"></div>
         <div className="container relative space-y-6 py-6 md:flex md:space-y-0">
@@ -260,7 +221,7 @@ export default function BookingPage() {
             </Button>
           </div>
 
-          <div className="absolute bottom-0 left-1/2 hidden h-[1px] w-[calc(100%-6rem)] -translate-x-1/2 bg-input md:block"></div>
+          <div className="absolute bottom-0 left-1/2 hidden h-[1px] w-[calc(100%-2rem)] -translate-x-1/2 bg-input md:block"></div>
         </div>
         <div className="h-3 bg-secondary/10 dark:bg-secondary/30 md:hidden"></div>
       </section>
