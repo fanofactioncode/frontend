@@ -29,30 +29,32 @@ export default function ShowDates() {
   const [selectedDate, setSelectedDate] = useState<Date>();
 
   return (
-    <div className="container relative overflow-hidden" ref={emblaRef}>
-      <div className="relative flex items-center gap-2 py-5 md:py-10">
-        <div className="flex h-[75px] w-[65px] items-center justify-center rounded-lg bg-secondary p-3">
-          <p className="text-base font-bold text-primary">Jul</p>
+    <div className="container relative">
+      <div className="relative overflow-hidden" ref={emblaRef}>
+        <div className="relative flex items-center gap-2 py-5 md:py-10">
+          <div className="flex h-[75px] w-[65px] items-center justify-center rounded-lg bg-secondary p-3">
+            <p className="text-base font-bold text-primary">Jul</p>
+          </div>
+
+          {Array.from({ length: 30 }).map((_, i) => {
+            const day = addDays(new Date(), i);
+
+            return (
+              <DateButton
+                key={i}
+                isActive={
+                  selectedDate !== undefined &&
+                  formatDate(selectedDate, "dd-mm-yyyy") ===
+                    formatDate(day, "dd-mm-yyyy")
+                }
+                date={day}
+                onClick={() => {
+                  setSelectedDate(day);
+                }}
+              />
+            );
+          })}
         </div>
-
-        {Array.from({ length: 30 }).map((_, i) => {
-          const day = addDays(new Date(), i);
-
-          return (
-            <DateButton
-              key={i}
-              isActive={
-                selectedDate !== undefined &&
-                formatDate(selectedDate, "dd-mm-yyyy") ===
-                  formatDate(day, "dd-mm-yyyy")
-              }
-              date={day}
-              onClick={() => {
-                setSelectedDate(day);
-              }}
-            />
-          );
-        })}
       </div>
       <NextButton
         className="absolute -right-1 top-1/2 z-50 hidden -translate-y-1/2 bg-primary focus-within:bg-primary/80 md:block"

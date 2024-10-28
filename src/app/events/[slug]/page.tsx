@@ -267,13 +267,13 @@ export default function EventDetailsPage() {
       </main>
       <FeatureMovies />
 
-      <section className="container hidden space-y-2 pb-24 sm:block">
+      <section className="container hidden space-y-3 pb-24 sm:block">
         <Badge className="rounded-xl">Feature movies</Badge>
         <h2 className="text-3xl font-bold text-text">
           You might also intrested in
         </h2>
 
-        <div className="grid grid-cols-2 gap-x-5 gap-y-10 sm:grid-cols-4 sm:gap-8 md:grid-cols-5">
+        <div className="!mt-8 grid grid-cols-2 gap-x-5 gap-y-10 sm:grid-cols-4 sm:gap-8 md:grid-cols-5">
           {movies.map((movie, index) => (
             <UpcomingMovieItem key={movie.name + index} {...movie} />
           ))}

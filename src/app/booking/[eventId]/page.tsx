@@ -1,19 +1,12 @@
 import React from "react";
-import Link from "next/link";
 import Image from "next/image";
 import { StarIcon } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-  TooltipProvider,
-} from "@/components/ui/tooltip";
 import { GetLocationIcon, MoreInfoIcon, PlayIcon } from "@/components/icons";
 
 import ShowDates from "./_components/show-dates";
+import { ShowTimeButton } from "./_components/show-time-button";
 
 export default function BookingPage() {
   return (
@@ -99,57 +92,9 @@ export default function BookingPage() {
           </div>
 
           <div className="flex flex-wrap items-center gap-4 md:w-7/12">
-            <TooltipProvider>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Button
-                    variant="outline"
-                    className="flex !h-12 min-w-[100px] items-center justify-center rounded-xl border border-secondary py-2 text-sm font-semibold text-[#21C179] hover:bg-transparent hover:text-[#21C179] dark:border-primary md:!h-16 md:text-base"
-                    asChild
-                  >
-                    <Link href="/booking-seat/movie-id">11:00 PM</Link>
-                  </Button>
-                </TooltipTrigger>
-                <TooltipContent className="relative bottom-3 overflow-visible border-secondary before:absolute before:-bottom-4 before:left-1/2 before:-z-10 before:h-8 before:w-8 before:-translate-x-1/2 before:rotate-45 before:border-b before:border-r before:border-secondary before:bg-popover">
-                  <div className="flex items-center gap-4">
-                    <div className="flex flex-col items-center p-2">
-                      <p className="text-center text-sm font-semibold">₹ 200</p>
-                      <p className="text-center text-sm font-semibold uppercase text-[#21C179]">
-                        Available
-                      </p>
-                    </div>
-                    <div className="flex flex-col items-center p-2">
-                      <p className="text-center text-sm font-semibold">₹ 200</p>
-                      <p className="text-center text-sm font-semibold uppercase text-[#21C179]">
-                        Available
-                      </p>
-                    </div>
-                    <div className="flex flex-col items-center p-2">
-                      <p className="text-center text-sm font-semibold">₹ 200</p>
-                      <p className="text-center text-sm font-semibold uppercase text-[#21C179]">
-                        Available
-                      </p>
-                    </div>
-                  </div>
-                </TooltipContent>
-              </Tooltip>
-            </TooltipProvider>
-
-            <Button
-              variant="outline"
-              className="flex !h-12 min-w-[100px] items-center justify-center rounded-xl border border-secondary py-2 text-sm font-semibold text-[#21C179] hover:bg-transparent hover:text-[#21C179] dark:border-primary md:!h-16 md:text-base"
-              asChild
-            >
-              <Link href="/booking-seat/movie-id">03:00 PM</Link>
-            </Button>
-
-            <Button
-              variant="outline"
-              className="flex !h-12 min-w-[100px] items-center justify-center rounded-xl border border-secondary py-2 text-sm font-semibold text-[#21C179] hover:bg-transparent hover:text-[#21C179] dark:border-primary md:!h-16 md:text-base"
-              asChild
-            >
-              <Link href="/booking-seat/movie-id">06:00 PM</Link>
-            </Button>
+            <ShowTimeButton movieId="movie-id" showTime="10:00 AM" />
+            <ShowTimeButton movieId="movie-id" showTime="02:00 PM" />
+            <ShowTimeButton movieId="movie-id" showTime="06:00 PM" />
           </div>
 
           <div className="absolute bottom-0 left-1/2 hidden h-[1px] w-[calc(100%-2rem)] -translate-x-1/2 bg-input md:block"></div>
@@ -175,50 +120,13 @@ export default function BookingPage() {
           </div>
 
           <div className="flex flex-wrap items-center gap-4 md:w-7/12">
-            <Button
-              variant="outline"
-              className="flex !h-12 min-w-[100px] items-center justify-center rounded-xl border border-secondary py-2 text-sm font-semibold text-[#21C179] hover:bg-transparent hover:text-[#21C179] dark:border-primary md:!h-16 md:text-base"
-              asChild
-            >
-              <Link href="/booking-seat/movie-id">11:00 PM</Link>
-            </Button>
-
-            <Button
-              variant="outline"
-              className="flex !h-12 min-w-[100px] items-center justify-center rounded-xl border border-secondary py-2 text-sm font-semibold text-[#21C179] hover:bg-transparent hover:text-[#21C179] dark:border-primary md:!h-16 md:text-base"
-              asChild
-            >
-              <Link href="/booking-seat/movie-id">03:00 PM</Link>
-            </Button>
-
-            <Button
-              variant="outline"
-              className="flex !h-12 min-w-[100px] items-center justify-center rounded-xl border border-secondary py-2 text-sm font-semibold text-[#21C179] hover:bg-transparent hover:text-[#21C179] dark:border-primary md:!h-16 md:text-base"
-              asChild
-            >
-              <Link href="/booking-seat/movie-id">06:00 PM</Link>
-            </Button>
-            <Button
-              variant="outline"
-              className="flex !h-12 min-w-[100px] items-center justify-center rounded-xl border border-secondary py-2 text-sm font-semibold text-[#21C179] hover:bg-transparent hover:text-[#21C179] dark:border-primary md:!h-16 md:text-base"
-              asChild
-            >
-              <Link href="/booking-seat/movie-id">06:00 PM</Link>
-            </Button>
-            <Button
-              variant="outline"
-              className="flex !h-12 min-w-[100px] items-center justify-center rounded-xl border border-secondary py-2 text-sm font-semibold text-[#21C179] hover:bg-transparent hover:text-[#21C179] dark:border-primary md:!h-16 md:text-base"
-              asChild
-            >
-              <Link href="/booking-seat/movie-id">06:00 PM</Link>
-            </Button>
-            <Button
-              variant="outline"
-              className="flex !h-12 min-w-[100px] items-center justify-center rounded-xl border border-secondary py-2 text-sm font-semibold text-[#21C179] hover:bg-transparent hover:text-[#21C179] dark:border-primary md:!h-16 md:text-base"
-              asChild
-            >
-              <Link href="/booking-seat/movie-id">06:00 PM</Link>
-            </Button>
+            <ShowTimeButton movieId="movie-id" showTime="10:00 AM" />
+            <ShowTimeButton movieId="movie-id" showTime="02:00 PM" />
+            <ShowTimeButton movieId="movie-id" showTime="06:00 PM" />
+            <ShowTimeButton movieId="movie-id" showTime="08:00 PM" />
+            <ShowTimeButton movieId="movie-id" showTime="09:00 PM" />
+            <ShowTimeButton movieId="movie-id" showTime="10:00 PM" />
+            <ShowTimeButton movieId="movie-id" showTime="12:00 PM" />
           </div>
 
           <div className="absolute bottom-0 left-1/2 hidden h-[1px] w-[calc(100%-2rem)] -translate-x-1/2 bg-input md:block"></div>
