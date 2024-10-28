@@ -4,7 +4,7 @@ import { Badge } from "../ui/badge";
 
 import PreviousEventsCarousel from "./previous-events-carousel";
 
-export default function PreviousEvents() {
+export function PreviousEvents() {
   return (
     <section className="py-16 sm:py-24">
       <div className="container">

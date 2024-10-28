@@ -4,7 +4,7 @@ import { LucideArrowRight } from "lucide-react";
 
 import { PlayIcon } from "@/components/icons";
 import PageLayout from "@/components/layout/page-layout";
-import PreviousEvents from "@/components/common/previous-events";
+import { PreviousEvents } from "@/components/common/previous-events";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
