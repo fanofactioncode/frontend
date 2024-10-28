@@ -1,7 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
-export default function SuggestMovie() {
+export function SuggestMovie() {
   return (
     <section className="container space-y-9 py-16">
       <div className="flex flex-col items-center justify-center gap-2">

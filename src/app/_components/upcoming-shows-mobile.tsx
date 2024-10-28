@@ -35,7 +35,7 @@ const movies = [
   },
 ];
 
-export default function UpcomingShows() {
+export function UpcomingShowsMobile() {
   const [emblaRef] = useEmblaCarousel({ skipSnaps: true });
 
   return (
