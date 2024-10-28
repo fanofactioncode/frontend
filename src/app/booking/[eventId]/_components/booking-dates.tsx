@@ -10,9 +10,9 @@ import {
   usePrevNextButtons,
 } from "@/components/common/carousel-arrow-buttons";
 
-import { DateButton } from "./date-button";
+import { BookingDateButton } from "./booking-date-button";
 
-export default function ShowDates() {
+export function BookingDates() {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     skipSnaps: true,
     dragFree: true,
@@ -40,7 +40,7 @@ export default function ShowDates() {
             const day = addDays(new Date(), i);
 
             return (
-              <DateButton
+              <BookingDateButton
                 key={i}
                 isActive={
                   selectedDate !== undefined &&

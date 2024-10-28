@@ -4,14 +4,14 @@ import { format } from "date-fns";
 import { Button, ButtonProps } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-export interface DateButtonProps {
+export interface BookingDateButtonProps {
   date: Date;
   isActive?: boolean;
 }
 
-export const DateButton = forwardRef<
+export const BookingDateButton = forwardRef<
   HTMLButtonElement,
-  ButtonProps & DateButtonProps
+  ButtonProps & BookingDateButtonProps
 >(({ date, isActive, ...rest }, ref) => {
   return (
     <Button
@@ -43,4 +43,4 @@ export const DateButton = forwardRef<
   );
 });
 
-DateButton.displayName = "DateButton";
+BookingDateButton.displayName = "DateButton";
