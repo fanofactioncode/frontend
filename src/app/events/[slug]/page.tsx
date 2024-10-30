@@ -6,107 +6,11 @@ import { StarIcon } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { PlayIcon } from "@/components/icons";
-import MovieCard, { type MovieCardProps } from "@/components/common/movie-card";
 
-import CastAndCrew from "./_components/cast-and-crew";
-import FeatureMovies from "./_components/feature-movies";
-
-type Cast = {
-  name: string;
-  image: string;
-  role: string;
-  character: string;
-};
-
-const casts: Cast[] = [
-  {
-    name: "Henry Cavil",
-    image: "/assets/actor-1.png",
-    role: "Actor",
-    character: "Gus March-Phillips",
-  },
-  {
-    name: "Alan Ritchson",
-    image: "/assets/actor-2.png",
-    role: "Actor",
-    character: "Anders Lassen",
-  },
-  {
-    name: "Hero Fiennes Tiffin",
-    image: "/assets/actor-3.png",
-    role: "Actor",
-    character: "Henry Hayes",
-  },
-  {
-    name: "Alex Pettyfer",
-    image: "/assets/actor-4.png",
-    role: "Actor",
-    character: "Gus March-Phillips",
-  },
-  {
-    name: "Henry Cavil",
-    image: "/assets/actor-1.png",
-    role: "Actor",
-    character: "Gus March-Phillips",
-  },
-  {
-    name: "Alan Ritchson",
-    image: "/assets/actor-2.png",
-    role: "Actor",
-    character: "Anders Lassen",
-  },
-  {
-    name: "Hero Fiennes Tiffin",
-    image: "/assets/actor-3.png",
-    role: "Actor",
-    character: "Henry Hayes",
-  },
-  {
-    name: "Alex Pettyfer",
-    image: "/assets/actor-4.png",
-    role: "Actor",
-    character: "Gus March-Phillips",
-  },
-];
-
-function getUpcomingMovies(): MovieCardProps[] {
-  return [
-    {
-      name: "Deadpool & Wolverine",
-      languages: ["English", "हिन्दी", "தமிழ்"],
-      poster: "/assets/deadpool-and-wolverine.png",
-      rating: 8,
-    },
-    {
-      name: "Bad Boys: Ride or Die",
-      languages: ["English", "हिन्दी", "தமிழ்"],
-      poster: "/assets/bad-boys-ride-or-die.png",
-      rating: 8,
-    },
-    {
-      name: "Inside Out 2",
-      languages: ["English"],
-      poster: "/assets/inside-out.png",
-      rating: 8,
-    },
-    {
-      name: "Kingdom of the Planet of the Apes",
-      languages: ["English", "हिन्दी"],
-      poster: "/assets/planet-of-the-apes-potrate.png",
-      rating: 8,
-    },
-    {
-      name: "Kingdom of the Planet of the Apes",
-      languages: ["English", "हिन्दी"],
-      poster: "/assets/planet-of-the-apes-potrate.png",
-      rating: 8,
-    },
-  ];
-}
+import { FeatureMovies } from "./_components/feature-movies";
+import { CastAndCrew } from "./_components/cast-and-crew";
 
 export default function EventDetailsPage() {
-  const movies = getUpcomingMovies();
-
   return (
     <>
       <main className="relative">
@@ -231,31 +135,6 @@ export default function EventDetailsPage() {
         </div>
         <CastAndCrew />
 
-        <section className="container hidden space-y-11 pb-36 pt-5 sm:block">
-          <h2 className="text-3xl font-bold text-text">Cast & Crew</h2>
-
-          <div className="flex flex-wrap gap-4">
-            {casts.map((cast, index) => (
-              <div key={cast.name + index} className="w-[120px]">
-                <div className="relative h-[120px] w-[120px] overflow-hidden rounded-xl">
-                  <Image
-                    src={cast.image}
-                    alt={cast.name}
-                    fill
-                    className="w-full"
-                  />
-                </div>
-                <p className="mt-2 w-full text-balance font-semibold text-text">
-                  {cast.name}
-                </p>
-                <p className="w-full text-balance text-sm text-text-sub">
-                  {cast.character}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
-
         <div className="sticky bottom-0 border-b border-t bg-background p-4 sm:hidden">
           <Button asChild className="w-full">
             <Link href={"/booking/movie-id-here"}>Waitlist / Buy Tickets</Link>
@@ -263,19 +142,6 @@ export default function EventDetailsPage() {
         </div>
       </main>
       <FeatureMovies />
-
-      <section className="container hidden space-y-3 pb-24 sm:block">
-        <Badge className="rounded-xl">Feature movies</Badge>
-        <h2 className="text-3xl font-bold text-text">
-          You might also intrested in
-        </h2>
-
-        <div className="!mt-8 grid grid-cols-2 gap-x-5 gap-y-10 sm:grid-cols-4 sm:gap-8 md:grid-cols-5">
-          {movies.map((movie, index) => (
-            <MovieCard key={movie.name + index} {...movie} />
-          ))}
-        </div>
-      </section>
     </>
   );
 }

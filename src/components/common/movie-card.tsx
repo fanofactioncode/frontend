@@ -2,6 +2,8 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+import { cn } from "@/lib/utils";
+
 export type Languages = "English" | "हिन्दी" | "தமிழ்";
 
 export interface MovieCardProps {
@@ -9,6 +11,7 @@ export interface MovieCardProps {
   name: string;
   languages: Languages[];
   rating: number;
+  className?: string;
 }
 
 export default function MovieCard({
@@ -16,11 +19,15 @@ export default function MovieCard({
   name,
   languages,
   rating,
+  className,
 }: MovieCardProps) {
   return (
     <Link
       href={`/events/${name}`}
-      className="space-y-2 overflow-hidden md:space-y-4"
+      className={cn(
+        "shrink-0 space-y-2 overflow-hidden md:space-y-4",
+        className
+      )}
     >
       <div className="relative overflow-hidden rounded-lg md:rounded-xl">
         <Image
