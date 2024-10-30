@@ -1,13 +1,11 @@
 "use client";
 
-import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
 
 import { Badge } from "@/components/ui/badge";
+import MovieCard, { type MovieCardProps } from "@/components/common/movie-card";
 
-import { UpcomingMovieItemProps } from "../../_components/upcoming-movies/upcoming-movie-item";
-
-function getUpcomingMovies(): UpcomingMovieItemProps[] {
+function getUpcomingMovies(): MovieCardProps[] {
   return [
     {
       name: "Deadpool & Wolverine",
@@ -54,36 +52,8 @@ export default function FeatureMovies() {
 
       <div className="embla relative px-4 pb-11 pt-4" ref={emblaRef}>
         <div className="flex gap-4">
-          {movies.map(({ name, languages, poster, rating }, index) => (
-            <div key={name + index} className="w-[150px] shrink-0 space-y-2">
-              <div className="[150px] relative overflow-hidden rounded-lg">
-                <Image
-                  src={poster}
-                  alt={name}
-                  width={0}
-                  height={0}
-                  sizes="100vw"
-                  className="h-auto w-[150px] object-cover"
-                />
-              </div>
-              <div className="space-y-1.5">
-                <h2 className="truncate text-sm font-semibold text-text">
-                  {name}
-                </h2>
-                <p className="truncate text-xs text-text-sub">
-                  {languages.join(" | ")}
-                </p>
-                <div className="flex items-center gap-2">
-                  <Image
-                    src="/imdb-logo.svg"
-                    width={30}
-                    height={30}
-                    alt="IMDb"
-                  />
-                  <p className="text-xs text-text-sub">{rating}/10</p>
-                </div>
-              </div>
-            </div>
+          {movies.map((movie) => (
+            <MovieCard key={movie.name} {...movie} />
           ))}
         </div>
       </div>

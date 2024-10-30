@@ -6,10 +6,7 @@ import { StarIcon } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { PlayIcon } from "@/components/icons";
-
-import UpcomingMovieItem, {
-  UpcomingMovieItemProps,
-} from "../_components/upcoming-movies/upcoming-movie-item";
+import MovieCard, { type MovieCardProps } from "@/components/common/movie-card";
 
 import CastAndCrew from "./_components/cast-and-crew";
 import FeatureMovies from "./_components/feature-movies";
@@ -72,7 +69,7 @@ const casts: Cast[] = [
   },
 ];
 
-function getUpcomingMovies(): UpcomingMovieItemProps[] {
+function getUpcomingMovies(): MovieCardProps[] {
   return [
     {
       name: "Deadpool & Wolverine",
@@ -275,7 +272,7 @@ export default function EventDetailsPage() {
 
         <div className="!mt-8 grid grid-cols-2 gap-x-5 gap-y-10 sm:grid-cols-4 sm:gap-8 md:grid-cols-5">
           {movies.map((movie, index) => (
-            <UpcomingMovieItem key={movie.name + index} {...movie} />
+            <MovieCard key={movie.name + index} {...movie} />
           ))}
         </div>
       </section>

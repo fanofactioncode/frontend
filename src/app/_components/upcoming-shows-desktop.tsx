@@ -5,9 +5,7 @@ import { LucideArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
-import UpcomingMovieItem, {
-  Languages,
-} from "../events/_components/upcoming-movies/upcoming-movie-item";
+import MovieCard, { Languages } from "../../components/common/movie-card";
 
 const movies = [
   {
@@ -67,7 +65,7 @@ export function UpcomingShowsDesktop() {
       <div className="container">
         <div className="grid grid-cols-2 gap-x-5 gap-y-10 sm:grid-cols-4 sm:gap-8 md:grid-cols-5">
           {movies.map(({ name, languages, poster, rating }, index) => (
-            <UpcomingMovieItem
+            <MovieCard
               key={name + index}
               languages={languages as Languages[]}
               name={name}

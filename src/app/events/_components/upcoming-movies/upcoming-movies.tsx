@@ -1,10 +1,8 @@
 import React from "react";
 
-import UpcomingMovieItem, {
-  UpcomingMovieItemProps,
-} from "./upcoming-movie-item";
+import MovieCard, { type MovieCardProps } from "@/components/common/movie-card";
 
-async function getUpcomingMovies(): Promise<UpcomingMovieItemProps[]> {
+async function getUpcomingMovies(): Promise<MovieCardProps[]> {
   return [
     {
       name: "Deadpool & Wolverine",
@@ -61,7 +59,7 @@ export default async function UpcomingMovies() {
       </h1>
       <div className="grid grid-cols-2 gap-x-5 gap-y-10 sm:grid-cols-4 sm:gap-8 md:grid-cols-5">
         {movies.map((movie) => (
-          <UpcomingMovieItem key={movie.name} {...movie} />
+          <MovieCard key={movie.name} {...movie} />
         ))}
       </div>
     </div>

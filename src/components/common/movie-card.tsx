@@ -4,19 +4,19 @@ import Link from "next/link";
 
 export type Languages = "English" | "हिन्दी" | "தமிழ்";
 
-export interface UpcomingMovieItemProps {
+export interface MovieCardProps {
   poster: string;
   name: string;
   languages: Languages[];
   rating: number;
 }
 
-export default function UpcomingMovieItem({
+export default function MovieCard({
   poster,
   name,
   languages,
   rating,
-}: UpcomingMovieItemProps) {
+}: MovieCardProps) {
   return (
     <Link
       href={`/events/${name}`}
