@@ -66,16 +66,16 @@ export default function MovieCarousel() {
 
       <NextButton
         onClick={onNextButtonClick}
-        className="absolute right-6 top-1/2 z-10 size-5 -translate-y-1/2"
+        className="absolute right-6 top-1/2 z-10 size-5 -translate-y-1/2 md:right-12"
       />
 
       <div className="absolute bottom-0 left-1/2 flex -translate-x-1/2 items-center gap-1.5">
-        {movies.map((_, index) => (
+        {movies.map((movie, index) => (
           <DotButton
-            key={index}
+            key={`${movie.name}_${index}`}
             onClick={() => onDotButtonClick(index)}
             className={cn(
-              "size-1.5 rounded-full bg-secondary md:size-2.5",
+              "size-1 rounded-full bg-secondary md:size-2.5",
               selectedIndex === index && "bg-primary"
             )}
           />

@@ -18,7 +18,7 @@ export const BookingDateButton = forwardRef<
       ref={ref}
       variant="outline"
       className={cn(
-        "box-border flex !h-[75px] !w-[70px] flex-col items-center justify-center rounded-lg border border-secondary bg-background p-3",
+        "box-border flex !h-[75px] !w-[70px] flex-col items-center justify-center rounded-lg border border-secondary bg-background p-3 dark:border-primary",
         isActive && "border-primary bg-primary hover:bg-primary"
       )}
       {...rest}
