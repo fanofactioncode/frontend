@@ -20,7 +20,7 @@ export default function SelectMoviePage() {
 
         <div className="">
           <Link
-            href="http://google.com"
+            href="/request-movie?movie=Andaj Apna Apna"
             className="flex w-full items-center justify-between border-b-[0.5px] border-secondary px-4 py-3 text-sm text-text-sub"
           >
             <span>Andaj Apna Apna</span>
@@ -32,7 +32,7 @@ export default function SelectMoviePage() {
           </Link>
 
           <Link
-            href="http://google.com"
+            href="/request-movie?movie=3 Idiots"
             className="flex w-full items-center justify-between border-b-[0.5px] border-secondary px-4 py-3 text-sm text-text-sub"
           >
             <span>3 Idiots</span>
@@ -44,7 +44,7 @@ export default function SelectMoviePage() {
           </Link>
 
           <Link
-            href="http://google.com"
+            href="/request-movie?movie=Terminator 2 : Judgement Day"
             className="flex w-full items-center justify-between border-b-[0.5px] border-secondary px-4 py-3 text-sm text-text-sub"
           >
             <span>Terminator 2 : Judgement Day</span>

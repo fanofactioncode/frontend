@@ -22,6 +22,7 @@ export { RecommendationIcon } from "./recommendation-icon";
 export { ReviewIcon } from "./review-icon";
 export { ArrowRightIcon } from "./arrow-right-icon";
 export { TicketIcon } from "./ticket-icon";
+export { DialogCloseIcon } from "./dialog-close-icon";
 
 import type { IconProps } from "./types";
 
