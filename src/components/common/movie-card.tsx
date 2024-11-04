@@ -3,14 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
+import { Movie } from "@/types/movies";
 
-export type Languages = "English" | "हिन्दी" | "தமிழ்";
-
-export interface MovieCardProps {
-  poster: string;
-  name: string;
-  languages: Languages[];
-  rating: number;
+export interface MovieCardProps extends Movie {
   className?: string;
 }
 
