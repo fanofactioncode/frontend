@@ -1,5 +1,6 @@
 "use client";
 
+import { useSelectedLayoutSegment } from "next/navigation";
 import {
   createContext,
   useCallback,
@@ -10,6 +11,7 @@ import {
 
 export interface NavigationContextProps {
   isOpen: boolean;
+  segment: string | null;
   toggleNavigation: () => void;
   openNavigation: () => void;
   closeNavigation: () => void;
@@ -18,6 +20,7 @@ export interface NavigationContextProps {
 const NavigationContext = createContext<NavigationContextProps | null>(null);
 
 export const NavigationProvider = ({ children }: React.PropsWithChildren) => {
+  const segment = useSelectedLayoutSegment();
   const [isNavigationOpen, setIsNavigationOpen] = useState<boolean>(false);
 
   const toggleNavigation = useCallback(() => {
@@ -35,11 +38,18 @@ export const NavigationProvider = ({ children }: React.PropsWithChildren) => {
   const value: NavigationContextProps = useMemo(() => {
     return {
       isOpen: isNavigationOpen,
+      segment,
       toggleNavigation,
       openNavigation,
       closeNavigation,
     };
-  }, [isNavigationOpen, toggleNavigation, openNavigation, closeNavigation]);
+  }, [
+    isNavigationOpen,
+    segment,
+    toggleNavigation,
+    openNavigation,
+    closeNavigation,
+  ]);
 
   return (
     <NavigationContext.Provider value={value}>
