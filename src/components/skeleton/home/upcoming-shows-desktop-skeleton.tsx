@@ -1,5 +1,3 @@
-import React from "react";
-
 export function UpcomingShowsDesktopSkeleton() {
   return (
     <div className="container hidden md:block">

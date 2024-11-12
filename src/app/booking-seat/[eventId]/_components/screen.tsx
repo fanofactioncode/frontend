@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function Screen() {
   return (
     <div className="sticky bottom-0 mx-auto grid place-content-center">

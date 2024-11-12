@@ -2,8 +2,8 @@
 
 import useEmblaCarousel from "embla-carousel-react";
 
-import { Badge } from "@/components/ui/badge";
 import MovieCard, { type MovieCardProps } from "@/components/common/movie-card";
+import { Badge } from "@/components/ui/badge";
 
 export function FeatureMoviesMobile({ movies }: { movies: MovieCardProps[] }) {
   const [emblaRef] = useEmblaCarousel({

@@ -1,13 +1,12 @@
-import React from "react";
 import Link from "next/link";
 
+import { Button } from "@/components/ui/button";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { Button } from "@/components/ui/button";
 
 export interface ShowTimeButtonProps {
   movieId: string;

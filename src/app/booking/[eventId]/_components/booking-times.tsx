@@ -1,5 +1,3 @@
-import React from "react";
-
 import { GetLocationIcon, MoreInfoIcon } from "@/components/icons";
 
 import { ShowTimeButton } from "./show-time-button";

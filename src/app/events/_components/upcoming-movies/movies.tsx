@@ -1,5 +1,5 @@
-import { Movie } from "@/types/movies";
 import MovieCard from "@/components/common/movie-card";
+import { Movie } from "@/types/movies";
 
 async function getUpcomingMovies(): Promise<Movie[]> {
   await new Promise((resolve) => setTimeout(resolve, 10_000));

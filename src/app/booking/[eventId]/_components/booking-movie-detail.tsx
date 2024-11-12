@@ -1,9 +1,8 @@
-import React from "react";
-import Image from "next/image";
 import { StarIcon } from "lucide-react";
+import Image from "next/image";
 
-import { Badge } from "@/components/ui/badge";
 import { PlayIcon } from "@/components/icons";
+import { Badge } from "@/components/ui/badge";
 
 export function BookingMovieDetail() {
   return (

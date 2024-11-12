@@ -1,8 +1,8 @@
 "use client";
 
+import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
 import Link from "next/link";
-import useEmblaCarousel from "embla-carousel-react";
 
 import { Movie } from "@/types/movies";
 

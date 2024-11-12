@@ -1,5 +1,3 @@
-import React from "react";
-
 import { SearchIcon } from "@/components/icons";
 import { Input, type InputProps } from "@/components/ui/input";
 

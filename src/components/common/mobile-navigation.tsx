@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
-import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import dynamic from "next/dynamic";
+import Link from "next/link";
+import { useEffect, useRef } from "react";
 
 import { useNavigation } from "@/provider/navigation-provider";
 

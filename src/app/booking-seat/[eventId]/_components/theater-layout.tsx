@@ -1,14 +1,14 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 
 import { cn } from "@/lib/utils";
 
 import { theaterLayoutReponse } from "../_mock/response";
 import { ILayout, ISeat } from "../_types/response.type";
 
-import Screen from "./screen";
 import BookingFooter from "./booking-footer";
+import Screen from "./screen";
 
 export default function TheaterLayout() {
   const [selectedSeats, setSelectedSeats] = useState<ISeat[]>([]);

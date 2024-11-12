@@ -1,7 +1,7 @@
 import { MovieCardProps } from "@/components/common/movie-card";
 
-import { FeatureMoviesMobile } from "./feature-movies-mobile";
 import { FeatureMovesDesktop } from "./feature-movie-desktop";
+import { FeatureMoviesMobile } from "./feature-movies-mobile";
 
 function getUpcomingMovies(): MovieCardProps[] {
   return [

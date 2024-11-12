@@ -1,5 +1,5 @@
-import React, { Suspense } from "react";
 import Link from "next/link";
+import { Suspense } from "react";
 
 import { LogoIcon } from "../icons";
 import { Button } from "../ui/button";

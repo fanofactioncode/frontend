@@ -1,4 +1,3 @@
-import React from "react";
 import Link from "next/link";
 
 import SearchInput from "../_components/search-input";

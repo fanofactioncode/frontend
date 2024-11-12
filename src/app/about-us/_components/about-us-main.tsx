@@ -1,7 +1,4 @@
-import Image from "next/image";
-import React from "react";
-
-import { PlayIcon } from "@/components/icons";
+import Video from "next-video";
 
 export function AboutUsMain() {
   return (
@@ -24,7 +21,14 @@ export function AboutUsMain() {
         </div>
 
         <div className="relative aspect-video w-full cursor-pointer overflow-hidden rounded-2xl border-4 border-secondary bg-gray-400 dark:border-primary md:w-1/2 md:border-8">
-          <Image
+          <Video
+            src="https://videos.pexels.com/video-files/3190131/3190131-uhd_2560_1440_24fps.mp4"
+            accentColor="#FFC300"
+            poster="/video-thumbnail.jpg"
+            controls={true}
+          />
+
+          {/* <Image
             src="/video-thumbnail.jpg"
             alt="Fan of action intro video thumbnail"
             width={0}
@@ -37,7 +41,7 @@ export function AboutUsMain() {
           <PlayIcon
             color="white"
             className="absolute left-1/2 top-1/2 size-12 -translate-x-1/2 -translate-y-1/2 md:size-24"
-          />
+          /> */}
         </div>
       </div>
     </main>

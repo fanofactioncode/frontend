@@ -1,11 +1,9 @@
-import React from "react";
-
-import { Badge } from "@/components/ui/badge";
 import {
   RecommendationIcon,
   ReReleaseIcon,
   ReviewIcon,
 } from "@/components/icons";
+import { Badge } from "@/components/ui/badge";
 
 export function WhatWeDo() {
   return (

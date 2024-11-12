@@ -1,5 +1,3 @@
-import React from "react";
-
 import { ArrowDownIcon, IconElement } from "@/components/icons";
 
 export interface ItemPickerProps {

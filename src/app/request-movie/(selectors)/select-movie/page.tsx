@@ -1,8 +1,7 @@
-import React from "react";
 import Link from "next/link";
 
-import { Button } from "@/components/ui/button";
 import { TrendingIcon } from "@/components/icons";
+import { Button } from "@/components/ui/button";
 
 import SearchInput from "../_components/search-input";
 

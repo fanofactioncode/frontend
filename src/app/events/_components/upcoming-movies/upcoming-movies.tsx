@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import { Suspense } from "react";
 
 import UpcomingMoviesSkeleton from "@/components/skeleton/events/upcoming-movies-skeleton";
 

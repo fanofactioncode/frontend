@@ -1,8 +1,8 @@
 import React from "react";
 
-import Newsletter from "../common/newsletter";
 import Footer from "../common/footer";
 import Header from "../common/header";
+import Newsletter from "../common/newsletter";
 
 export default function PageLayout({ children }: React.PropsWithChildren) {
   return (

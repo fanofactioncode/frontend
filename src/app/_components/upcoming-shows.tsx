@@ -1,10 +1,10 @@
-import React, { Suspense } from "react";
-import Link from "next/link";
 import { LucideArrowRight } from "lucide-react";
+import Link from "next/link";
+import { Suspense } from "react";
 
+import { UpcomingShowsDesktopSkeleton } from "@/components/skeleton/home/upcoming-shows-desktop-skeleton";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { UpcomingShowsDesktopSkeleton } from "@/components/skeleton/home/upcoming-shows-desktop-skeleton";
 import { Movie } from "@/types/movies";
 
 import { UpcomingShowsDesktop } from "./upcoming-shows-desktop";

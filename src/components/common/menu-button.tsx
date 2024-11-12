@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useEffect } from "react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { motion, MotionConfig } from "framer-motion";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useEffect } from "react";
 
 import { useNavigation } from "@/provider/navigation-provider";
 

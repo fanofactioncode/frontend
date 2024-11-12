@@ -1,5 +1,3 @@
-import React from "react";
-
 import { PreviousEvents } from "@/components/common/previous-events";
 
 import { AboutUsMain } from "./_components/about-us-main";

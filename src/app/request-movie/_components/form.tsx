@@ -1,11 +1,11 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
-import { Button } from "@/components/ui/button";
 import { MapIcon, MovieIcon, TrendingIcon } from "@/components/icons";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogClose,
@@ -17,8 +17,8 @@ import {
 
 import SearchInput from "../(selectors)/_components/search-input";
 
-import ItemPicker from "./item-picker";
 import Divider from "./divider";
+import ItemPicker from "./item-picker";
 
 export default function MovieRequestForm() {
   const router = useRouter();

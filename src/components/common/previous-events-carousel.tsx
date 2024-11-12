@@ -1,11 +1,10 @@
 "use client";
 
-import React from "react";
-import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
+import Image from "next/image";
 
-import { Button } from "../ui/button";
 import { ArrowRightIcon, TicketIcon } from "../icons";
+import { Button } from "../ui/button";
 
 import { usePrevNextButtons } from "./carousel-arrow-buttons";
 

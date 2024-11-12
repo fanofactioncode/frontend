@@ -4,8 +4,8 @@ import { useTheme } from "next-themes";
 
 import { cn } from "@/lib/utils";
 
-import { Button } from "../ui/button";
 import { DesktopIcon, MoonIcon, SunIcon } from "../icons";
+import { Button } from "../ui/button";
 
 export default function ThemeButton() {
   const { theme, setTheme } = useTheme();

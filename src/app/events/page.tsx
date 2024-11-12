@@ -1,5 +1,3 @@
-import React from "react";
-
 import RunningShows from "./_components/running-shows";
 import UpcomingMovies from "./_components/upcoming-movies";
 

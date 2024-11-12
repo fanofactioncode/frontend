@@ -1,15 +1,14 @@
 "use client";
 
-import React from "react";
-import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
+import useEmblaCarousel from "embla-carousel-react";
 
-import { cn } from "@/lib/utils";
 import {
-  usePrevNextButtons,
   NextButton,
   PrevButton,
+  usePrevNextButtons,
 } from "@/components/common/carousel-arrow-buttons";
+import { cn } from "@/lib/utils";
 
 import { DotButton, useDotButton } from "./carousel-dot-button";
 import MovieCarouselItem, {

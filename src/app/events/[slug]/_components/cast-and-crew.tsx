@@ -1,7 +1,5 @@
-import React from "react";
-
-import { CastAndCrewMobile } from "./cast-and-crew-mobile";
 import { CastAndCrewDesktop } from "./cast-and-crew-desktop";
+import { CastAndCrewMobile } from "./cast-and-crew-mobile";
 
 export function CastAndCrew() {
   return (

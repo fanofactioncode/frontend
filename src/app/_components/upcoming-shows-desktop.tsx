@@ -1,5 +1,3 @@
-import React from "react";
-
 import MovieCard from "@/components/common/movie-card";
 import { Movie } from "@/types/movies";
 

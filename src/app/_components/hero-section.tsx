@@ -1,7 +1,4 @@
-import React from "react";
-import Image from "next/image";
-
-import { PlayIcon } from "@/components/icons";
+import Video from "next-video";
 
 export function HeroSection() {
   return (
@@ -55,6 +52,13 @@ export function HeroSection() {
         </svg>
 
         <div className="relative aspect-video overflow-hidden rounded-2xl border-4 border-secondary md:rounded-3xl md:border-8">
+          <Video
+            src="https://videos.pexels.com/video-files/3190131/3190131-uhd_2560_1440_24fps.mp4"
+            accentColor="#FFC300"
+            poster="/video-thumbnail.jpg"
+            controls={true}
+          />
+          {/* 
           <Image
             src="/video-thumbnail.jpg"
             alt="Fan of action intro video thumbnail"
@@ -68,7 +72,7 @@ export function HeroSection() {
           <PlayIcon
             color="white"
             className="absolute left-1/2 top-1/2 size-12 -translate-x-1/2 -translate-y-1/2 md:size-24"
-          />
+          /> */}
         </div>
       </div>
     </main>
