@@ -50,8 +50,8 @@ function NavLink({ href, label }: NavLinkProps) {
       <Link
         href={href}
         className={cn(
-          "font-medium text-text-sub hover:text-text-sub dark:text-slate-500",
-          isActive && "font-bold text-text"
+          "font-medium text-text-sub transition-colors duration-150 focus-within:underline focus-within:outline-none hover:text-text dark:text-slate-500 dark:hover:text-white",
+          isActive && "font-bold text-text dark:text-white"
         )}
       >
         {label}
