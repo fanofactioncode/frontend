@@ -1,8 +1,17 @@
-import zod from "zod";
 import { withNextVideo } from "next-video/process";
+import zod from "zod";
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "media.themoviedb.org",
+      },
+    ],
+  },
+};
 
 export default withNextVideo(nextConfig);
 

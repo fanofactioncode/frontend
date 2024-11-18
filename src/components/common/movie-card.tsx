@@ -9,6 +9,7 @@ export interface MovieCardProps extends Movie {
 }
 
 export default function MovieCard({
+  id,
   poster,
   name,
   languages,
@@ -17,7 +18,7 @@ export default function MovieCard({
 }: MovieCardProps) {
   return (
     <Link
-      href={`/events/${name}`}
+      href={`/events/${id}`}
       className={cn(
         "shrink-0 space-y-2 overflow-hidden md:space-y-4",
         className
