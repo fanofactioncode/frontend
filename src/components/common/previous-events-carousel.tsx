@@ -69,7 +69,7 @@ export default function PreviousEventsCarousel() {
                   <TicketIcon className="size-6 fill-button-foreground" />
                   Book In My City
                 </Button>
-                <p className="mt-1 text-center text-[10px] text-text-sub underline">
+                <p className="mt-1 text-center text-xs text-text-sub underline">
                   Rerelese this movie in your city to enjoy
                 </p>
               </div>
