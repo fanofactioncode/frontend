@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import { PlayIcon } from "@/components/icons";
 import { Badge } from "@/components/ui/badge";
+import { numberToMovieRuntime } from "@/utils/number-to-movie-runtime";
 
 async function getMovieDetails(id: string): Promise<{
   adult: false;
@@ -113,10 +114,12 @@ export async function MovieSysnopsisMobile({ id }: { id: string }) {
           </p>
 
           <div className="flex gap-2">
-            <Badge className="border-[0.5px]">2 hr 15 min</Badge>
+            <Badge className="border-[0.5px]">
+              {numberToMovieRuntime(movieDetails.runtime)}
+            </Badge>
             <Badge className="flex items-center gap-2 border-[0.5px]">
               <Image src="/imdb-logo.svg" width={26} height={26} alt="IMDb" />
-              7.8
+              {Math.floor(movieDetails.vote_average)}
             </Badge>
           </div>
         </div>

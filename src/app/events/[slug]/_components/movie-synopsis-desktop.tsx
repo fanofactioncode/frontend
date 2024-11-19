@@ -5,6 +5,7 @@ import Link from "next/link";
 import { PlayIcon } from "@/components/icons";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { numberToMovieRuntime } from "@/utils/number-to-movie-runtime";
 
 async function getMovieDetails(id: string): Promise<{
   adult: false;
@@ -111,10 +112,10 @@ export async function MovieSysnopsisDesktop({ id }: { id: string }) {
             </p>
             <div className="flex items-center gap-3">
               <Badge className="border-none bg-[#ABB7C4] dark:bg-[#ABB7C4] dark:text-black">
-                2 hr 15 min
+                {numberToMovieRuntime(movieDetails.runtime)}
               </Badge>
               <Badge className="flex items-center gap-2 border-none bg-[#ABB7C4] dark:bg-[#ABB7C4] dark:text-black">
-                {Math.ceil(movieDetails.vote_average)}
+                {Math.floor(movieDetails.vote_average)}
                 <StarIcon size={14} />
               </Badge>
             </div>
