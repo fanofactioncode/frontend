@@ -1,8 +1,9 @@
 import { StarIcon } from "lucide-react";
 import Image from "next/image";
 
-import { PlayIcon } from "@/components/icons";
 import { Badge } from "@/components/ui/badge";
+
+import { VideoPlayButtonWithDialog } from "./video-play-button-with-dialog";
 
 export function BookingMovieDetail() {
   return (
@@ -29,10 +30,7 @@ export function BookingMovieDetail() {
               className="-z-10 h-full w-full object-cover"
             />
             <div className="z-40 h-full w-full bg-primary/60 dark:bg-secondary/65" />
-            <PlayIcon
-              color="white"
-              className="absolute left-1/2 top-1/2 size-20 -translate-x-1/2 -translate-y-1/2"
-            />
+            <VideoPlayButtonWithDialog />
           </div>
         </div>
       </div>

@@ -14,6 +14,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { useScreenWidth } from "@/hooks/use-screen-width";
 
 import SearchInput from "../(selectors)/_components/search-input";
 
@@ -22,22 +23,15 @@ import ItemPicker from "./item-picker";
 
 export default function MovieRequestForm() {
   const router = useRouter();
+  const screenWidth = useScreenWidth();
+
   const [isMovieDialogOpen, setIsMovieDialogOpen] = useState<boolean>(false);
   const [isCityDialogOpen, setIsCityDialogOpen] = useState<boolean>(false);
-  const [screenWidth, setScreenWidth] = useState<number>(0);
 
   useEffect(() => {
-    function calculateScreenWidth() {
-      setScreenWidth(window.innerWidth);
-    }
-
-    window.addEventListener("resize", calculateScreenWidth);
-    calculateScreenWidth();
-
-    return () => {
-      window.removeEventListener("resize", calculateScreenWidth);
-    };
-  }, []);
+    router.prefetch("/request-movie/select-movie");
+    router.prefetch("/request-movie/select-city");
+  }, [router]);
 
   return (
     <>

@@ -1,8 +1,9 @@
 import Image from "next/image";
 
-import { PlayIcon } from "@/components/icons";
 import { Badge } from "@/components/ui/badge";
 import { numberToMovieRuntime } from "@/utils/number-to-movie-runtime";
+
+import { PlayButtonWithVideoDialog } from "./play-button-with-video-dialog";
 
 async function getMovieDetails(id: string): Promise<{
   adult: false;
@@ -87,11 +88,8 @@ export async function MovieSysnopsisMobile({ id }: { id: string }) {
 
         <div className="absolute z-10 h-full w-full bg-[radial-gradient(rgba(16,33,50,0)_0%,rgba(16,33,50,0.5)_100%)]"></div>
 
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-          <PlayIcon
-            color="white"
-            className="size-10 transition-all duration-300 group-hover:scale-125"
-          />
+        <div className="absolute left-1/2 top-1/2 z-40 -translate-x-1/2 -translate-y-1/2">
+          <PlayButtonWithVideoDialog />
         </div>
       </div>
 

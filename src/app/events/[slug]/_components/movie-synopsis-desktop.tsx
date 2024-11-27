@@ -2,10 +2,11 @@ import { StarIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-import { PlayIcon } from "@/components/icons";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { numberToMovieRuntime } from "@/utils/number-to-movie-runtime";
+
+import { PlayButtonWithVideoDialog } from "./play-button-with-video-dialog";
 
 async function getMovieDetails(id: string): Promise<{
   adult: false;
@@ -96,11 +97,9 @@ export async function MovieSysnopsisDesktop({ id }: { id: string }) {
               height={0}
               sizes="100vw"
               className="h-auto w-full"
+              priority
             />
-            <PlayIcon
-              color="white"
-              className="absolute left-1/2 top-1/2 size-20 -translate-x-1/2 -translate-y-1/2"
-            />
+            <PlayButtonWithVideoDialog />
           </div>
           <div className="mt-4 space-y-5">
             <h1 className="text-3xl font-bold text-white">
