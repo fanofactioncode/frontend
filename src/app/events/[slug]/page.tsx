@@ -22,11 +22,18 @@ export async function generateMetadata({
     title: `Book ticket for ${movie.title} | FanOfAction`,
     description: movie.overview,
     openGraph: {
-      title: movie.title,
+      title: `Book ticket for ${movie.title} | FanOfAction`,
       description: movie.overview,
       images: [
         {
+          url: `https://image.tmdb.org/t/p/original${movie.backdrop_path}`,
+          host: "image.tmdb.org",
+          alt: `${movie.title}'s poster`,
+        },
+        {
           url: `https://image.tmdb.org/t/p/original${movie.poster_path}`,
+          host: "image.tmdb.org",
+          alt: `${movie.title}'s poster`,
         },
       ],
     },
