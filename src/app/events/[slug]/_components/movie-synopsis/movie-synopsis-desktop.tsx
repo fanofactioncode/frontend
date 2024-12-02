@@ -4,77 +4,10 @@ import Link from "next/link";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { getMovieDetails } from "@/services/movies";
 import { numberToMovieRuntime } from "@/utils/number-to-movie-runtime";
 
 import { PlayButtonWithVideoDialog } from "../play-button-with-video-dialog";
-
-async function getMovieDetails(id: string): Promise<{
-  adult: false;
-  backdrop_path: string;
-  belongs_to_collection: {
-    id: 727761;
-    name: string;
-    poster_path: string;
-    backdrop_path: string;
-  };
-  budget: 2000000;
-  genres: {
-    id: number;
-    name: string;
-  }[];
-  homepage: string;
-  id: number;
-  imdb_id: string;
-  origin_country: [string];
-  original_language: string;
-  original_title: string;
-  overview: string;
-  popularity: number;
-  poster_path: string;
-  production_companies: [
-    {
-      id: number;
-      logo_path: string;
-      name: string;
-      origin_country: string;
-    },
-  ];
-  production_countries: [
-    {
-      iso_3166_1: string;
-      name: string;
-    },
-  ];
-  release_date: string;
-  revenue: number;
-  runtime: number;
-  spoken_languages: [
-    {
-      english_name: string;
-      iso_639_1: string;
-      name: string;
-    },
-  ];
-  status: string;
-  tagline: string;
-  title: string;
-  video: boolean;
-  vote_average: number;
-  vote_count: number;
-}> {
-  const url = `https://api.themoviedb.org/3/movie/${id}?language=en-US`;
-  const options = {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlNzUxYmYwZjgwODZmMDMxNThjOWJjZjcwNjgyYTdlOSIsIm5iZiI6MTczMTk1MjEyNy4zODI2MDUsInN1YiI6IjY3M2I3Y2YzNzRhMmU2ZTAyMzdiNzE1NSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.aaRUfQH3uiPNPba6BTKkqD1YuTnB8V4sSq3jae6dIO8",
-    },
-  };
-
-  const response = await fetch(url, options);
-  return response.json();
-}
 
 export async function MovieSysnopsisDesktop({ id }: { id: string }) {
   const movieDetails = await getMovieDetails(id);
