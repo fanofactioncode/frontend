@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { numberToMovieRuntime } from "@/utils/number-to-movie-runtime";
 
-import { PlayButtonWithVideoDialog } from "./play-button-with-video-dialog";
+import { PlayButtonWithVideoDialog } from "../play-button-with-video-dialog";
 
 async function getMovieDetails(id: string): Promise<{
   adult: false;
@@ -83,7 +83,7 @@ export async function MovieSysnopsisDesktop({ id }: { id: string }) {
     <div className="container hidden py-5 sm:block">
       <div className="relative h-[600px] overflow-hidden rounded-3xl">
         <Image
-          src={`https://media.themoviedb.org/t/p/w1920_and_h800_multi_faces${movieDetails.backdrop_path}`}
+          src={`https://image.tmdb.org/t/p/original${movieDetails.backdrop_path}`}
           alt="Platnet of the Apes"
           className="-z-10 h-full w-full object-cover"
           fill
@@ -91,7 +91,7 @@ export async function MovieSysnopsisDesktop({ id }: { id: string }) {
         <div className="z-50 flex h-full items-start gap-[1.875rem] bg-gradient-to-r from-primary from-35% via-primary/80 via-75% to-transparent to-100% p-[3.75rem] dark:from-secondary dark:via-secondary/80 sm:w-full md:w-9/12">
           <div className="relative w-52 shrink-0 overflow-hidden rounded-xl">
             <Image
-              src={`https://media.themoviedb.org/t/p/w220_and_h330_face${movieDetails.poster_path}`}
+              src={`https://image.tmdb.org/t/p/original${movieDetails.poster_path}`}
               alt="Planet of the Apes"
               width={0}
               height={0}

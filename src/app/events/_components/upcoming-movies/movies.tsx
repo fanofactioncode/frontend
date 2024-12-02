@@ -51,7 +51,7 @@ export default async function Movies() {
           id={movie.id.toString()}
           name={movie.title}
           languages={["English"]}
-          poster={`https://media.themoviedb.org/t/p/w220_and_h330_face${movie.poster_path}`}
+          poster={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
           rating={Math.floor(movie.vote_average)}
         />
       ))}

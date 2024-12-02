@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { numberToMovieRuntime } from "@/utils/number-to-movie-runtime";
 
-import { PlayButtonWithVideoDialog } from "./play-button-with-video-dialog";
+import { PlayButtonWithVideoDialog } from "../play-button-with-video-dialog";
 
 async function getMovieDetails(id: string): Promise<{
   adult: false;
@@ -80,7 +80,7 @@ export async function MovieSysnopsisMobile({ id }: { id: string }) {
     <div className="container sm:hidden">
       <div className="group relative my-3 h-[166px] overflow-hidden rounded-xl">
         <Image
-          src={`https://media.themoviedb.org/t/p/w1920_and_h800_multi_faces${movieDetails.backdrop_path}`}
+          src={`https://image.tmdb.org/t/p/original${movieDetails.backdrop_path}`}
           alt="Platnet of the Apes"
           fill
           objectFit="cover"
@@ -96,7 +96,7 @@ export async function MovieSysnopsisMobile({ id }: { id: string }) {
       <div className="flex gap-3">
         <div className="relative w-28 overflow-hidden rounded-lg">
           <Image
-            src={`https://media.themoviedb.org/t/p/w220_and_h330_face${movieDetails.poster_path}`}
+            src={`https://image.tmdb.org/t/p/original${movieDetails.poster_path}`}
             alt="Platnet of the Apes"
             width={0}
             height={0}

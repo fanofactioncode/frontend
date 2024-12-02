@@ -32,6 +32,7 @@ export default function MovieCard({
           height={0}
           sizes="100vw"
           className="h-auto w-full"
+          priority
         />
       </div>
       <div className="space-y-1.5 md:space-y-2">
