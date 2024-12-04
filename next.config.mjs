@@ -24,6 +24,7 @@ export default withNextVideo(nextConfig);
   zod
     .object({
       // NEXT_PUBLIC_VAR: zod.string(),
+      // NEXT_PUBLIC_API_URL: zod.string().url(),
     })
     .parse(process.env);
 
