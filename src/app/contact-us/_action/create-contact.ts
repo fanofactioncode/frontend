@@ -55,7 +55,7 @@ export async function createContact(prevState: any, formData: FormData) {
     );
 
     if (!response.ok) {
-      throw new Error("Failed to send message");
+      return { error: "Failed to send message" };
     }
 
     return { message: "Success" };
