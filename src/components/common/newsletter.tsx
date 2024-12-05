@@ -1,6 +1,6 @@
 import { Badge } from "../ui/badge";
-import { Button } from "../ui/button";
-import { Input } from "../ui/input";
+
+import { SubscriptionForm } from "./subscription-form";
 
 export default function Newsletter() {
   return (
@@ -15,16 +15,7 @@ export default function Newsletter() {
           It&apos;s free to sign up on our newsletter
         </p>
 
-        <div className="flex items-center gap-2 rounded-[1.8em] border-2 border-black bg-background px-[0.6em] py-2">
-          <Input
-            placeholder="Your email"
-            type="email"
-            className="max-w-full border-none text-sm text-text ring-transparent transition-none duration-0 focus-visible:ring-0 sm:min-w-[300px]"
-          />
-          <Button className="rounded-[1.4em] px-6 py-6 text-sm">
-            Subscribe
-          </Button>
-        </div>
+        <SubscriptionForm />
       </div>
     </div>
   );
