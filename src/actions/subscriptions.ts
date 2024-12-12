@@ -46,7 +46,7 @@ export async function createSubscription(formData: FormData) {
     }
 
     return { message: "Success" };
-  } catch (error) {
+  } catch {
     return { error: "Failed to subscribe" };
   }
 }

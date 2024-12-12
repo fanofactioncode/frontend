@@ -1,33 +1,82 @@
-import { ArrowDownIcon, IconElement } from "@/components/icons";
+import React, { forwardRef } from "react";
 
-export interface ItemPickerProps {
-  Icon: IconElement;
-  title: string;
-  text: string;
-  onClick?: () => void;
-}
+import { ArrowDownIcon } from "@/components/icons";
+import { cn } from "@/lib/utils";
 
-export default function ItemPicker({
-  Icon,
-  title,
-  text,
-  onClick,
-}: ItemPickerProps) {
+const Picker = forwardRef<
+  HTMLButtonElement,
+  React.HTMLAttributes<HTMLButtonElement>
+>(({ children, ...props }, ref) => {
   return (
-    <div
+    <button
+      ref={ref}
+      type="button"
       className="flex cursor-pointer flex-col gap-2 p-6 sm:flex-1"
-      onClick={onClick}
+      {...props}
     >
-      <div className="flex flex-row items-center gap-2">
-        <Icon size={18} color="#B9F18C" />
-        <p className="select-none text-base font-semibold text-text">{title}</p>
-        <ArrowDownIcon
-          size={18}
-          color="black"
-          className="fill-primary stroke-primary"
-        />
-      </div>
-      <p className="select-none text-text-sub">{text}</p>
+      {children}
+    </button>
+  );
+});
+Picker.displayName = "Picker";
+
+const PickerHeader = forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ children, ...props }, ref) => {
+  return (
+    <div ref={ref} className="flex flex-row items-center gap-2" {...props}>
+      {children}
     </div>
   );
-}
+});
+PickerHeader.displayName = "PickerHeader";
+
+const PickerTitle = forwardRef<
+  HTMLParagraphElement,
+  React.HTMLAttributes<HTMLParagraphElement>
+>(({ children, ...props }, ref) => {
+  return (
+    <p
+      ref={ref}
+      className="select-none text-base font-semibold text-text"
+      {...props}
+    >
+      {children}
+    </p>
+  );
+});
+PickerTitle.displayName = "PickerTitle";
+
+const PickerDownIcon = forwardRef<
+  HTMLOrSVGElement,
+  React.SVGProps<SVGSVGElement>
+>(({ ...props }, ref) => {
+  return (
+    <ArrowDownIcon
+      size={18}
+      className="fill-primary stroke-primary"
+      ref={ref}
+      {...props}
+    />
+  );
+});
+PickerDownIcon.displayName = "PickerDownIcon";
+
+const PickerDescription = forwardRef<
+  HTMLParagraphElement,
+  React.HTMLAttributes<HTMLParagraphElement>
+>(({ children, className, ...props }, ref) => {
+  return (
+    <p
+      ref={ref}
+      className={cn("select-none text-text-sub", className)}
+      {...props}
+    >
+      {children}
+    </p>
+  );
+});
+PickerDescription.displayName = "PickerDescription";
+
+export { Picker, PickerDescription, PickerDownIcon, PickerHeader, PickerTitle };

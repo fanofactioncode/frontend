@@ -1,8 +1,10 @@
 {
-  "plugins": ["@next/eslint-plugin-next"],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@next/eslint-plugin-next", "@typescript-eslint"],
   "extends": ["next/core-web-vitals", "next", "prettier"],
   "rules": {
-    "no-unused-vars": [
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": [
       "error",
       {
         "argsIgnorePattern": "^_",
