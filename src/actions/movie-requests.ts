@@ -5,19 +5,17 @@ import { z } from "zod";
 import env from "@/lib/env";
 
 const schema = z.object({
-  movie_id: z.coerce.number().int().min(0),
-  city_id: z.coerce.number().int().min(0),
+  // movie_id: z.coerce.number().int(),
+  city_id: z.coerce.number().int(),
   email: z.string().email({ message: "Invalid email address" }),
-  suggested_city: z.string().min(1, { message: "City is required" }),
-  suggested_movie: z.string().min(1, { message: "Movie is required" }),
+  // suggested_city: z.string(),
+  suggested_movie: z.string(),
 });
 
 export async function makeMovieRequest(formData: FormData) {
   const validatedFields = schema.safeParse({
-    movie_id: formData.get("movie_id"),
     city_id: formData.get("city_id"),
     email: formData.get("email"),
-    suggested_city: formData.get("suggested_city"),
     suggested_movie: formData.get("suggested_movie"),
   });
 
@@ -37,7 +35,10 @@ export async function makeMovieRequest(formData: FormData) {
     });
 
     if (!response.ok) {
-      return { error: "Failed to send request" };
+      const text = await response.text();
+      const obj = JSON.parse(text);
+
+      return { error: obj.message || "Failed to send request" };
     }
 
     return { message: "Success" };
