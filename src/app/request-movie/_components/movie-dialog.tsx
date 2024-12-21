@@ -14,7 +14,9 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { useDebounce } from "@/hooks/use-debounce";
 import { cn } from "@/lib/utils";
 import { getSuggestions } from "@/services/suggestions";
+import { getTrendingMovies } from "@/services/trending";
 import { SuggestionMovie } from "@/types/suggestions";
+import { TrendingMovie } from "@/types/trending";
 
 import SearchInput from "../(selectors)/_components/search-input";
 
@@ -33,15 +35,22 @@ export function MovieDialog({
   const pathname = usePathname();
   const { replace } = useRouter();
 
-  const [trendingMovies, setTrendingMovies] = useState<SuggestionMovie[]>([]);
+  const [movies, setMovies] = useState<TrendingMovie[]>([]);
+  const [searchedResults, setSearchedResults] = useState<SuggestionMovie[]>([]);
   const [query, setQuery] = useState<string>();
   const debouncedQuery = useDebounce(query, 300);
 
   useEffect(() => {
+    if (!debouncedQuery) return;
+
     getSuggestions({ search: debouncedQuery }).then(({ data }) =>
-      setTrendingMovies(data)
+      setSearchedResults(data)
     );
   }, [debouncedQuery]);
+
+  useEffect(() => {
+    getTrendingMovies().then(setMovies);
+  }, []);
 
   function handleMovieSelect(movie: string) {
     const params = new URLSearchParams(searchParams);
@@ -65,34 +74,66 @@ export function MovieDialog({
         />
 
         <div className="mt-2 flex-1 space-y-2">
-          <h2 className="text-lg font-semibold text-text">Top Searched</h2>
+          {!debouncedQuery && (
+            <>
+              <h2 className="text-lg font-semibold text-text">Top Searched</h2>
 
-          <ScrollArea className="max-h-[300px]">
-            {trendingMovies?.map(({ title: name, id }, i) => (
-              <button
-                key={id}
-                className={cn(
-                  "flex w-full items-center justify-between border-b border-secondary py-3 text-text transition-colors duration-300 focus-within:bg-foreground/5 focus-within:outline-none",
-                  i === 0 && ""
+              <ScrollArea className="max-h-[300px]">
+                {movies?.map(({ title: name, id }, i) => (
+                  <button
+                    key={id}
+                    className={cn(
+                      "flex w-full items-center justify-between border-b border-secondary py-3 text-text transition-colors duration-300 focus-within:bg-foreground/5 focus-within:outline-none",
+                      i === 0 && ""
+                    )}
+                    aria-label={name}
+                    onClick={() => handleMovieSelect(name)}
+                  >
+                    <span>{name}</span>
+
+                    <div className="flex items-center gap-1">
+                      {/* <span>{views}</span> */}
+                      <TrendingIcon size={20} className="fill-primary" />
+                    </div>
+                  </button>
+                ))}
+
+                {searchedResults?.length === 0 && (
+                  <p className="py-3 text-center text-sm text-text-sub">
+                    No movies found
+                  </p>
                 )}
-                aria-label={name}
-                onClick={() => handleMovieSelect(name)}
-              >
-                <span>{name}</span>
+              </ScrollArea>
+            </>
+          )}
 
-                <div className="flex items-center gap-1">
-                  {/* <span>{views}</span> */}
-                  <TrendingIcon size={20} className="fill-primary" />
-                </div>
-              </button>
-            ))}
+          {debouncedQuery && (
+            <>
+              <h2 className="text-lg font-semibold text-text">
+                Maching Results
+              </h2>
 
-            {trendingMovies?.length === 0 && (
-              <p className="py-3 text-center text-sm text-text-sub">
-                No movies found
-              </p>
-            )}
-          </ScrollArea>
+              <ScrollArea className="max-h-[300px]">
+                {searchedResults?.map(({ title, id }) => (
+                  <button
+                    key={id}
+                    className="flex w-full items-center justify-between border-b border-secondary py-3 text-text transition-colors duration-300 focus-within:bg-foreground/5 focus-within:outline-none"
+                    onClick={() => handleMovieSelect(title)}
+                    aria-label={title}
+                    aria-labelledby={title}
+                  >
+                    {title}
+                  </button>
+                ))}
+
+                {searchedResults?.length === 0 && (
+                  <p className="py-3 text-center text-sm text-text-sub">
+                    No movies found
+                  </p>
+                )}
+              </ScrollArea>
+            </>
+          )}
         </div>
 
         <DialogFooter>
