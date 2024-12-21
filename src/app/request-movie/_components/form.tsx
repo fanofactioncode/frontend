@@ -6,17 +6,7 @@ import { useEffect, useState } from "react";
 import { makeMovieRequest } from "@/actions/movie-requests";
 import { MapIcon, MovieIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
 import { useScreenWidth } from "@/hooks/use-screen-width";
-import { cn } from "@/lib/utils";
 import { getCities } from "@/services/cities";
 import { CityResponse } from "@/types/cities";
 
@@ -30,6 +20,7 @@ import {
   PickerTitle,
 } from "./item-picker";
 import { MovieDialog } from "./movie-dialog";
+import { SuccessModal } from "./success-modal";
 
 export default function MovieRequestForm() {
   const router = useRouter();
@@ -44,8 +35,9 @@ export default function MovieRequestForm() {
   const [isCityDialogOpen, setIsCityDialogOpen] = useState<boolean>(false);
   const [isSuccessDialogOpen, setIsSuccessDialogOpen] =
     useState<boolean>(false);
+  const [isPending, setIsPending] = useState<boolean>(false);
   const [cities, setCities] = useState<CityResponse>();
-  const [error, setError] = useState<string>();
+  const [_error, setError] = useState<string>();
 
   useEffect(() => {
     getCities().then(setCities);
@@ -72,7 +64,7 @@ export default function MovieRequestForm() {
     }
   }
 
-  async function handleFormSubmit(_formData: FormData) {
+  async function handleFormSubmit() {
     const newFormData = new FormData();
     newFormData.append("suggested_movie", movie);
 
@@ -80,42 +72,31 @@ export default function MovieRequestForm() {
       (city) => city.name === searchParams.get("city")
     )?.id;
     newFormData.append("city_id", String(cityId));
-
     newFormData.append("email", "unknown@domain.com");
+    try {
+      const { error, message: _ } = await makeMovieRequest(newFormData);
 
-    const { error, message: _ } = await makeMovieRequest(newFormData);
+      if (error) return setError(error);
 
-    if (error) {
-      return setError(error);
+      setIsSuccessDialogOpen(true);
+    } catch (err) {
+      setError((err as Error).message);
+    } finally {
+      setIsPending(false);
     }
-
-    // router.replace("/request-movie");
-    setIsSuccessDialogOpen(true);
   }
-
-  const cityId = cities?.allCities.find(
-    (city) => city.name === searchParams.get("city")
-  )?.id;
-
-  const movieId = undefined;
 
   return (
     <>
       <form method="POST" action={handleFormSubmit}>
         <div className="mx-auto mt-8 flex max-w-[890px] flex-col overflow-hidden rounded-2xl border border-secondary dark:border-primary sm:mt-12 sm:flex-row sm:items-center sm:gap-6">
-          <input type="hidden" name="movie_id" value={movieId} />
-          <input type="hidden" name="city_id" value={cityId} />
-          <input type="hidden" name="email" value="unknown@domain.com" />
-          <input type="hidden" name="suggested_city" value={city} />
-          <input type="hidden" name="suggested_movie" value={movie} />
-
           <Picker onClick={handleMovieDialogPicker}>
             <PickerHeader>
               <MovieIcon size={18} color="#B9F18C" />
               <PickerTitle>Movie</PickerTitle>
               <PickerDownIcon />
             </PickerHeader>
-            <PickerDescription className={cn(error && "text-red-500")}>
+            <PickerDescription>
               {movie ?? "Which movie you want to see ?"}
             </PickerDescription>
           </Picker>
@@ -136,41 +117,29 @@ export default function MovieRequestForm() {
           </Picker>
 
           <div className="hidden p-6 ps-0 sm:flex">
-            <Button type="submit" className="px-12">
-              Submit
+            <Button
+              type="submit"
+              className="w-[150px] px-12"
+              disabled={isPending}
+            >
+              {isPending ? "Submitting..." : "Submit"}
             </Button>
           </div>
         </div>
 
-        <Button type="submit" className="mt-8 w-full sm:hidden">
-          Submit
+        <Button
+          type="submit"
+          className="mt-8 w-full sm:hidden"
+          disabled={isPending}
+        >
+          {isPending ? "Submitting..." : "Submit"}
         </Button>
       </form>
 
-      <Dialog open={isSuccessDialogOpen} onOpenChange={setIsSuccessDialogOpen}>
-        <DialogContent
-          aria-describedby="movie-dialog"
-          className="w-[95%] max-w-lg rounded-xl sm:!rounded-3xl sm:px-12 sm:py-12"
-        >
-          <DialogHeader className="items-center justify-center">
-            <div className="size-20 rounded-full bg-red-300"></div>
-            <DialogTitle className="!text-lg !text-text">
-              Your request has been proceed
-            </DialogTitle>
-            <DialogDescription className="text-center !text-sm !text-text-sub">
-              Thanks for showing interest. We’ll soon going to be make this
-              happend. Stay connected with use and subscribe to our newsletter
-              to get latest updates.
-            </DialogDescription>
-          </DialogHeader>
-
-          <DialogFooter className="mx-auto mt-8">
-            <DialogClose asChild>
-              <Button className="px-8 sm:min-w-[245px]">Subscribe</Button>
-            </DialogClose>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
+      <SuccessModal
+        open={isSuccessDialogOpen}
+        onOpenChange={setIsSuccessDialogOpen}
+      />
 
       <MovieDialog
         open={isMovieDialogOpen}
