@@ -1,3 +1,5 @@
+import { Player } from "@lottiefiles/react-lottie-player";
+
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -22,7 +24,14 @@ export function SuccessModal({ open, onOpenChange }: SuccessModalProps) {
         className="w-[95%] max-w-lg rounded-xl sm:!rounded-3xl sm:px-12 sm:py-12"
       >
         <DialogHeader className="items-center justify-center">
-          <div className="size-20 rounded-full bg-red-300"></div>
+          <Player
+            src="/assets/lottie/success.json"
+            loop={false}
+            autoplay
+            keepLastFrame
+            className="size-40"
+          />
+
           <DialogTitle className="!text-lg !text-text">
             Your request has been proceed
           </DialogTitle>
