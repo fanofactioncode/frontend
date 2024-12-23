@@ -40,7 +40,7 @@ export function CityDialog({
       .finally(() => setIsFetching(false));
   }, []);
 
-  const cities = allCities.filter((city) => {
+  const cities = allCities?.filter((city) => {
     if (!query) return true;
     return city.name.toLowerCase().includes(query.toLowerCase());
   });
@@ -78,7 +78,7 @@ export function CityDialog({
                 ))}
               </Case>
               <Case value={false}>
-                {availableCities.map((city) => (
+                {availableCities?.map((city) => (
                   <button
                     key={city.id}
                     className="flex items-center justify-center truncate rounded-xl border border-secondary bg-secondary/30 p-2 text-center text-text-sub dark:bg-secondary"
@@ -117,7 +117,7 @@ export function CityDialog({
                   ))}
                 </Case>
                 <Case value={false}>
-                  {cities.map((city) => (
+                  {cities?.map((city) => (
                     <button
                       key={city.id}
                       className="block h-auto text-left text-text-sub focus-within:underline focus-within:outline-none"

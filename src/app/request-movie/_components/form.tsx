@@ -7,6 +7,7 @@ import { makeMovieRequest } from "@/actions/movie-requests";
 import { MapIcon, MovieIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { useScreenWidth } from "@/hooks/use-screen-width";
+import { cn } from "@/lib/utils";
 import { getCities } from "@/services/cities";
 import { CityResponse } from "@/types/cities";
 
@@ -37,7 +38,7 @@ export default function MovieRequestForm() {
     useState<boolean>(false);
   const [isPending, setIsPending] = useState<boolean>(false);
   const [cities, setCities] = useState<CityResponse>();
-  const [_error, setError] = useState<string>();
+  const [error, setError] = useState<string>();
 
   useEffect(() => {
     getCities().then(setCities);
@@ -65,16 +66,19 @@ export default function MovieRequestForm() {
   }
 
   async function handleFormSubmit() {
-    const newFormData = new FormData();
-    newFormData.append("suggested_movie", movie);
-
     const cityId = cities?.allCities.find(
       (city) => city.name === searchParams.get("city")
     )?.id;
-    newFormData.append("city_id", String(cityId));
-    newFormData.append("email", "unknown@domain.com");
+    if (!cityId) return setError("Please select a city");
+
+    const payload = {
+      suggested_movie: movie,
+      city_id: cityId,
+      email: "unknown@domain.com",
+    };
+
     try {
-      const { error, message: _ } = await makeMovieRequest(newFormData);
+      const { error, message: _ } = await makeMovieRequest(payload);
 
       if (error) return setError(error);
 
@@ -86,10 +90,21 @@ export default function MovieRequestForm() {
     }
   }
 
+  useEffect(() => {
+    if (movie || city) {
+      setError(undefined);
+    }
+  }, [movie, city]);
+
   return (
     <>
       <form method="POST" action={handleFormSubmit}>
-        <div className="mx-auto mt-8 flex max-w-[890px] flex-col overflow-hidden rounded-2xl border border-secondary dark:border-primary sm:mt-12 sm:flex-row sm:items-center sm:gap-6">
+        <div
+          className={cn(
+            "mx-auto mt-8 flex max-w-[890px] flex-col overflow-hidden rounded-2xl border border-secondary dark:border-primary sm:mt-12 sm:flex-row sm:items-center sm:gap-6",
+            error && "!border-red-500"
+          )}
+        >
           <Picker onClick={handleMovieDialogPicker}>
             <PickerHeader>
               <MovieIcon size={18} color="#B9F18C" />
@@ -126,6 +141,10 @@ export default function MovieRequestForm() {
             </Button>
           </div>
         </div>
+
+        <p className="mx-auto max-w-[890px] text-left text-sm text-red-500">
+          {error}
+        </p>
 
         <Button
           type="submit"

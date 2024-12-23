@@ -1,4 +1,5 @@
 import { Player } from "@lottiefiles/react-lottie-player";
+import { useRouter } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -17,8 +18,16 @@ export interface SuccessModalProps {
 }
 
 export function SuccessModal({ open, onOpenChange }: SuccessModalProps) {
+  const router = useRouter();
+
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
+    <Dialog
+      open={open}
+      onOpenChange={(val) => {
+        if (!val) router.replace("/request-movie");
+        onOpenChange(val);
+      }}
+    >
       <DialogContent
         aria-describedby="movie-dialog"
         className="w-[95%] max-w-lg rounded-xl sm:!rounded-3xl sm:px-12 sm:py-12"

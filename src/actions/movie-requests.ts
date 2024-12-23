@@ -5,19 +5,26 @@ import { z } from "zod";
 import env from "@/lib/env";
 
 const schema = z.object({
-  // movie_id: z.coerce.number().int(),
-  city_id: z.coerce.number().int(),
-  email: z.string().email({ message: "Invalid email address" }),
-  // suggested_city: z.string(),
-  suggested_movie: z.string(),
+  suggested_movie: z
+    .string({ message: "Please select a movie" })
+    .min(2, { message: "Please select a movie, min" }),
+  city_id: z.coerce
+    .number({ invalid_type_error: "Please select a city" })
+    .int({ message: "Please select a city" }),
+  email: z
+    .string()
+    .email({ message: "Invalid email address" })
+    .min(1, { message: "Please enter your email" }),
 });
 
-export async function makeMovieRequest(formData: FormData) {
-  const validatedFields = schema.safeParse({
-    city_id: formData.get("city_id"),
-    email: formData.get("email"),
-    suggested_movie: formData.get("suggested_movie"),
-  });
+type MovieRequestPayload = {
+  suggested_movie: string;
+  city_id: number;
+  email: string;
+};
+
+export async function makeMovieRequest(payload: MovieRequestPayload) {
+  const validatedFields = schema.safeParse(payload);
 
   // Return early if validation fails
   if (!validatedFields.success) {

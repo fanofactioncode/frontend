@@ -70,7 +70,7 @@ const PickerDescription = forwardRef<
   return (
     <p
       ref={ref}
-      className={cn("select-none text-text-sub", className)}
+      className={cn("select-none text-left text-text-sub", className)}
       {...props}
     >
       {children}

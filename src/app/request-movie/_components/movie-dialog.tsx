@@ -97,12 +97,6 @@ export function MovieDialog({
                     </div>
                   </button>
                 ))}
-
-                {searchedResults?.length === 0 && (
-                  <p className="py-3 text-center text-sm text-text-sub">
-                    No movies found
-                  </p>
-                )}
               </ScrollArea>
             </>
           )}
