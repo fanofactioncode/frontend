@@ -19,7 +19,7 @@ export async function generateMetadata({
   const movie = await getMovieDetails(slug);
 
   return {
-    title: `Book ticket for ${movie.title} | FanOfAction`,
+    title: `Book ticket for ${movie.title}`,
     description: movie.overview,
     openGraph: {
       title: `Book ticket for ${movie.title} | FanOfAction`,

@@ -8,17 +8,16 @@ export function HeroSection() {
     <main className="container flex max-w-[970px] flex-col gap-8 py-16">
       <div className="space-y-4 md:space-y-8">
         <h1 className="text-balance text-center text-4xl font-extrabold text-text md:text-5xl md:leading-tight">
-          Epic{" "}
           <span className="rounded-xl bg-[#B9F18C] px-1.5 py-0.5 dark:bg-[#FF499E]">
-            Cinematic
+            FanOfAction
           </span>{" "}
-          Revival: The Return of a Blockbuster - Movie Rerelease Spectacular!
+          : The Ultimate Destination for Cinema Rerelease
         </h1>
         <p className="text-center text-sm text-text-sub md:px-32 md:text-base">
-          Lorem ipsum dolor sit amet consectetur. Viverra euismod duis aliquam
-          ipsum. Ac senectus turpis sed sagittis nulla feugiat vulputate. Massa
-          vulputate donec ligula elit ut. Viverra eros ut morbi auctor odio
-          enim.
+          Experience the thrill of seeing your favorite movies on the big screen
+          once again! FanOfAction is your go-to destination for classic and
+          blockbuster movie rereleases in theaters. Don’t miss out on the
+          cinematic magic!
         </p>
       </div>
 

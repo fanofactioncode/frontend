@@ -9,7 +9,7 @@ export function SubmitButton() {
 
   return (
     <Button type="submit" disabled={pending} className="mt-8 w-full">
-      Leave us message
+      Leave us a message
     </Button>
   );
 }

@@ -23,7 +23,7 @@ export function ContactInfo() {
                   info@fanofaction.com
                 </p>
                 <p className="text-sm text-text-sub sm:text-base">
-                  Assistance hours: <br /> Monday - Friday 6 am to 8 pm EST
+                  Assistance hours: <br /> Everyday, Anytime
                 </p>
               </div>
             </div>
@@ -37,7 +37,7 @@ export function ContactInfo() {
                   +91 942 888 7271
                 </p>
                 <p className="text-sm text-text-sub sm:text-base">
-                  Assistance hours: <br /> Monday - Friday 6 am to 8 pm EST
+                  Assistance hours: <br /> Everyday, Anytime
                 </p>
               </div>
             </div>

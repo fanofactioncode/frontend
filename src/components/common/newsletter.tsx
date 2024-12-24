@@ -9,7 +9,7 @@ export default function Newsletter() {
         <Badge>Stay Connected</Badge>
 
         <h2 className="text-center text-4xl font-bold leading-tight text-text sm:text-6xl sm:leading-none">
-          Bring sanity back to your website
+          Never miss out on good movies
         </h2>
         <p className="text-center text-sm text-text sm:text-base">
           It&apos;s free to sign up on our newsletter

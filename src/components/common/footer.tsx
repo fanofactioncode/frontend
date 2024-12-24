@@ -18,10 +18,11 @@ export default function Footer() {
           <div className="space-y-4 md:w-96">
             <LogoIcon className="size-14" />
             <p className="text-sm">
-              We breathe new life into classic action movies, delivering the
-              nostalgia you love. Experience the magic of yesteryears on the big
-              screen with our meticulously restored releases. FanOfAction: Where
-              vintage cinema roars back to life.
+              At FanOfAction, we bring the magic of cinema&apos;s greatest hits
+              back to the big screen. Relive your favorite action-packed
+              adventures, thrilling dramas, and timeless classics in theaters
+              near you! Whether you’re a die-hard action fan or a nostalgic
+              movie lover, we’ve got something for everyone.
             </p>
           </div>
 
@@ -99,21 +100,20 @@ export default function Footer() {
               <ul className="flex flex-col gap-[0.9rem] text-sm text-[#ABB7C4]">
                 <li>
                   <Link
-                    href="tel:+91 909090 909090"
+                    href="tel:+91 942 888 7271"
                     className="transition-colors focus-within:underline focus-within:outline-none hover:underline"
                   >
-                    +91 909090 909090
+                    +91 942 888 7271
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="mailto:fanofaction@gmail.com"
+                    href="mailto:info@fanofaction.com"
                     className="transition-colors focus-within:underline focus-within:outline-none hover:underline"
                   >
-                    fanofaction@gmail.com
+                    info@fanofaction.com
                   </Link>
                 </li>
-                <li>20-26 New Jagnath, Rajkot, Gujarat - 360001</li>
               </ul>
 
               <div className="flex gap-4">
