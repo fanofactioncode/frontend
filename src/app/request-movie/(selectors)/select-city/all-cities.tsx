@@ -1,6 +1,6 @@
-import Link from "next/link";
-
 import { City } from "@/types/cities";
+
+import { ListItem } from "./list-item";
 
 export function AllCities({ cities }: { cities: City[] }) {
   return (
@@ -11,14 +11,7 @@ export function AllCities({ cities }: { cities: City[] }) {
 
       <div className="mt-3">
         {cities.map((city) => (
-          <Link
-            key={city.id}
-            href={`/request-movie?city=${city.name}`}
-            className="block w-full border-b-[0.5px] border-secondary px-4 py-3 text-sm text-text-sub"
-            replace
-          >
-            {city.name}
-          </Link>
+          <ListItem key={city.id} city={city.name} />
         ))}
       </div>
     </div>

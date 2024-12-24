@@ -53,7 +53,7 @@ export default function MovieRequestForm() {
     if (screenWidth >= 760) {
       setIsMovieDialogOpen(true);
     } else {
-      router.push("/request-movie/select-movie");
+      router.push("/request-movie/select-movie?" + searchParams.toString());
     }
   }
 
@@ -61,14 +61,18 @@ export default function MovieRequestForm() {
     if (screenWidth >= 760) {
       setIsCityDialogOpen(true);
     } else {
-      router.push("/request-movie/select-city");
+      router.push("/request-movie/select-city?" + searchParams.toString());
     }
   }
 
-  async function handleFormSubmit() {
-    const cityId = cities?.allCities.find(
+  function getSelectedCityId() {
+    return cities?.allCities.find(
       (city) => city.name === searchParams.get("city")
     )?.id;
+  }
+
+  async function handleFormSubmit() {
+    const cityId = getSelectedCityId();
     if (!cityId) return setError("Please select a city");
 
     const payload = {
