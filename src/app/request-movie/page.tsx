@@ -1,6 +1,13 @@
+import { Metadata } from "next";
+
 import PageLayout from "@/components/layout/page-layout";
 
 import MovieRequestForm from "./_components/form";
+
+export const metadata: Metadata = {
+  title: "Request your favorite movie",
+  description: "Request a movie to be released in your city.",
+};
 
 export default function RequestMoviePage() {
   return (

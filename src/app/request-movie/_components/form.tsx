@@ -167,7 +167,10 @@ export default function MovieRequestForm() {
       <MovieDialog
         open={isMovieDialogOpen}
         onOpenChange={setIsMovieDialogOpen}
-        onNextClick={() => setIsCityDialogOpen(true)}
+        onNextClick={() => {
+          setIsMovieDialogOpen(false);
+          setIsCityDialogOpen(true);
+        }}
       />
 
       <CityDialog open={isCityDialogOpen} onOpenChange={setIsCityDialogOpen} />

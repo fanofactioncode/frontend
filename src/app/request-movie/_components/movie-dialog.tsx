@@ -57,7 +57,7 @@ export function MovieDialog({
     params.set("movie", movie);
     replace(`${pathname}?${params.toString()}`);
 
-    onOpenChange(false);
+    onNextClick();
   }
 
   return (
