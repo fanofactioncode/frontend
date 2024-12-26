@@ -11,7 +11,7 @@ export default function RefundAndCancellationPolicyPage() {
           You better understand our refund and cancellation policy
         </h1>
         <p className="mt-2 text-center text-sm text-text-sub sm:mt-6 sm:text-base">
-          Read our terms below to about our refund and cancellation policy
+          Read our terms below to know about our refund and cancellation policy
         </p>
       </div>
       <section className="space-y-14 py-16 text-sm leading-5 text-text-sub sm:text-base">
