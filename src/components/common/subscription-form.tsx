@@ -22,7 +22,7 @@ export function SubscriptionForm() {
   const formRef = createRef<HTMLFormElement>();
 
   const [pending, setPending] = useState<boolean>(false);
-  const [isDialogOpen, setIsDialogOpen] = useState<boolean>(true);
+  const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
   function resetForm() {
