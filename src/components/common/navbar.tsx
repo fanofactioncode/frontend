@@ -27,8 +27,8 @@ export function Navbar() {
           </ul>
         </nav>
 
-        <Button size="sm" className="hidden text-base md:flex">
-          Request Your Movie
+        <Button size="sm" className="hidden text-base md:flex" asChild>
+          <Link href="/request-movie">Request Your Movie</Link>
         </Button>
 
         <MenuButton />
