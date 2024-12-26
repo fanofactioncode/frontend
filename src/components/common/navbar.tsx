@@ -28,7 +28,7 @@ export function Navbar() {
         </nav>
 
         <Button size="sm" className="hidden text-base md:flex">
-          Request Movie
+          Request Your Movie
         </Button>
 
         <MenuButton />

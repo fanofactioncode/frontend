@@ -1,5 +1,6 @@
 "use client";
 
+import { Player } from "@lottiefiles/react-lottie-player";
 import { createRef, useState } from "react";
 
 import { createSubscription } from "@/actions/subscriptions";
@@ -21,7 +22,7 @@ export function SubscriptionForm() {
   const formRef = createRef<HTMLFormElement>();
 
   const [pending, setPending] = useState<boolean>(false);
-  const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
+  const [isDialogOpen, setIsDialogOpen] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
   function resetForm() {
@@ -48,16 +49,24 @@ export function SubscriptionForm() {
   return (
     <>
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogContent className="sm:max-w-[425px]">
-          <DialogHeader>
+        <DialogContent className="w-[90%] rounded-xl sm:max-w-[425px]">
+          <DialogHeader className="flex flex-col items-center space-y-0 text-center">
+            <Player
+              src="/assets/lottie/success.json"
+              loop={false}
+              autoplay
+              keepLastFrame
+              className="size-40"
+            />
+
             <DialogTitle>Success!</DialogTitle>
             <DialogDescription>
               You have successfully subscribed
             </DialogDescription>
           </DialogHeader>
-          <DialogFooter>
-            <DialogClose>
-              <Button>Close</Button>
+          <DialogFooter className="mt-4 flex items-center sm:justify-center">
+            <DialogClose asChild>
+              <Button className="w-56">Close</Button>
             </DialogClose>
           </DialogFooter>
         </DialogContent>
