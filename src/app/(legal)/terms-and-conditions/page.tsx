@@ -12,7 +12,7 @@ export default function TermsAndConditionsPage() {
         </h1>
         <p className="mt-2 text-center text-sm text-text-sub sm:mt-6 sm:text-base">
           Read our terms below to learn more about your rights and
-          responsibilities as a Dribbble user.
+          responsibilities as a FanOfAction user.
         </p>
       </div>
       <section className="space-y-14 py-16 text-sm leading-5 text-text-sub sm:text-base">

@@ -11,8 +11,8 @@ export default function PrivacyPolicyPage() {
           We are committed to your privacy
         </h1>
         <p className="mt-2 text-center text-sm text-text-sub sm:mt-6 sm:text-base">
-          Learn more about how Dribbble collects and uses data and your rights
-          as a Dribbble user.
+          Learn more about how FanOfAction collects and uses data and your
+          rights as a FanOfAction user.
         </p>
       </div>
       <section className="space-y-14 py-16 text-sm leading-5 text-text-sub sm:text-base">
