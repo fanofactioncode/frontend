@@ -114,6 +114,12 @@ export default function Footer() {
                     info@fanofaction.com
                   </Link>
                 </li>
+                <li>
+                  <p className="transition-colors focus-within:underline focus-within:outline-none hover:underline">
+                    Bizcon 10 Sardar Nagar, Astron Chowk <br /> Rajkot, Gujarat
+                    360001
+                  </p>
+                </li>
               </ul>
 
               <div className="flex gap-4">

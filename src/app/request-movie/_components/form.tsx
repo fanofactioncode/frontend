@@ -1,11 +1,23 @@
 "use client";
 
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
 
 import { makeMovieRequest } from "@/actions/movie-requests";
 import { MapIcon, MovieIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
 import { useScreenWidth } from "@/hooks/use-screen-width";
 import { cn } from "@/lib/utils";
 import { getCities } from "@/services/cities";
@@ -23,7 +35,24 @@ import {
 import { MovieDialog } from "./movie-dialog";
 import { SuccessModal } from "./success-modal";
 
+const schema = z.object({
+  email: z
+    .string()
+    .min(3, { message: "Please provide email address" })
+    .email({ message: "Please provide email address" }),
+});
+
+type FormSchema = z.infer<typeof schema>;
+
 export default function MovieRequestForm() {
+  const {
+    formState: { errors },
+    register,
+    handleSubmit,
+  } = useForm<FormSchema>({
+    resolver: zodResolver(schema),
+  });
+
   const router = useRouter();
   const screenWidth = useScreenWidth();
   const searchParams = useSearchParams();
@@ -35,6 +64,8 @@ export default function MovieRequestForm() {
   const [isMovieDialogOpen, setIsMovieDialogOpen] = useState<boolean>(false);
   const [isCityDialogOpen, setIsCityDialogOpen] = useState<boolean>(false);
   const [isSuccessDialogOpen, setIsSuccessDialogOpen] =
+    useState<boolean>(false);
+  const [isSubscriptionDialogOpen, setIsSubscriptionDialogOpen] =
     useState<boolean>(false);
   const [isPending, setIsPending] = useState<boolean>(false);
   const [cities, setCities] = useState<CityResponse>();
@@ -71,14 +102,14 @@ export default function MovieRequestForm() {
     )?.id;
   }
 
-  async function handleFormSubmit() {
+  async function handleFormSubmit({ email }: FormSchema) {
     const cityId = getSelectedCityId();
     if (!cityId) return setError("Please select a city");
 
     const payload = {
       suggested_movie: movie,
       city_id: cityId,
-      email: "unknown@domain.com",
+      email,
     };
 
     try {
@@ -86,6 +117,7 @@ export default function MovieRequestForm() {
 
       if (error) return setError(error);
 
+      setIsSubscriptionDialogOpen(false);
       setIsSuccessDialogOpen(true);
     } catch (err) {
       setError((err as Error).message);
@@ -102,7 +134,12 @@ export default function MovieRequestForm() {
 
   return (
     <>
-      <form method="POST" action={handleFormSubmit}>
+      <form
+        method="POST"
+        action={() => {
+          if (getSelectedCityId() && movie) setIsSubscriptionDialogOpen(true);
+        }}
+      >
         <div
           className={cn(
             "mx-auto mt-8 flex max-w-[890px] flex-col overflow-hidden rounded-2xl border border-secondary dark:border-primary sm:mt-12 sm:flex-row sm:items-center sm:gap-6",
@@ -158,6 +195,39 @@ export default function MovieRequestForm() {
           {isPending ? "Submitting..." : "Submit"}
         </Button>
       </form>
+
+      <Dialog
+        open={isSubscriptionDialogOpen}
+        onOpenChange={setIsSubscriptionDialogOpen}
+      >
+        <DialogContent className="w-[90%] rounded-2xl sm:max-w-[500px]">
+          <DialogHeader>
+            <DialogTitle className="text-xl font-semibold text-text">
+              Subscribe to our newsletter
+            </DialogTitle>
+            <DialogDescription>
+              Get notified when we release your suggested movie
+            </DialogDescription>
+          </DialogHeader>
+
+          <form onSubmit={handleSubmit(handleFormSubmit)} className="space-y-5">
+            <Input
+              placeholder="johndoe@mail.com"
+              className="!rounded-2xl"
+              {...register("email")}
+            />
+            {errors.email && (
+              <p className="text-sm text-red-400">{errors.email.message}</p>
+            )}
+
+            <DialogFooter>
+              <Button type="submit" className="px-8">
+                Subscribe
+              </Button>
+            </DialogFooter>
+          </form>
+        </DialogContent>
+      </Dialog>
 
       <SuccessModal
         open={isSuccessDialogOpen}
