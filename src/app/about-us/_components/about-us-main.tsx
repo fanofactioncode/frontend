@@ -9,11 +9,6 @@ export function AboutUsMain() {
       <div className="flex flex-col items-start gap-10 md:flex-row">
         <div className="flex w-full flex-col items-center justify-center gap-2 md:w-1/2 md:items-start md:justify-start">
           <h1 className="text-balance text-center text-4xl font-bold text-text sm:text-5xl sm:leading-tight md:text-left md:text-6xl md:font-extrabold md:leading-tight">
-            {/* Are you{" "}
-            <span className="rounded-xl bg-[#B9F18C] px-1.5 py-0.5 dark:bg-[#FF499E]">
-              excited
-            </span>{" "}
-            about us, want to know more ? */}
             Who are{" "}
             <span className="rounded-xl bg-[#B9F18C] px-1.5 py-0.5 dark:bg-[#FF499E]">
               we
@@ -30,7 +25,7 @@ export function AboutUsMain() {
           <Video
             src={FOA_INTRO_VIDEO_URL}
             accentColor={VIDEO_PLAYER_ACCENT_COLOR}
-            poster="/video-thumbnail.jpg"
+            poster="/video-thumbnail.png"
             controls={true}
           />
         </div>

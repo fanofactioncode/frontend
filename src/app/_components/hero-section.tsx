@@ -57,7 +57,7 @@ export function HeroSection() {
           <Video
             src={FOA_INTRO_VIDEO_URL}
             accentColor={VIDEO_PLAYER_ACCENT_COLOR}
-            poster="/video-thumbnail.jpg"
+            poster="/video-thumbnail.png"
             controls={true}
           />
         </div>
