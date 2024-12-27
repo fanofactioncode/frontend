@@ -10,16 +10,14 @@ export function SuggestMovie() {
           Ready to suggest a movie !
         </h2>
         <p className="text-center text-sm text-text-sub">
-          Lorem ipsum dolor sit amet consectetur. Adipiscing etiam enim
-          vulputate ut mauris orci tortor. Amet pellentesque volutpat non lectus
-          viverra molestie. Venenatis facilisis egestas non fermentum aenean
-          sed. Ornare nunc ornare eu et lacus accumsan elementum nibh. Sem lacus
-          lacus eu adipiscing eget sed.
+          Missed the chance to watch your favorite movie in theaters? Or just
+          want to relive the experience? Request your movie now and make your
+          big-screen wish come true!
         </p>
       </div>
 
       <div className="flex items-center justify-center">
-        <Button>Request Your Movie</Button>
+        <Button>Request Movie</Button>
       </div>
     </section>
   );
