@@ -192,7 +192,7 @@ export default function MovieRequestForm() {
           className="mt-8 w-full sm:hidden"
           disabled={isPending}
         >
-          {isPending ? "Submitting..." : "Submit"}
+          {isPending ? "Requesting..." : "Request"}
         </Button>
       </form>
 
