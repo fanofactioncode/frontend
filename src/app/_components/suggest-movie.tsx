@@ -19,7 +19,7 @@ export function SuggestMovie() {
       </div>
 
       <div className="flex items-center justify-center">
-        <Button>Suggest Movie</Button>
+        <Button>Request Your Movie</Button>
       </div>
     </section>
   );
