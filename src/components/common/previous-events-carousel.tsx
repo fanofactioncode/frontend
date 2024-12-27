@@ -3,7 +3,7 @@
 import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
 
-import { ArrowRightIcon, TicketIcon } from "../icons";
+import { ArrowRightIcon } from "../icons";
 import { Button } from "../ui/button";
 
 import { usePrevNextButtons } from "./carousel-arrow-buttons";
@@ -62,7 +62,8 @@ export default function PreviousEventsCarousel() {
                   <p className="text-sm text-text-sub">Rajkot</p>
                 </div>
               </div>
-              <div className="mt-3 space-y-2">
+              {/* TODO: Book in your city */}
+              {/* <div className="mt-3 space-y-2">
                 <Button className="flex w-full items-center gap-3" size="lg">
                   <TicketIcon className="size-6 fill-button-foreground" />
                   Book In My City
@@ -70,7 +71,7 @@ export default function PreviousEventsCarousel() {
                 <p className="mt-1 text-center text-xs text-text-sub underline">
                   Rerelese this movie in your city to enjoy
                 </p>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
