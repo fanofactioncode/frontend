@@ -17,19 +17,16 @@ import MovieCarouselItem, {
 
 const movies: MovieCarouselItemProps[] = [
   {
-    name: "Planet of the Apes",
     poster: "/assets/planet-of-the-apes.png",
     movieLogo: "/assets/planet-of-the-apes-logo.png",
     language: "English | हिन्दी",
   },
   {
-    name: "Furiosa",
     poster: "/assets/furiosa.png",
     movieLogo: "/assets/furiosa-logo.png",
     language: "हिन्दी",
   },
   {
-    name: "Bad Boys",
     poster: "/assets/bad-boys.png",
     movieLogo: "/assets/bad-boys-logo.png",
     language: "English",
@@ -71,7 +68,7 @@ export default function MovieCarousel() {
       <div className="absolute bottom-0 left-1/2 flex -translate-x-1/2 items-center gap-1.5">
         {movies.map((movie, index) => (
           <DotButton
-            key={`${movie.name}_${index}`}
+            key={`${movie.poster}_${index}`}
             onClick={() => onDotButtonClick(index)}
             className={cn(
               "size-1 rounded-full bg-secondary md:size-2.5",

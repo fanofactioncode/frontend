@@ -1,38 +1,12 @@
 import MovieCard from "@/components/common/movie-card";
+import { Pagination } from "@/types/pagination";
+import { Show } from "@/types/show.type";
 
-async function getUpcomingMovies(): Promise<{
-  dates: {
-    minimum: string;
-    maximum: string;
-  };
-  page: number;
-  results: {
-    adult: boolean;
-    backdrop_path: string;
-    genre_ids: number[];
-    id: number;
-    original_language: string;
-    original_title: string;
-    overview: string;
-    popularity: number;
-    poster_path: string;
-    release_date: string;
-    title: string;
-    video: boolean;
-    vote_average: number;
-    vote_count: number;
-  }[];
-  total_pages: number;
-  total_results: number;
-}> {
-  const url =
-    "https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1";
+async function getUpcomingMovies(): Promise<Pagination<Show>> {
+  const url = "https://dev-api-v2.fanofaction.com/shows";
   const options = {
-    method: "GET",
     headers: {
       accept: "application/json",
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlNzUxYmYwZjgwODZmMDMxNThjOWJjZjcwNjgyYTdlOSIsIm5iZiI6MTczMTk1MjEyNy4zODI2MDUsInN1YiI6IjY3M2I3Y2YzNzRhMmU2ZTAyMzdiNzE1NSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.aaRUfQH3uiPNPba6BTKkqD1YuTnB8V4sSq3jae6dIO8",
     },
   };
 
@@ -41,18 +15,18 @@ async function getUpcomingMovies(): Promise<{
 }
 
 export default async function Movies() {
-  const { results: movies } = await getUpcomingMovies();
+  const { data: shows } = await getUpcomingMovies();
 
   return (
     <div className="grid grid-cols-2 gap-x-5 gap-y-10 sm:grid-cols-4 sm:gap-8 md:grid-cols-5">
-      {movies.map((movie) => (
+      {shows.map(({ movie, id }) => (
         <MovieCard
           key={movie.id}
-          id={movie.id.toString()}
+          id={String(id)}
           name={movie.title}
-          languages={["English"]}
-          poster={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-          rating={Math.floor(movie.vote_average)}
+          languages={[movie.original_language as any]}
+          poster={String(movie.poster_url)}
+          rating={Number(movie.rating)}
         />
       ))}
     </div>

@@ -7,7 +7,11 @@ import ReactPlayer from "react-player";
 import { PlayIcon } from "@/components/icons";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 
-export function PlayButtonWithVideoDialog() {
+export function PlayButtonWithVideoDialog({
+  trailerURL,
+}: {
+  trailerURL: string;
+}) {
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
 
   return (
@@ -27,7 +31,7 @@ export function PlayButtonWithVideoDialog() {
         <DialogContent className="top-1/4 aspect-video w-[95%] overflow-hidden rounded-lg !border-none bg-transparent !p-0 sm:aspect-[16/9] md:top-1/2">
           <DialogTitle className="hidden" />
           <ReactPlayer
-            url="https://www.youtube.com/watch?v=1kVK0MZlbI4&ab_channel=T-Series"
+            url={trailerURL}
             height="100%"
             width="100%"
             controls={true}

@@ -5,45 +5,19 @@ import { Suspense } from "react";
 import { UpcomingShowsDesktopSkeleton } from "@/components/skeleton/home/upcoming-shows-desktop-skeleton";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Movie } from "@/types/movies";
+import { Pagination } from "@/types/pagination";
+import { Show } from "@/types/show.type";
 
 import { UpcomingShowsDesktop } from "./upcoming-shows-desktop";
 import { UpcomingShowsMobile } from "./upcoming-shows-mobile";
 
-const movies: Movie[] = [
-  {
-    name: "Deadpool & Wolverine",
-    languages: ["English", "हिन्दी", "தமிழ்"],
-    poster: "/assets/deadpool-and-wolverine.png",
-    rating: 8,
-  },
-  {
-    name: "Bad Boys: Ride or Die",
-    languages: ["English", "हिन्दी", "தமிழ்"],
-    poster: "/assets/bad-boys-ride-or-die.png",
-    rating: 8,
-  },
-  {
-    name: "Inside Out 2",
-    languages: ["English"],
-    poster: "/assets/inside-out.png",
-    rating: 8,
-  },
-  {
-    name: "Kingdom of the Planet of the Apes",
-    languages: ["English", "हिन्दी"],
-    poster: "/assets/planet-of-the-apes-potrate.png",
-    rating: 8,
-  },
-  {
-    name: "Kingdom of the Planet of the Apes",
-    languages: ["English", "हिन्दी"],
-    poster: "/assets/planet-of-the-apes-potrate.png",
-    rating: 8,
-  },
-];
+async function getShows(): Promise<Pagination<Show>> {
+  const res = await fetch("https://dev-api-v2.fanofaction.com/shows?limit=5");
+  return await res.json();
+}
 
 export function UpcomingShows() {
+  const shows = getShows();
   return (
     <section className="py-5 md:py-24">
       <div className="container space-y-2 md:space-y-3">
@@ -66,9 +40,9 @@ export function UpcomingShows() {
       </div>
 
       <Suspense fallback={<UpcomingShowsDesktopSkeleton />}>
-        <UpcomingShowsDesktop movies={movies} />
+        <UpcomingShowsDesktop getShows={shows} />
       </Suspense>
-      <UpcomingShowsMobile movies={movies} />
+      <UpcomingShowsMobile getShows={shows} />
     </section>
   );
 }

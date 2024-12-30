@@ -20,7 +20,7 @@ export default function PreviousEventsCarousel() {
         <Button
           variant="outline"
           size="icon"
-          className="!rounded-full border-secondary"
+          className="hidden !rounded-full border-secondary"
           onClick={onNextButtonClick}
         >
           <ArrowRightIcon className="size-3.5 stroke-primary" />
@@ -29,7 +29,7 @@ export default function PreviousEventsCarousel() {
 
       <div className="m-auto overflow-hidden" ref={emblaRef}>
         <div className="touce-action-pinch-zoom ml-4 mr-4 flex gap-4 md:container md:gap-12">
-          <div className="w-full shrink-0 rounded-2xl border border-secondary bg-[#F8F8F8] p-3 dark:bg-secondary/50 md:w-full">
+          <div className="w-full shrink-0 rounded-2xl border border-secondary bg-[#F8F8F8] p-3 dark:bg-secondary/50 md:w-[600px]">
             <Image
               src="/assets/phir-hera-pheri-cover.png"
               alt="previous event"

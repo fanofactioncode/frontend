@@ -1,17 +1,14 @@
 import Image from "next/image";
-import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 
 export interface MovieCarouselItemProps {
-  name: string;
   poster: string;
   movieLogo: string;
   language: string;
 }
 
 export default function MovieCarouselItem({
-  name,
   poster,
   movieLogo,
   language,
@@ -40,21 +37,16 @@ export default function MovieCarouselItem({
           {language}
         </p>
         <div className="mt-4 hidden w-60 place-content-center sm:grid">
-          <Link href={`/booking/${name.toLowerCase().replaceAll(" ", "-")}`}>
-            <Button className="bg-white text-black hover:bg-white/90">
-              Book Tickets
-            </Button>
-          </Link>
+          <Button className="bg-white text-black hover:bg-white/90">
+            Comming soon
+          </Button>
         </div>
         <Button
           size="sm"
           variant="secondary"
           className="mt-2 rounded-lg p-2 px-4 text-sm dark:bg-primary dark:text-black sm:hidden"
-          asChild
         >
-          <Link href={`/booking/${name.toLowerCase().replaceAll(" ", "-")}`}>
-            Book Tickets
-          </Link>
+          Comming soon
         </Button>
       </div>
     </div>

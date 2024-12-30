@@ -1,6 +1,7 @@
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
 
-import { getMovieDetails } from "@/services/movies";
+import { getShowDetails } from "@/services/shows";
 
 import { CastAndCrew } from "./_components/cast-and-crew";
 import { FeatureMovies } from "./_components/feature-movies";
@@ -16,23 +17,28 @@ type Props = {
 export async function generateMetadata({
   params: { slug },
 }: Props): Promise<Metadata> {
-  const movie = await getMovieDetails(slug);
+  const show = await getShowDetails(slug);
+
+  // If there is no show with the given slug, return a 404 page
+  if (!show) notFound();
+
+  const movie = show.movie;
 
   return {
     title: `Book ticket for ${movie.title}`,
-    description: movie.overview,
+    description: movie.description,
     openGraph: {
       title: `Book ticket for ${movie.title} | FanOfAction`,
-      description: movie.overview,
+      description: movie.description,
       images: [
         {
-          url: `https://image.tmdb.org/t/p/original${movie.backdrop_path}`,
-          host: "image.tmdb.org",
+          url: movie.cover_poster_url ?? "",
+          host: "res.cloudinary.com",
           alt: `${movie.title}'s poster`,
         },
         {
-          url: `https://image.tmdb.org/t/p/original${movie.poster_path}`,
-          host: "image.tmdb.org",
+          url: movie.poster_url ?? "",
+          host: "res.cloudinary.com",
           alt: `${movie.title}'s poster`,
         },
       ],
@@ -45,7 +51,7 @@ export default function EventDetailsPage({ params: { slug } }: Props) {
     <>
       <main>
         <MovieSysnopsis id={slug} />
-        <CastAndCrew />
+        <CastAndCrew id={slug} />
         <WaitlistOrBookingButton />
       </main>
       <FeatureMovies />

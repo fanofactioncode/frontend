@@ -3,65 +3,13 @@
 import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
 
-type Cast = {
-  name: string;
-  image: string;
-  role: string;
-  character: string;
-};
+import { Artist } from "@/types/show.type";
 
-const casts: Cast[] = [
-  {
-    name: "Henry Cavil",
-    image: "/assets/actor-1.png",
-    role: "Actor",
-    character: "Gus March-Phillips",
-  },
-  {
-    name: "Alan Ritchson",
-    image: "/assets/actor-2.png",
-    role: "Actor",
-    character: "Anders Lassen",
-  },
-  {
-    name: "Hero Fiennes Tiffin",
-    image: "/assets/actor-3.png",
-    role: "Actor",
-    character: "Henry Hayes",
-  },
-  {
-    name: "Alex Pettyfer",
-    image: "/assets/actor-4.png",
-    role: "Actor",
-    character: "Gus March-Phillips",
-  },
-  {
-    name: "Henry Cavil",
-    image: "/assets/actor-1.png",
-    role: "Actor",
-    character: "Gus March-Phillips",
-  },
-  {
-    name: "Alan Ritchson",
-    image: "/assets/actor-2.png",
-    role: "Actor",
-    character: "Anders Lassen",
-  },
-  {
-    name: "Hero Fiennes Tiffin",
-    image: "/assets/actor-3.png",
-    role: "Actor",
-    character: "Henry Hayes",
-  },
-  {
-    name: "Alex Pettyfer",
-    image: "/assets/actor-4.png",
-    role: "Actor",
-    character: "Gus March-Phillips",
-  },
-];
+export interface CastAndCrewProps {
+  artists: Artist[];
+}
 
-export function CastAndCrewMobile() {
+export function CastAndCrewMobile({ artists }: CastAndCrewProps) {
   const [emblaRef] = useEmblaCarousel({
     skipSnaps: true,
   });
@@ -72,21 +20,21 @@ export function CastAndCrewMobile() {
 
       <div className="embla relative px-4" ref={emblaRef}>
         <div className="flex gap-4">
-          {casts.map((cast, index) => (
-            <div key={cast.name + index} className="w-[100px]">
+          {artists.map((cast) => (
+            <div key={cast.id} className="w-[100px]">
               <div className="relative h-[100px] w-[100px] overflow-hidden rounded-xl">
                 <Image
-                  src={cast.image}
-                  alt={cast.name}
+                  src={cast.people.profile_picture_url}
+                  alt={cast.people.name}
                   fill
-                  className="w-full"
+                  className="w-full object-cover"
                 />
               </div>
               <p className="mt-2 w-full text-balance text-sm font-semibold text-text">
-                {cast.name}
+                {cast.people.name}
               </p>
               <p className="w-full text-balance text-xs text-text-sub">
-                {cast.character}
+                {cast.character_name}
               </p>
             </div>
           ))}
