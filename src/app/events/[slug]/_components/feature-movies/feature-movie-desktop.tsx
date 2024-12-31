@@ -1,7 +1,8 @@
-import MovieCard, { MovieCardProps } from "@/components/common/movie-card";
+import MovieCard from "@/components/common/movie-card";
 import { Badge } from "@/components/ui/badge";
+import { Show } from "@/types/show.type";
 
-export function FeatureMovesDesktop({ movies }: { movies: MovieCardProps[] }) {
+export function FeatureMovesDesktop({ shows }: { shows: Show[] }) {
   return (
     <section className="container hidden space-y-3 pb-24 sm:block">
       <Badge className="rounded-xl">Feature movies</Badge>
@@ -10,8 +11,15 @@ export function FeatureMovesDesktop({ movies }: { movies: MovieCardProps[] }) {
       </h2>
 
       <div className="!mt-8 grid grid-cols-2 gap-x-5 gap-y-10 sm:grid-cols-4 sm:gap-8 md:grid-cols-5">
-        {movies.map((movie, index) => (
-          <MovieCard key={movie.name + index} {...movie} />
+        {shows.map(({ movie, id }) => (
+          <MovieCard
+            key={movie.id}
+            id={String(id)}
+            name={movie.title}
+            poster={movie.poster_url ?? ""}
+            rating={movie.rating as number}
+            languages={[movie.original_language as any]}
+          />
         ))}
       </div>
     </section>

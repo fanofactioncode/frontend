@@ -1,50 +1,29 @@
-import { MovieCardProps } from "@/components/common/movie-card";
+import { Pagination } from "@/types/pagination";
+import { Show } from "@/types/show.type";
 
 import { FeatureMovesDesktop } from "./feature-movie-desktop";
 import { FeatureMoviesMobile } from "./feature-movies-mobile";
 
-function getUpcomingMovies(): MovieCardProps[] {
-  return [
-    {
-      name: "Deadpool & Wolverine",
-      languages: ["English", "हिन्दी", "தமிழ்"],
-      poster: "/assets/deadpool-and-wolverine.png",
-      rating: 8,
+async function getUpcomingMovies(): Promise<Pagination<Show>> {
+  const url = "https://dev-api-v2.fanofaction.com/shows?limit=5";
+  const options = {
+    headers: {
+      accept: "application/json",
     },
-    {
-      name: "Bad Boys: Ride or Die",
-      languages: ["English", "हिन्दी", "தமிழ்"],
-      poster: "/assets/bad-boys-ride-or-die.png",
-      rating: 8,
-    },
-    {
-      name: "Inside Out 2",
-      languages: ["English"],
-      poster: "/assets/inside-out.png",
-      rating: 8,
-    },
-    {
-      name: "Kingdom of the Planet of the Apes",
-      languages: ["English", "हिन्दी"],
-      poster: "/assets/planet-of-the-apes-potrate.png",
-      rating: 8,
-    },
-    {
-      name: "Kingdom of the Planet of the Apes",
-      languages: ["English", "हिन्दी"],
-      poster: "/assets/planet-of-the-apes-potrate.png",
-      rating: 8,
-    },
-  ];
+  };
+
+  const response = await fetch(url, options);
+  const data = await response.json();
+  return data;
 }
 
-export function FeatureMovies() {
-  const movies = getUpcomingMovies();
+export async function FeatureMovies() {
+  const { data: shows } = await getUpcomingMovies();
 
   return (
     <>
-      <FeatureMoviesMobile movies={movies} />
-      <FeatureMovesDesktop movies={movies} />
+      <FeatureMoviesMobile shows={shows} />
+      <FeatureMovesDesktop shows={shows} />
     </>
   );
 }
