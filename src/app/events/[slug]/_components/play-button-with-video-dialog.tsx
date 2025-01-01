@@ -10,9 +10,11 @@ import { Dialog, DialogContent } from "@/components/ui/dialog";
 export function PlayButtonWithVideoDialog({
   trailerURL,
 }: {
-  trailerURL: string;
+  trailerURL?: string;
 }) {
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
+
+  if (!trailerURL) return false;
 
   return (
     <>

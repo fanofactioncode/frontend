@@ -20,6 +20,7 @@ export type ShowMovie = {
   poster_url: string | null;
   cover_poster_url: string | null;
   logo_url: string | null;
+  genres?: Geners[];
 };
 
 type People = {
@@ -59,6 +60,6 @@ export type ShowDetails = Show & {
 export type RecentlyShow = Show & {
   highlight_index: number;
   movie: ShowMovie & {
-    generes: Geners[];
+    genres: Geners[];
   };
 };

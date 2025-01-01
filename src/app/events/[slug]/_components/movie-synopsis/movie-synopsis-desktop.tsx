@@ -41,8 +41,7 @@ export async function MovieSysnopsisDesktop({ id }: { id: string }) {
             </h1>
             <p className="text-sm text-white">{movieDetails.description}</p>
             <p className="text-sm text-white">
-              {/* {movieDetails.genres.map((g) => g.name).join(", ")} */}
-              Genres missing
+              {movieDetails.genres?.map((g) => g.name).join(", ")}
             </p>
             <div className="flex items-center gap-3">
               <Badge className="border-none bg-[#ABB7C4] dark:bg-[#ABB7C4] dark:text-black">
@@ -56,7 +55,7 @@ export async function MovieSysnopsisDesktop({ id }: { id: string }) {
 
             <div></div>
             <Button className="mt-11 bg-white text-primary hover:bg-white/65 dark:text-secondary">
-              Comming soon
+              Coming soon
             </Button>
           </div>
         </div>

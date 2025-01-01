@@ -43,8 +43,7 @@ export async function MovieSysnopsisMobile({ id }: { id: string }) {
         <div className="mt-3 flex-1 space-y-2">
           <h1 className="text-lg font-bold text-text">{movieDetails.title}</h1>
           <p className="text-[0.75rem] font-medium text-primary">
-            {/* {movieDetails.genres.map((genre) => genre.name).join(", ")} */}
-            Genres missing
+            {movieDetails.genres?.map((genre) => genre.name).join(", ")}
           </p>
 
           <div className="flex gap-2">
