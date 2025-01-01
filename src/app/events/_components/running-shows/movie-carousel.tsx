@@ -9,31 +9,16 @@ import {
   usePrevNextButtons,
 } from "@/components/common/carousel-arrow-buttons";
 import { cn } from "@/lib/utils";
+import { RecentlyShow } from "@/types/show.type";
 
 import { DotButton, useDotButton } from "./carousel-dot-button";
-import MovieCarouselItem, {
-  type MovieCarouselItemProps,
-} from "./movie-carousel-item";
+import MovieCarouselItem from "./movie-carousel-item";
 
-const movies: MovieCarouselItemProps[] = [
-  {
-    poster: "/assets/planet-of-the-apes.png",
-    movieLogo: "/assets/planet-of-the-apes-logo.png",
-    language: "English | हिन्दी",
-  },
-  {
-    poster: "/assets/furiosa.png",
-    movieLogo: "/assets/furiosa-logo.png",
-    language: "हिन्दी",
-  },
-  {
-    poster: "/assets/bad-boys.png",
-    movieLogo: "/assets/bad-boys-logo.png",
-    language: "English",
-  },
-];
+export interface MovieCarouselProps {
+  shows: RecentlyShow[];
+}
 
-export default function MovieCarousel() {
+export default function MovieCarousel({ shows }: MovieCarouselProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
     Autoplay({
       playOnInit: true,
@@ -48,9 +33,14 @@ export default function MovieCarousel() {
   return (
     <div className="embla relative py-4 md:pb-6 md:pt-4" ref={emblaRef}>
       <div className="embla__container">
-        {movies.map((movie) => (
-          <div className="container shrink-0 md:px-4" key={movie.poster}>
-            <MovieCarouselItem {...movie} />
+        {shows.map(({ movie, id }) => (
+          <div key={id} className="container shrink-0 md:px-4">
+            <MovieCarouselItem
+              name={movie.title}
+              language={movie.original_language}
+              poster={movie.cover_poster_url ?? ""}
+              movieLogo={movie.logo_url ?? ""}
+            />
           </div>
         ))}
       </div>
@@ -66,9 +56,9 @@ export default function MovieCarousel() {
       />
 
       <div className="absolute bottom-0 left-1/2 flex -translate-x-1/2 items-center gap-1.5">
-        {movies.map((movie, index) => (
+        {shows.map(({ id }, index) => (
           <DotButton
-            key={`${movie.poster}_${index}`}
+            key={`__dot-${id}`}
             onClick={() => onDotButtonClick(index)}
             className={cn(
               "size-1 rounded-full bg-secondary md:size-2.5",

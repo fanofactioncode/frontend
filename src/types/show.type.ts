@@ -33,6 +33,11 @@ type People = {
   updated_at: Date;
 };
 
+export type Geners = {
+  id: number;
+  name: string;
+};
+
 export type Artist = {
   id: number;
   movie_id: number;
@@ -48,5 +53,12 @@ export type Artist = {
 export type ShowDetails = Show & {
   movie: ShowMovie & {
     artists: Artist[];
+  };
+};
+
+export type RecentlyShow = Show & {
+  highlight_index: number;
+  movie: ShowMovie & {
+    generes: Geners[];
   };
 };

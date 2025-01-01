@@ -3,12 +3,14 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
 export interface MovieCarouselItemProps {
+  name: string;
   poster: string;
   movieLogo: string;
   language: string;
 }
 
 export default function MovieCarouselItem({
+  name,
   poster,
   movieLogo,
   language,
@@ -18,14 +20,14 @@ export default function MovieCarouselItem({
       <Image
         src={poster}
         className="z-0 h-full w-full object-cover"
-        alt="Planet of the Apes"
+        alt={`${name}'s poster`}
         fill
       />
       <div className="z-10 mt-0 flex h-full w-7/12 flex-col items-start justify-center gap-2 bg-gradient-to-r from-primary from-35% via-primary/80 via-75% to-transparent to-100% py-8 pr-4 ps-6 dark:from-secondary dark:via-secondary/80 sm:ps-12">
         <div className="relative w-8/12">
           <Image
             src={movieLogo}
-            alt="Planet of the Apes"
+            alt={`${name}'s logo`}
             width={0}
             height={0}
             sizes="100vw"
