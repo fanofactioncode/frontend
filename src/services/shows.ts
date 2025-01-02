@@ -1,9 +1,10 @@
+import env from "@/lib/env";
 import { ShowDetails } from "@/types/show.type";
 
 export async function getShowDetails(
   id: string | number
 ): Promise<ShowDetails> {
-  const res = await fetch(`https://dev-api-v2.fanofaction.com/shows/${id}`, {
+  const res = await fetch(`${env.NEXT_PUBLIC_API_URL}/shows/${id}`, {
     next: {
       revalidate: 60,
     },

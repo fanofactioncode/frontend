@@ -5,6 +5,7 @@ import { Suspense } from "react";
 import { UpcomingShowsDesktopSkeleton } from "@/components/skeleton/home/upcoming-shows-desktop-skeleton";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import env from "@/lib/env";
 import { Pagination } from "@/types/pagination";
 import { Show } from "@/types/show.type";
 
@@ -12,7 +13,7 @@ import { UpcomingShowsDesktop } from "./upcoming-shows-desktop";
 import { UpcomingShowsMobile } from "./upcoming-shows-mobile";
 
 async function getShows(): Promise<Pagination<Show>> {
-  const res = await fetch("https://dev-api-v2.fanofaction.com/shows?limit=5", {
+  const res = await fetch(env.NEXT_PUBLIC_API_URL + "/shows?limit=5", {
     next: { revalidate: 60 },
   });
   return await res.json();
