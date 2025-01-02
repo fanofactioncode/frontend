@@ -12,7 +12,9 @@ import { UpcomingShowsDesktop } from "./upcoming-shows-desktop";
 import { UpcomingShowsMobile } from "./upcoming-shows-mobile";
 
 async function getShows(): Promise<Pagination<Show>> {
-  const res = await fetch("https://dev-api-v2.fanofaction.com/shows?limit=5");
+  const res = await fetch("https://dev-api-v2.fanofaction.com/shows?limit=5", {
+    next: { revalidate: 60 },
+  });
   return await res.json();
 }
 

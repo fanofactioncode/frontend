@@ -6,7 +6,9 @@ import UpcomingMovies from "./_components/upcoming-movies";
 export const dynamic = "force-dynamic";
 
 async function getCurrentlyRunningShows(): Promise<RecentlyShow[]> {
-  const res = await fetch("https://dev-api-v2.fanofaction.com/shows/popular");
+  const res = await fetch("https://dev-api-v2.fanofaction.com/shows/popular", {
+    next: { revalidate: 60 },
+  });
   return await res.json();
 }
 
