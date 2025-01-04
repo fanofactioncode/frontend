@@ -22,10 +22,10 @@ export function FeatureMoviesMobile({ shows }: { shows: Show[] }) {
 
       <div className="embla relative px-4 pb-11 pt-4" ref={emblaRef}>
         <div className="flex gap-4">
-          {shows.map(({ movie, id }) => (
+          {shows.map(({ slug, movie }) => (
             <MovieCard
               key={movie.id}
-              id={String(id)}
+              slug={slug}
               className="w-[150px]"
               name={movie.title}
               poster={movie.poster_url ?? ""}

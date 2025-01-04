@@ -6,7 +6,7 @@ import { getShowDetails } from "@/services/shows";
 import { CastAndCrew } from "./_components/cast-and-crew";
 import { FeatureMovies } from "./_components/feature-movies";
 import { MovieSysnopsis } from "./_components/movie-synopsis";
-import { WaitlistOrBookingButton } from "./_components/waitlist-or-booking-button";
+import { NotifyOrBookingButton } from "./_components/notify-or-booking-button";
 
 type Props = {
   params: {
@@ -52,7 +52,7 @@ export default function EventDetailsPage({ params: { slug } }: Props) {
       <main>
         <MovieSysnopsis id={slug} />
         <CastAndCrew id={slug} />
-        <WaitlistOrBookingButton />
+        <NotifyOrBookingButton />
       </main>
       <FeatureMovies slug={slug} />
     </>

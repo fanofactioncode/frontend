@@ -5,8 +5,8 @@ import { Show } from "@/types/show.type";
 import { FeatureMovesDesktop } from "./feature-movie-desktop";
 import { FeatureMoviesMobile } from "./feature-movies-mobile";
 
-async function getFeaturedShows(id: string): Promise<Pagination<Show>> {
-  const url = new URL(env.NEXT_PUBLIC_API_URL + "/shows/similar/" + id);
+async function getFeaturedShows(slug: string): Promise<Pagination<Show>> {
+  const url = new URL(env.NEXT_PUBLIC_API_URL + "/shows/" + slug + "/similar");
   url.searchParams.append("limit", "5");
   const options = {
     headers: {

@@ -1,10 +1,8 @@
 import env from "@/lib/env";
 import { ShowDetails } from "@/types/show.type";
 
-export async function getShowDetails(
-  id: string | number
-): Promise<ShowDetails> {
-  const res = await fetch(`${env.NEXT_PUBLIC_API_URL}/shows/${id}`, {
+export async function getShowDetails(slug: string): Promise<ShowDetails> {
+  const res = await fetch(`${env.NEXT_PUBLIC_API_URL}/shows/${slug}`, {
     next: {
       revalidate: 60,
     },

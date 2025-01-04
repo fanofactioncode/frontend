@@ -4,12 +4,13 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Movie } from "@/types/movies";
 
-export interface MovieCardProps extends Movie {
+export interface MovieCardProps extends Omit<Movie, "description" | "id"> {
+  slug: string;
   className?: string;
 }
 
 export default function MovieCard({
-  id,
+  slug,
   poster,
   name,
   languages,
@@ -18,7 +19,7 @@ export default function MovieCard({
 }: MovieCardProps) {
   return (
     <Link
-      href={`/events/${id}`}
+      href={`/events/${slug}`}
       className={cn(
         "shrink-0 space-y-2 overflow-hidden md:space-y-4",
         className

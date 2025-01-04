@@ -11,10 +11,10 @@ export function FeatureMovesDesktop({ shows }: { shows: Show[] }) {
       </h2>
 
       <div className="!mt-8 grid grid-cols-2 gap-x-5 gap-y-10 sm:grid-cols-4 sm:gap-8 md:grid-cols-5">
-        {shows.map(({ movie, id }) => (
+        {shows.map(({ slug, movie }) => (
           <MovieCard
             key={movie.id}
-            id={String(id)}
+            slug={slug}
             name={movie.title}
             poster={movie.poster_url ?? ""}
             rating={movie.rating as number}

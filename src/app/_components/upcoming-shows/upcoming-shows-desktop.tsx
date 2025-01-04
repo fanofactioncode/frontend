@@ -17,7 +17,7 @@ export async function UpcomingShowsDesktop({
         {shows?.data?.map((show) => (
           <MovieCard
             key={show.id}
-            id={show.id.toString()}
+            slug={show.slug}
             languages={[show.movie.original_language as any]}
             name={show.movie.title}
             poster={show.movie.poster_url ?? ""}

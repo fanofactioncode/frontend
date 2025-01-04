@@ -19,10 +19,10 @@ export function UpcomingShowsMobile({ getShows }: UpcomingShowsMobileProps) {
   return (
     <div className="embla relative px-4 pb-11 pt-4 md:hidden" ref={emblaRef}>
       <div className="flex gap-4">
-        {shows?.data?.map(({ id, movie }) => (
+        {shows?.data?.map(({ slug, movie }) => (
           <Link
-            href={`/events/${id}`}
-            key={id}
+            key={slug}
+            href={`/events/${slug}`}
             className="w-[150px] shrink-0 space-y-2"
           >
             <div className="relative overflow-hidden rounded-lg">

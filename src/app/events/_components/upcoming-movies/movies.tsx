@@ -1,9 +1,10 @@
 import MovieCard from "@/components/common/movie-card";
+import env from "@/lib/env";
 import { Pagination } from "@/types/pagination";
 import { Show } from "@/types/show.type";
 
 async function getUpcomingMovies(): Promise<Pagination<Show>> {
-  const url = "https://dev-api-v2.fanofaction.com/shows";
+  const url = env.NEXT_PUBLIC_API_URL + "/shows";
   const options = {
     headers: {
       accept: "application/json",
@@ -20,10 +21,10 @@ export default async function Movies() {
 
   return (
     <div className="grid grid-cols-2 gap-x-5 gap-y-10 sm:grid-cols-4 sm:gap-8 md:grid-cols-5">
-      {shows.map(({ movie, id }) => (
+      {shows.map(({ slug, movie }) => (
         <MovieCard
           key={movie.id}
-          id={String(id)}
+          slug={slug}
           name={movie.title}
           languages={[movie.original_language as any]}
           poster={String(movie.poster_url)}

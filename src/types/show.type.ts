@@ -3,6 +3,7 @@ export type Show = {
   movie_id: number;
   release_date: Date;
   created_at: Date;
+  slug: string;
   updated_at: Date;
   movie: ShowMovie;
 };
