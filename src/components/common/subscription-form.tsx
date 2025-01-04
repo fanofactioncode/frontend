@@ -59,9 +59,12 @@ export function SubscriptionForm() {
               className="size-40"
             />
 
-            <DialogTitle>Success!</DialogTitle>
-            <DialogDescription>
-              You have successfully subscribed
+            <DialogTitle>You&apos;re Almost In!</DialogTitle>
+            <DialogDescription className="mt-1 text-center text-sm text-text-sub">
+              Thanks for signing up! We&apos;ve sent a confirmation email to
+              your inbox. Please click the link in the email to confirm your
+              subscription and start receiving exclusive updates and movie
+              release alerts.
             </DialogDescription>
           </DialogHeader>
           <DialogFooter className="mt-4 flex items-center sm:justify-center">
