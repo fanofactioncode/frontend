@@ -1,8 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 
-import { NavigationProvider } from "@/provider/navigation-provider";
-import { ThemeProvider } from "@/provider/theme-provider";
+import { Providers } from "@/provider/providers";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -30,9 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <NavigationProvider>{children}</NavigationProvider>
-        </ThemeProvider>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
