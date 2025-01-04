@@ -52,7 +52,7 @@ export function SubscriptionForm() {
         <DialogContent className="w-[90%] rounded-xl sm:max-w-[425px]">
           <DialogHeader className="flex flex-col items-center space-y-0 text-center">
             <Player
-              src="/assets/lottie/success.json"
+              src="/assets/lottie/newslatter.json"
               loop={false}
               autoplay
               keepLastFrame
