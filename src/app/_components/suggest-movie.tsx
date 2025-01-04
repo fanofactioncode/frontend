@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
@@ -17,7 +19,9 @@ export function SuggestMovie() {
       </div>
 
       <div className="flex items-center justify-center">
-        <Button>Request Your Movie</Button>
+        <Button asChild>
+          <Link href="/request-movie">Request Your Movie</Link>
+        </Button>
       </div>
     </section>
   );
