@@ -54,7 +54,7 @@ export default function EventDetailsPage({ params: { slug } }: Props) {
         <CastAndCrew id={slug} />
         <WaitlistOrBookingButton />
       </main>
-      <FeatureMovies />
+      <FeatureMovies slug={slug} />
     </>
   );
 }
