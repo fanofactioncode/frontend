@@ -40,7 +40,7 @@ export default function MovieCarouselItem({
         </p>
         <div className="mt-4 hidden w-60 place-content-center sm:grid">
           <Button className="bg-white text-black hover:bg-white/90">
-            Coming soon
+            Notify me
           </Button>
         </div>
         <Button
@@ -48,7 +48,7 @@ export default function MovieCarouselItem({
           variant="secondary"
           className="mt-2 rounded-lg p-2 px-4 text-sm dark:bg-primary dark:text-black sm:hidden"
         >
-          Coming soon
+          Notify me
         </Button>
       </div>
     </div>

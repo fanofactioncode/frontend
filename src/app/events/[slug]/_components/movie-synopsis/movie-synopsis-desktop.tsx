@@ -55,7 +55,7 @@ export async function MovieSysnopsisDesktop({ id }: { id: string }) {
 
             <div></div>
             <Button className="mt-11 bg-white text-primary hover:bg-white/65 dark:text-secondary">
-              Coming soon
+              Notify me
             </Button>
           </div>
         </div>
