@@ -9,7 +9,7 @@ async function getUpcomingMovies(): Promise<Pagination<Show>> {
     headers: {
       accept: "application/json",
     },
-    next: { revalidate: 60 },
+    next: { revalidate: 0 },
   };
 
   const resonse = await fetch(url, options);

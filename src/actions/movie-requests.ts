@@ -4,24 +4,30 @@ import { z } from "zod";
 
 import env from "@/lib/env";
 
-const schema = z.object({
-  suggested_movie: z
-    .string({ message: "Please select a movie" })
-    .min(2, { message: "Please select a movie, min" }),
-  city_id: z.coerce
-    .number({ invalid_type_error: "Please select a city" })
-    .int({ message: "Please select a city" }),
-  email: z
-    .string()
-    .email({ message: "Invalid email address" })
-    .min(1, { message: "Please enter your email" }),
-});
+const schema = z
+  .object({
+    suggested_movie: z
+      .string({ message: "Please select a movie" })
+      .min(2, { message: "Please select a movie, min" })
+      .optional(), // Make this field optional
+    city_id: z.coerce
+      .number({ invalid_type_error: "Please select a city" })
+      .int({ message: "Please select a city" }),
+    email: z
+      .string()
+      .email({ message: "Invalid email address" })
+      .min(1, { message: "Please enter your email" }),
+    movie_id: z.coerce
+      .number()
+      .int({ message: "Please select a movie" })
+      .optional(), // Make this field optional
+  })
+  .refine((data) => data.suggested_movie ?? data.movie_id, {
+    message: "Please select either a suggested movie or a movie ID",
+    path: ["suggested_movie", "movie_id"],
+  });
 
-type MovieRequestPayload = {
-  suggested_movie: string;
-  city_id: number;
-  email: string;
-};
+type MovieRequestPayload = z.infer<typeof schema>;
 
 export async function makeMovieRequest(payload: MovieRequestPayload) {
   const validatedFields = schema.safeParse(payload);

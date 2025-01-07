@@ -2,10 +2,10 @@ import { StarIcon } from "lucide-react";
 import Image from "next/image";
 
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { getShowDetails } from "@/services/shows";
 import { numberToMovieRuntime } from "@/utils/number-to-movie-runtime";
 
+import { NotifyMeButton } from "../notify-me-button";
 import { PlayButtonWithVideoDialog } from "../play-button-with-video-dialog";
 
 export async function MovieSysnopsisDesktop({ id }: { id: string }) {
@@ -54,9 +54,7 @@ export async function MovieSysnopsisDesktop({ id }: { id: string }) {
             </div>
 
             <div></div>
-            <Button className="mt-11 hidden bg-white text-primary hover:bg-white/65 dark:text-secondary sm:flex">
-              Notify me
-            </Button>
+            <NotifyMeButton />
           </div>
         </div>
       </div>
