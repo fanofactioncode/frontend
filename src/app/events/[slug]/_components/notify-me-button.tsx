@@ -1,22 +1,13 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Check, ChevronDown } from "lucide-react";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { z } from "zod";
 
 import { makeMovieRequest } from "@/actions/movie-requests";
 import { Button } from "@/components/ui/button";
-import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-} from "@/components/ui/command";
 import {
   Dialog,
   DialogContent,
@@ -27,12 +18,6 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
-import { cn } from "@/lib/utils";
 import { getCities } from "@/services/cities";
 import { getShowDetails } from "@/services/shows";
 import { City } from "@/types/cities";
@@ -43,7 +28,7 @@ const schema = z.object({
     .string()
     .min(3, { message: "Please provide email address" })
     .email({ message: "Please provide email address" }),
-  cityId: z.string().min(1, { message: "Please select a city" }),
+  city: z.string().min(1, { message: "Please select a city" }),
 });
 
 type FormSchema = z.infer<typeof schema>;
@@ -53,18 +38,14 @@ export function NotifyMeButton() {
   const [show, setShow] = useState<Show | null>(null);
   const { slug } = useParams();
   const [open, setOpen] = useState(false);
+  const [query, setQuery] = useState<string>("");
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
 
-  const {
-    getValues,
-    formState: { errors },
-    register,
-    setError,
-    setValue,
-    handleSubmit,
-    reset,
-  } = useForm<FormSchema>({
-    resolver: zodResolver(schema),
-  });
+  const { control, setValue, setError, handleSubmit, reset } =
+    useForm<FormSchema>({
+      resolver: zodResolver(schema),
+    });
 
   useEffect(() => {
     getCities().then((res) => setCities(res.allCities));
@@ -72,21 +53,38 @@ export function NotifyMeButton() {
   }, [slug]);
 
   const onSubmit = async (data: FormSchema) => {
+    const { city } = data;
+    const found = cities.find(
+      (c) => c.name.toLowerCase() === city.toLowerCase()
+    );
+
+    if (!found) {
+      return setError("city", {
+        message: "City not found",
+      });
+    }
+    setIsSubmitting(true);
+
     const { error } = await makeMovieRequest({
-      city_id: Number(data.cityId),
+      city_id: Number(found.id),
       email: data.email,
       movie_id: Number(show?.movie_id),
     });
 
+    setIsSubmitting(false);
     if (error) return setError("email", error);
 
-    reset({ cityId: "", email: "" });
+    reset({ city: "", email: "" });
+    setIsDialogOpen(false);
   };
 
-  const cityId = getValues("cityId");
+  const filterCities = cities.filter((city) => {
+    if (!query) return true;
+    return city.name.toLowerCase().includes(query.toLowerCase());
+  });
 
   return (
-    <Dialog modal={false}>
+    <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
       <DialogTrigger asChild>
         <Button className="mt-11 hidden bg-white text-primary hover:bg-white/65 dark:text-secondary sm:flex">
           Notify me
@@ -97,73 +95,68 @@ export function NotifyMeButton() {
           <DialogHeader className="mb-4">
             <DialogTitle className="text-left">Notify Me</DialogTitle>
             <DialogDescription className="text-left">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus
-              dignissimos minus saepe natus blanditiis nisi molestias velit
-              molestiae recusandae suscipit!
+              Don’t miss out! Enter your email to receive updates and reminders
+              about this event. We’ll ensure you&apos;re the first to know about
+              any important details or changes.
             </DialogDescription>
           </DialogHeader>
 
-          <Input type="email" placeholder="Your email" {...register("email")} />
-          {errors.email && (
-            <p className="text-red-500">{errors.email.message}</p>
-          )}
+          <Controller
+            control={control}
+            name="email"
+            render={({ field, fieldState: { error } }) => (
+              <>
+                <Input type="email" placeholder="Your email" {...field} />
+                {error && <p className="text-red-500">{error.message}</p>}
+              </>
+            )}
+          />
 
-          <Popover open={open} onOpenChange={setOpen}>
-            <PopoverTrigger asChild>
-              <Button
-                variant="outline"
-                aria-expanded={open}
-                className="mt-4 w-full justify-between !py-5"
-              >
-                {cityId
-                  ? cities.find((city) => String(city.id) === cityId)?.name
-                  : "Select your city..."}
-                <ChevronDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-              </Button>
-            </PopoverTrigger>
-            <PopoverContent
-              align="end"
-              alignOffset={-55}
-              className="max-w-[90%] rounded-2xl p-0 sm:w-[calc(600px-1rem)]"
-            >
-              <Command>
-                <CommandInput placeholder="Search city name" />
-                <CommandList>
-                  <CommandEmpty>No city found.</CommandEmpty>
-                  <CommandGroup>
-                    {cities.map((city) => (
-                      <CommandItem
-                        key={city.name}
-                        value={String(city.name)}
-                        onSelect={(currentValue) => {
-                          const foundCity = cities.find(
-                            (c) => c.name === currentValue
-                          );
-                          if (foundCity) {
-                            setValue("cityId", String(foundCity.id));
-                            setOpen(false);
-                          }
+          <Controller
+            control={control}
+            name="city"
+            render={({
+              field: { onChange, ...field },
+              fieldState: { error },
+            }) => (
+              <div className="relative mt-4">
+                <Input
+                  placeholder="Enter city"
+                  autoComplete="off"
+                  {...field}
+                  onChange={(e) => {
+                    setQuery(e.target.value);
+                    onChange(e.target.value);
+                    setOpen(true);
+                  }}
+                />
+                {error && <p className="text-red-500">{error.message}</p>}
+
+                {open && filterCities.length > 0 && (
+                  <div className="absolute mt-1 max-h-52 w-full overflow-y-auto rounded-lg border bg-background">
+                    {filterCities.map((city) => (
+                      <button
+                        type="button"
+                        key={city.id}
+                        className="flex w-full items-center space-x-2 px-4 py-2 text-text hover:bg-background/90"
+                        onClick={() => {
+                          setOpen(false);
+                          setValue("city", city.name);
                         }}
                       >
-                        <Check
-                          className={cn(
-                            "mr-2 h-4 w-4",
-                            cityId === String(city.id)
-                              ? "opacity-100"
-                              : "opacity-0"
-                          )}
-                        />
                         {city.name}
-                      </CommandItem>
+                      </button>
                     ))}
-                  </CommandGroup>
-                </CommandList>
-              </Command>
-            </PopoverContent>
-          </Popover>
+                  </div>
+                )}
+              </div>
+            )}
+          />
 
           <DialogFooter className="mt-5">
-            <Button type="submit">Submit</Button>
+            <Button type="submit" disabled={isSubmitting}>
+              {isSubmitting ? "Saving...." : "Save"}
+            </Button>
           </DialogFooter>
         </form>
       </DialogContent>
