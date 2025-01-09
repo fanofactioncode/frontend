@@ -32,7 +32,7 @@ export default function MovieCard({
           width={0}
           height={0}
           sizes="100vw"
-          className="h-[260px] w-full object-cover sm:h-[420px]" // NOTE: This is a temporary fix, images from server should be of same size
+          className="w-full object-cover" // NOTE: This is a temporary fix, images from server should be of same size
           priority
         />
       </div>
