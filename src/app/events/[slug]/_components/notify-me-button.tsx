@@ -7,6 +7,7 @@ import { Controller, useForm } from "react-hook-form";
 import { z } from "zod";
 
 import { makeMovieRequest } from "@/actions/movie-requests";
+import { getPreferences } from "@/actions/preferences";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -51,6 +52,15 @@ export function NotifyMeButton() {
     getCities().then((res) => setCities(res.allCities));
     getShowDetails(slug as string).then((res) => setShow(res));
   }, [slug]);
+
+  useEffect(() => {
+    getPreferences().then(({ city }) => {
+      if (city && cities) {
+        const found = cities.find((c) => String(c.id) === city);
+        if (found) setValue("city", found.name);
+      }
+    });
+  }, [cities, setValue]);
 
   const onSubmit = async (data: FormSchema) => {
     const { city } = data;

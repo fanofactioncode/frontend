@@ -25,10 +25,10 @@ export async function generateMetadata({
   const movie = show.movie;
 
   return {
-    title: `Book ticket for ${movie.title}`,
+    title: `Book Tickets For ${movie.title}`,
     description: movie.description,
     openGraph: {
-      title: `Book ticket for ${movie.title} | FanOfAction`,
+      title: `Book Ticket For ${movie.title} | FanOfAction`,
       description: movie.description,
       images: [
         {
