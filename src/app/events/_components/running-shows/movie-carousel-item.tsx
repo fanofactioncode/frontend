@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 
@@ -7,6 +8,7 @@ export interface MovieCarouselItemProps {
   poster: string;
   movieLogo: string;
   language: string;
+  slug: string;
 }
 
 export default function MovieCarouselItem({
@@ -14,6 +16,7 @@ export default function MovieCarouselItem({
   poster,
   movieLogo,
   language,
+  slug,
 }: MovieCarouselItemProps) {
   return (
     <div className="relative flex h-[200px] overflow-hidden rounded-2xl sm:h-[480px] sm:rounded-3xl">
@@ -39,16 +42,17 @@ export default function MovieCarouselItem({
           {language}
         </p>
         <div className="mt-4 hidden w-60 place-content-center sm:grid">
-          <Button className="bg-white text-black hover:bg-white/90">
-            Notify me
+          <Button asChild className="bg-white text-black hover:bg-white/90">
+            <Link href={`/events/${slug}`}>View More</Link>
           </Button>
         </div>
         <Button
           size="sm"
           variant="secondary"
+          asChild
           className="mt-2 rounded-lg p-2 px-4 text-sm dark:bg-primary dark:text-black sm:hidden"
         >
-          Notify me
+          <Link href={`/events/${slug}`}>View More</Link>
         </Button>
       </div>
     </div>

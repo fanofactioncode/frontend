@@ -1,6 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Player } from "@lottiefiles/react-lottie-player";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
@@ -11,6 +12,7 @@ import { getPreferences } from "@/actions/preferences";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
   DialogFooter,
@@ -43,6 +45,8 @@ export function NotifyOrBookingButton() {
   const [query, setQuery] = useState<string>("");
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
+  const [isSuccessDialogOpen, setIsSuccessDialogOpen] =
+    useState<boolean>(false);
 
   const { control, setValue, setError, handleSubmit, reset } =
     useForm<FormSchema>({
@@ -55,12 +59,14 @@ export function NotifyOrBookingButton() {
   }, [slug]);
 
   useEffect(() => {
-    getPreferences().then(({ city }) => {
-      if (city && cities) {
-        const found = cities.find((c) => String(c.id) === city);
-        if (found) setValue("city", found.name);
-      }
-    });
+    if (cities) {
+      getPreferences().then(({ city }) => {
+        if (city) {
+          const found = cities.find((c) => String(c.id) === city);
+          if (found) setValue("city", found.name);
+        }
+      });
+    }
   }, [cities, setValue]);
 
   const onSubmit = async (data: FormSchema) => {
@@ -85,6 +91,7 @@ export function NotifyOrBookingButton() {
     setIsSubmitting(false);
     if (error) return setError("email", error);
 
+    setIsSuccessDialogOpen(true);
     reset({ city: "", email: "" });
     setIsDialogOpen(false);
   };
@@ -169,6 +176,31 @@ export function NotifyOrBookingButton() {
               </Button>
             </DialogFooter>
           </form>
+        </DialogContent>
+      </Dialog>
+
+      <Dialog open={isSuccessDialogOpen} onOpenChange={setIsSuccessDialogOpen}>
+        <DialogContent className="w-[90%] rounded-xl sm:max-w-[425px]">
+          <DialogHeader className="flex flex-col items-center space-y-0 text-center">
+            <Player
+              src="/assets/lottie/success.json"
+              loop={false}
+              autoplay
+              keepLastFrame
+              className="size-40"
+            />
+
+            <DialogTitle>Thank you</DialogTitle>
+            <DialogDescription className="mt-1 text-center text-sm text-text-sub">
+              You have been added to our mailing list, and will be the first to
+              know about any updates.
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter className="mt-4 flex items-center sm:justify-center">
+            <DialogClose asChild>
+              <Button className="w-56">Close</Button>
+            </DialogClose>
+          </DialogFooter>
         </DialogContent>
       </Dialog>
     </div>

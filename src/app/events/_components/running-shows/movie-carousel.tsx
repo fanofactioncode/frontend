@@ -33,13 +33,14 @@ export default function MovieCarousel({ shows }: MovieCarouselProps) {
   return (
     <div className="embla relative py-4 md:pb-6 md:pt-4" ref={emblaRef}>
       <div className="embla__container">
-        {shows.map(({ movie, id }) => (
+        {shows.map(({ movie, id, slug }) => (
           <div key={id} className="container shrink-0 md:px-4">
             <MovieCarouselItem
               name={movie.title}
               language={movie.original_language}
               poster={movie.cover_poster_url ?? ""}
               movieLogo={movie.logo_url ?? ""}
+              slug={slug}
             />
           </div>
         ))}
