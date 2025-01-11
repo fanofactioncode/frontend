@@ -1,4 +1,4 @@
-import Video from "next-video";
+import VideoPlayer from "next-video/player";
 
 import { VIDEO_PLAYER_ACCENT_COLOR } from "@/config/colors";
 import { FOA_INTRO_VIDEO_URL } from "@/config/constants";
@@ -54,7 +54,7 @@ export function HeroSection() {
         </svg>
 
         <div className="relative box-border aspect-video overflow-hidden rounded-2xl border-4 border-secondary md:rounded-3xl md:border-8">
-          <Video
+          <VideoPlayer
             src={FOA_INTRO_VIDEO_URL}
             accentColor={VIDEO_PLAYER_ACCENT_COLOR}
             poster="/video-thumbnail.png"

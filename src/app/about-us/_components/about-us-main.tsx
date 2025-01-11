@@ -1,4 +1,4 @@
-import Video from "next-video";
+import VideoPlayer from "next-video/player";
 
 import { VIDEO_PLAYER_ACCENT_COLOR } from "@/config/colors";
 import { FOA_INTRO_VIDEO_URL } from "@/config/constants";
@@ -21,7 +21,7 @@ export function AboutUsMain() {
       </div>
 
       <div className="relative aspect-video cursor-pointer overflow-hidden rounded-2xl border-4 border-secondary bg-gray-400 dark:border-primary md:w-1/2 md:border-8">
-        <Video
+        <VideoPlayer
           src={FOA_INTRO_VIDEO_URL}
           accentColor={VIDEO_PLAYER_ACCENT_COLOR}
           poster="/video-thumbnail.png"
