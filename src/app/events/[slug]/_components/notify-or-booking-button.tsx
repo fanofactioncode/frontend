@@ -8,7 +8,6 @@ import { Controller, useForm } from "react-hook-form";
 import { z } from "zod";
 
 import { makeMovieRequest } from "@/actions/movie-requests";
-import { getPreferences } from "@/actions/preferences";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -21,6 +20,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
+import { LOCAL_STORAGE_CITY_ID } from "@/config/constants";
 import { getCities } from "@/services/cities";
 import { getShowDetails } from "@/services/shows";
 import { City } from "@/types/cities";
@@ -59,13 +59,13 @@ export function NotifyOrBookingButton() {
   }, [slug]);
 
   useEffect(() => {
-    if (cities) {
-      getPreferences().then(({ city }) => {
-        if (city) {
-          const found = cities.find((c) => String(c.id) === city);
-          if (found) setValue("city", found.name);
-        }
-      });
+    const cityId = localStorage.getItem(LOCAL_STORAGE_CITY_ID);
+    if (cityId && cities) {
+      const found = cities.find((city) => city.id === Number(cityId));
+      if (found) {
+        setValue("city", found.name);
+        setOpen(false);
+      }
     }
   }, [cities, setValue]);
 
@@ -91,12 +91,14 @@ export function NotifyOrBookingButton() {
     setIsSubmitting(false);
     if (error) return setError("email", error);
 
+    localStorage.setItem(LOCAL_STORAGE_CITY_ID, String(found.id));
+
     setIsSuccessDialogOpen(true);
     reset({ city: "", email: "" });
     setIsDialogOpen(false);
   };
 
-  const filterCities = cities.filter((city) => {
+  const filterCities = cities?.filter((city) => {
     if (!query) return true;
     return city.name.toLowerCase().includes(query.toLowerCase());
   });
