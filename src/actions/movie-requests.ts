@@ -1,5 +1,6 @@
 "use server";
 
+import { cookies } from "next/headers";
 import { z } from "zod";
 
 import env from "@/lib/env";
@@ -38,11 +39,11 @@ export async function makeMovieRequest(payload: MovieRequestPayload) {
   }
 
   // store user's city name
-  // const cookieStore = cookies();
+  const cookieStore = cookies();
 
-  // cookieStore.set("city", validatedFields.data.city_id.toString(), {
-  //   secure: true,
-  // });
+  cookieStore.set("city", validatedFields.data.city_id.toString(), {
+    secure: true,
+  });
 
   try {
     // Call the api here

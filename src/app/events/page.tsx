@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 };
 
 async function getCurrentlyRunningShows(): Promise<RecentlyShow[]> {
-  const res = await fetch(env.NEXT_PUBLIC_API_URL + "/shows/popular", {
+  const res = await fetch(env.NEXT_PUBLIC_API_URL + "/shows/popular?page=1", {
     next: { revalidate: 60 },
   });
   return await res.json();

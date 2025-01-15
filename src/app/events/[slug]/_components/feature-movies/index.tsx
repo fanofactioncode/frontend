@@ -8,6 +8,7 @@ import { FeatureMoviesMobile } from "./feature-movies-mobile";
 async function getFeaturedShows(slug: string): Promise<Pagination<Show>> {
   const url = new URL(env.NEXT_PUBLIC_API_URL + "/shows/" + slug + "/similar");
   url.searchParams.append("limit", "5");
+  url.searchParams.append("page", "1");
   const options = {
     headers: {
       accept: "application/json",

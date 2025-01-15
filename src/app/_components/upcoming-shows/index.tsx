@@ -13,7 +13,7 @@ import { UpcomingShowsDesktop } from "./upcoming-shows-desktop";
 import { UpcomingShowsMobile } from "./upcoming-shows-mobile";
 
 async function getShows(): Promise<Pagination<Show>> {
-  const res = await fetch(env.NEXT_PUBLIC_API_URL + "/shows?limit=5", {
+  const res = await fetch(env.NEXT_PUBLIC_API_URL + "/shows?limit=5&page=1", {
     next: { revalidate: 60 },
   });
   return await res.json();
