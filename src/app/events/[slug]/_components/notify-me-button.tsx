@@ -2,6 +2,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Player } from "@lottiefiles/react-lottie-player";
+import { Bell } from "lucide-react";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
@@ -20,7 +21,11 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import { LOCAL_STORAGE_CITY_ID } from "@/config/constants";
+import {
+  LOCAL_STORAGE_CITY_ID,
+  LOCAL_STORAGE_EMAIL_ADDRESS,
+  LOCAL_STORAGE_NOTIFY_ME_LIST,
+} from "@/config/constants";
 import { getCities } from "@/services/cities";
 import { getShowDetails } from "@/services/shows";
 import { City } from "@/types/cities";
@@ -45,8 +50,9 @@ export function NotifyMeButton() {
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
   const [isSuccessDialogOpen, setIsSuccessDialogOpen] =
     useState<boolean>(false);
+  const [isAlreadyNotified, setIsAlreadyNotified] = useState<boolean>(false);
 
-  const { control, watch, setValue, setError, handleSubmit, reset } =
+  const { control, watch, setValue, setError, handleSubmit } =
     useForm<FormSchema>({
       resolver: zodResolver(schema),
     });
@@ -54,10 +60,23 @@ export function NotifyMeButton() {
   useEffect(() => {
     getCities().then((res) => setCities(res.allCities));
     getShowDetails(slug as string).then((res) => setShow(res));
+
+    const notifyMeList: string[] = JSON.parse(
+      localStorage.getItem(LOCAL_STORAGE_NOTIFY_ME_LIST) ?? "[]"
+    );
+    const found = notifyMeList.includes(slug as string);
+
+    if (found) {
+      setIsAlreadyNotified(true);
+    }
   }, [slug]);
 
   useEffect(() => {
     const cityId = localStorage.getItem(LOCAL_STORAGE_CITY_ID);
+    const email = localStorage.getItem(LOCAL_STORAGE_EMAIL_ADDRESS);
+
+    if (email) setValue("email", email);
+
     if (cityId && cities) {
       const found = cities.find((city) => city.id === Number(cityId));
       if (found) {
@@ -90,10 +109,18 @@ export function NotifyMeButton() {
     if (error) return setError("email", error);
 
     localStorage.setItem(LOCAL_STORAGE_CITY_ID, String(found.id));
+    localStorage.setItem(LOCAL_STORAGE_EMAIL_ADDRESS, data.email);
 
+    const notifyMeList = JSON.parse(
+      localStorage.getItem(LOCAL_STORAGE_NOTIFY_ME_LIST) ?? "[]"
+    );
+    localStorage.setItem(
+      LOCAL_STORAGE_NOTIFY_ME_LIST,
+      JSON.stringify([...notifyMeList, slug])
+    );
+
+    setIsAlreadyNotified(true);
     setIsSuccessDialogOpen(true);
-
-    reset({ city: "", email: "" });
     setIsDialogOpen(false);
   };
 
@@ -107,8 +134,19 @@ export function NotifyMeButton() {
     <>
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
         <DialogTrigger asChild>
-          <Button className="mt-11 hidden bg-white text-primary hover:bg-white/65 dark:text-secondary sm:flex">
-            Notify me
+          <Button
+            disabled={isAlreadyNotified}
+            className="mt-11 hidden bg-white text-primary hover:bg-white/65 dark:text-secondary sm:flex"
+          >
+            {isAlreadyNotified ? (
+              <span className="flex items-center gap-2">
+                <Bell size={24} fill="#262626" /> Will Notify You Soon
+              </span>
+            ) : (
+              <span className="flex items-center gap-2">
+                <Bell size={24} /> Notify Me
+              </span>
+            )}
           </Button>
         </DialogTrigger>
         <DialogContent className="max-w-[95%] rounded-2xl sm:max-w-[600px]">
