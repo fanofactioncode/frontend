@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { getShowDetails } from "@/services/shows";
 
 import { CastAndCrew } from "./_components/cast-and-crew";
+import { CityPicker } from "./_components/city-picker";
 import { FeatureMovies } from "./_components/feature-movies";
 import { MovieSysnopsis } from "./_components/movie-synopsis";
 import { NotifyOrBookingButton } from "./_components/notify-or-booking-button";
@@ -55,6 +56,7 @@ export default function EventDetailsPage({ params: { slug } }: Props) {
         <NotifyOrBookingButton />
       </main>
       <FeatureMovies slug={slug} />
+      <CityPicker />
     </>
   );
 }
