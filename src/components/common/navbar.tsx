@@ -19,12 +19,12 @@ import MenuButton from "./menu-button";
 export function Navbar() {
   return (
     <div className="container">
-      <div className="flex items-center justify-between py-3">
+      <div className="relative flex items-center justify-between py-3">
         <Link href="/" className="rounded-full focus:outline-none focus:ring-0">
           <LogoIcon className="size-12" />
         </Link>
 
-        <nav className="hidden items-center justify-center md:ms-56 md:flex md:flex-1">
+        <nav className="hidden items-center justify-center md:absolute md:left-1/2 md:flex md:flex-1 md:-translate-x-1/2">
           <ul className="flex items-center justify-center gap-16">
             <NavLink label="Home" href="/" />
             <NavLink label="Events" href="/events" />
