@@ -46,7 +46,7 @@ export function SuccessModal({ open, onOpenChange }: SuccessModalProps) {
           </DialogTitle>
           <DialogDescription className="text-center !text-sm !text-text-sub">
             Thanks for showing interest. We’ll soon going to be make this
-            happend. Stay connected with use and subscribe to our newsletter to
+            happen. Stay connected with us and subscribe to our newsletter to
             get latest updates.
           </DialogDescription>
         </DialogHeader>
