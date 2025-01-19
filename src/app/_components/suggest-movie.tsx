@@ -6,11 +6,10 @@ import { Button } from "@/components/ui/button";
 export function SuggestMovie() {
   return (
     <section className="container space-y-9 py-16">
-      <div className="flex flex-col items-center justify-center gap-2">
+      <div className="mx-auto flex w-full flex-col items-center justify-center gap-2 sm:max-w-2xl">
         <Badge>Share your favorite</Badge>
-        <h2 className="text-center text-4xl font-bold text-text">
-          Request Your Favorite Movie for a<br />
-          Big-Screen Rerelease
+        <h2 className="text-balance text-center text-4xl font-bold text-text">
+          Request Your Favorite Movie for a Big-Screen Rerelease
         </h2>
         <p className="text-center text-sm text-text-sub">
           Missed the chance to watch your favorite movie in theaters? Or just
