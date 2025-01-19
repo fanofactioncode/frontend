@@ -11,7 +11,7 @@ export function AllCities({ cities }: { cities: City[] }) {
 
       <div className="mt-3">
         {cities.map((city) => (
-          <ListItem key={city.id} city={city.name} />
+          <ListItem key={city.id} city={city} />
         ))}
       </div>
     </div>

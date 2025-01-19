@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { cookies } from "next/headers";
 import { notFound } from "next/navigation";
 
 import { getShowDetails } from "@/services/shows";
@@ -10,14 +11,11 @@ import { MovieSysnopsis } from "./_components/movie-synopsis";
 import { NotifyOrBookingButton } from "./_components/notify-or-booking-button";
 
 type Props = {
-  params: {
-    slug: string;
-  };
+  params: Promise<{ slug: string }>;
 };
 
-export async function generateMetadata({
-  params: { slug },
-}: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const slug = (await params).slug;
   const show = await getShowDetails(slug);
 
   // If there is no show with the given slug, return a 404 page
@@ -47,7 +45,21 @@ export async function generateMetadata({
   };
 }
 
-export default function EventDetailsPage({ params: { slug } }: Props) {
+export default async function EventDetailsPage({ params }: Props) {
+  const storedCookies = await cookies();
+  const slug = (await params).slug;
+  let willShowCityPicker = false;
+
+  // If the city cookie is not set, show the city picker
+  if (storedCookies.get("city") === undefined) {
+    willShowCityPicker = true;
+  }
+
+  // If the city cookie is set to null, show the city picker
+  if (storedCookies.get("city")?.value === undefined) {
+    willShowCityPicker = true;
+  }
+
   return (
     <>
       <main>
@@ -56,7 +68,7 @@ export default function EventDetailsPage({ params: { slug } }: Props) {
         <NotifyOrBookingButton />
       </main>
       <FeatureMovies slug={slug} />
-      <CityPicker />
+      <CityPicker willDialogOpen={willShowCityPicker} />
     </>
   );
 }

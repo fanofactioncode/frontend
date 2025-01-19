@@ -2,14 +2,21 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 
-export function ListItem({ city }: { city: string }) {
+import { usePreferences } from "@/provider/preferences-provider";
+import { City } from "@/types/cities";
+
+export function ListItem({ city }: { city: City }) {
   const searchParams = useSearchParams();
-  const { replace } = useRouter();
+  const { preferences, setPreferences } = usePreferences();
+  const { back, replace } = useRouter();
 
   function handleSelect() {
-    const params = new URLSearchParams(searchParams);
-    params.set("city", city);
-    replace(`/request-movie?${params.toString()}`);
+    setPreferences({ ...preferences, city });
+
+    const path = searchParams.get("path");
+
+    if (path) replace(path);
+    else back();
   }
 
   return (
@@ -17,7 +24,7 @@ export function ListItem({ city }: { city: string }) {
       onClick={handleSelect}
       className="block w-full border-b-[0.5px] border-secondary px-4 py-3 text-left text-sm text-text-sub"
     >
-      <span>{city}</span>
+      <span>{city.name}</span>
     </button>
   );
 }

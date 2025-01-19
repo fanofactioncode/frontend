@@ -3,23 +3,29 @@
 import { cookies } from "next/headers";
 
 import { City } from "@/types/cities";
+import { Preferences } from "@/types/preferences.type";
 
-type Preference = {
-  city: City | null;
-};
-
-export async function getPreferences(): Promise<{ city: string | null }> {
-  const cookieStore = cookies();
+export async function getPreferences(): Promise<Preferences> {
+  const cookieStore = await cookies();
 
   return {
-    city: cookieStore.get("city")?.value as string | null,
+    city:
+      cookieStore.get("city")?.value !== undefined
+        ? (JSON.parse(cookieStore.get("city")?.value as string) as City)
+        : null,
+    email:
+      cookieStore.get("email")?.value !== undefined
+        ? JSON.parse(cookieStore.get("email")?.value as string)
+        : null,
   };
 }
 
-export async function setPreferences(preference: Preference) {
-  const cookieStore = cookies();
+export async function setPreferences(
+  preferences: Preferences
+): Promise<Preferences> {
+  const cookieStore = await cookies();
 
-  Object.entries(preference).forEach(([key, value]) => {
+  Object.entries(preferences).forEach(([key, value]) => {
     if (value === null) {
       cookieStore.delete(key);
     } else {
@@ -28,6 +34,13 @@ export async function setPreferences(preference: Preference) {
   });
 
   return {
-    city: cookieStore.get("city")?.value as string | null,
+    city:
+      cookieStore.get("city")?.value !== undefined
+        ? (JSON.parse(cookieStore.get("city")?.value as string) as City)
+        : null,
+    email:
+      cookieStore.get("email")?.value !== undefined
+        ? JSON.parse(cookieStore.get("email")?.value as string)
+        : null,
   };
 }

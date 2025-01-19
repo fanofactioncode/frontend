@@ -2,9 +2,9 @@ export function UpcomingShowsDesktopSkeleton() {
   return (
     <div className="container hidden md:block">
       <div className="grid grid-cols-2 gap-x-5 gap-y-10 sm:grid-cols-4 sm:gap-8 md:grid-cols-5">
-        {Array.from({ length: 5 }).map((item) => (
+        {Array.from({ length: 5 }).map((item, idx) => (
           <div
-            key={`movie_skeleton_desktop_${item}`}
+            key={`movie_skeleton_desktop_${item}_${idx}`}
             className="shrink-0 animate-pulse space-y-2 md:space-y-4"
           >
             <div className="relative h-96 w-full rounded-lg bg-text/10 md:rounded-xl" />

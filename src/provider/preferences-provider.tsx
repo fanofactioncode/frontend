@@ -8,9 +8,9 @@ import {
 } from "react";
 
 import {
-  LOCAL_STORAGE_CITY,
-  LOCAL_STORAGE_EMAIL_ADDRESS,
-} from "@/config/constants";
+  getPreferences,
+  setPreferences as setPreferencesAction,
+} from "@/actions/preferences";
 import { City } from "@/types/cities";
 
 type Preferences = {
@@ -48,38 +48,17 @@ export function PreferencesProvider({ children }: React.PropsWithChildren) {
     useState<Preferences>(defaultPreferences);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const cityItem = localStorage.getItem(LOCAL_STORAGE_CITY);
-      const city = cityItem ? JSON.parse(cityItem) : null;
-
-      const emailItem = localStorage.getItem(LOCAL_STORAGE_EMAIL_ADDRESS);
-      const email = emailItem ? JSON.parse(emailItem) : null;
-
-      setPreferences({ city, email });
-    }
+    getPreferences().then(setPreferences);
   }, []);
 
   const resetPreferences = useCallback(() => {
     setPreferences(defaultPreferences);
   }, []);
 
-  const updatePreferences = useCallback(
-    (preferences: Preferences) => {
-      setPreferences(preferences);
-
-      if (typeof window !== "undefined") {
-        localStorage.setItem(
-          LOCAL_STORAGE_CITY,
-          JSON.stringify(preferences.city)
-        );
-        localStorage.setItem(
-          LOCAL_STORAGE_EMAIL_ADDRESS,
-          JSON.stringify(preferences.email)
-        );
-      }
-    },
-    [setPreferences]
-  );
+  const updatePreferences = useCallback((preferences: Preferences) => {
+    setPreferences(preferences);
+    setPreferencesAction(preferences);
+  }, []);
 
   const value: PreferencesContextProps = useMemo(() => {
     return {

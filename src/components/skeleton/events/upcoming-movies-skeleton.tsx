@@ -1,9 +1,9 @@
 export default function UpcomingMoviesSkeleton() {
   return (
     <div className="grid grid-cols-2 gap-x-5 gap-y-10 sm:grid-cols-4 sm:gap-8 md:grid-cols-5">
-      {Array.from({ length: 10 }).map((movie) => (
+      {Array.from({ length: 10 }).map((movie, idx) => (
         <div
-          key={`movie_skeleton_desktop_${movie}`}
+          key={`movie_skeleton_desktop_${movie}_${idx}`}
           className="shrink-0 animate-pulse space-y-2 md:space-y-4"
         >
           <div className="relative h-56 w-full rounded-lg bg-text/10 md:h-96 md:rounded-xl" />

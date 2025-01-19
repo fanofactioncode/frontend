@@ -1,4 +1,3 @@
-import dynamic from "next/dynamic";
 import Link from "next/link";
 
 import {
@@ -8,7 +7,7 @@ import {
   YoutubeIcon,
 } from "@/components/icons";
 
-const ThemeButton = dynamic(() => import("./theme-button"), { ssr: false });
+import ThemeButton from "./theme-button";
 
 export default function Footer() {
   return (

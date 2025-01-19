@@ -29,7 +29,7 @@ export function useLocalPreferences() {
   }
 
   function updateEmailAddress(email: string) {
-    localStorage.setItem(LOCAL_STORAGE_EMAIL_ADDRESS, email);
+    localStorage.setItem(LOCAL_STORAGE_EMAIL_ADDRESS, JSON.stringify(email));
     setEmailAddress(email);
   }
 

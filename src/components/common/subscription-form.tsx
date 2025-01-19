@@ -1,7 +1,12 @@
 "use client";
 
-import { Player } from "@lottiefiles/react-lottie-player";
+import dynamic from "next/dynamic";
 import { createRef, useState } from "react";
+
+const Player = dynamic(
+  () => import("@lottiefiles/react-lottie-player").then((mod) => mod.Player),
+  { ssr: false }
+);
 
 import { createSubscription } from "@/actions/subscriptions";
 import { cn } from "@/lib/utils";
@@ -53,7 +58,6 @@ export function SubscriptionForm() {
           <DialogHeader className="flex flex-col items-center space-y-0 text-center">
             <Player
               src="/assets/lottie/newslatter.json"
-              loop={false}
               autoplay
               keepLastFrame
               className="size-40"

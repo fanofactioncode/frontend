@@ -11,7 +11,7 @@ export function AvailableCities({ cities }: { cities: City[] }) {
 
       <div className="grid grid-cols-3 gap-3">
         {cities.map((city) => (
-          <AvailableListItem key={city.id} city={city.name} />
+          <AvailableListItem key={city.id} city={city} />
         ))}
       </div>
     </div>
