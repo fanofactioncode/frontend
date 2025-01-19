@@ -26,6 +26,7 @@ import {
   LOCAL_STORAGE_EMAIL_ADDRESS,
   LOCAL_STORAGE_NOTIFY_ME_LIST,
 } from "@/config/constants";
+import { useLocalPreferences } from "@/hooks/use-local-preferences";
 import { getCities } from "@/services/cities";
 import { getShowDetails } from "@/services/shows";
 import { City } from "@/types/cities";
@@ -57,6 +58,9 @@ export function NotifyMeButton() {
       resolver: zodResolver(schema),
     });
 
+  const { email, city, updatePreferedCity, updateEmailAddress } =
+    useLocalPreferences();
+
   useEffect(() => {
     getCities().then((res) => setCities(res.allCities));
     getShowDetails(slug as string).then((res) => setShow(res));
@@ -70,6 +74,12 @@ export function NotifyMeButton() {
       setIsAlreadyNotified(true);
     }
   }, [slug]);
+
+  useEffect(() => {
+    if (email) {
+      setValue("email", email);
+    }
+  }, [email, setValue]);
 
   useEffect(() => {
     const cityId = localStorage.getItem(LOCAL_STORAGE_CITY_ID);
@@ -108,8 +118,8 @@ export function NotifyMeButton() {
     setIsSubmitting(false);
     if (error) return setError("email", error);
 
-    localStorage.setItem(LOCAL_STORAGE_CITY_ID, String(found.id));
-    localStorage.setItem(LOCAL_STORAGE_EMAIL_ADDRESS, data.email);
+    updateEmailAddress(data.email);
+    updatePreferedCity(found);
 
     const notifyMeList = JSON.parse(
       localStorage.getItem(LOCAL_STORAGE_NOTIFY_ME_LIST) ?? "[]"
@@ -171,42 +181,44 @@ export function NotifyMeButton() {
               )}
             />
 
-            <Controller
-              control={control}
-              name="city"
-              render={({ field, fieldState: { error } }) => (
-                <div className="relative mt-4">
-                  <Input
-                    placeholder="Enter city"
-                    autoComplete="off"
-                    onFocus={() => setOpen(true)}
-                    {...field}
-                  />
-                  {error && <p className="text-red-500">{error.message}</p>}
+            {!city && (
+              <Controller
+                control={control}
+                name="city"
+                render={({ field, fieldState: { error } }) => (
+                  <div className="relative mt-4">
+                    <Input
+                      placeholder="Enter city"
+                      autoComplete="off"
+                      onFocus={() => setOpen(true)}
+                      {...field}
+                    />
+                    {error && <p className="text-red-500">{error.message}</p>}
 
-                  {open && filterCities.length > 0 && (
-                    <div className="absolute mt-1 max-h-52 w-full overflow-y-auto rounded-lg border bg-background">
-                      {filterCities.map((city) => (
-                        <button
-                          type="button"
-                          key={city.id}
-                          className="flex w-full items-center space-x-2 px-4 py-2 text-text hover:bg-background/90"
-                          onClick={() => {
-                            setOpen(false);
-                            setValue("city", city.name, {
-                              shouldDirty: true,
-                              shouldTouch: true,
-                            });
-                          }}
-                        >
-                          {city.name}
-                        </button>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              )}
-            />
+                    {open && filterCities.length > 0 && (
+                      <div className="absolute mt-1 max-h-52 w-full overflow-y-auto rounded-lg border bg-background">
+                        {filterCities.map((city) => (
+                          <button
+                            type="button"
+                            key={city.id}
+                            className="flex w-full items-center space-x-2 px-4 py-2 text-text hover:bg-background/90"
+                            onClick={() => {
+                              setOpen(false);
+                              setValue("city", city.name, {
+                                shouldDirty: true,
+                                shouldTouch: true,
+                              });
+                            }}
+                          >
+                            {city.name}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                )}
+              />
+            )}
 
             <DialogFooter className="mt-5">
               <Button type="submit" disabled={isSubmitting}>

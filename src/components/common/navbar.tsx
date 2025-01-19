@@ -2,18 +2,16 @@
 
 import { ChevronDown, Globe } from "lucide-react";
 import Link from "next/link";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-import { CityDialog } from "@/app/request-movie/_components/city-dialog";
-import { LOCAL_STORAGE_CITY_ID } from "@/config/constants";
 import { cn } from "@/lib/utils";
 import { useNavigation } from "@/provider/navigation-provider";
-import { getCities } from "@/services/cities";
+import { usePreferences } from "@/provider/preferences-provider";
 
 import { LogoIcon } from "../icons";
 import { Button } from "../ui/button";
 
+import { CityPickerDialog } from "./city-picker-dialog";
 import MenuButton from "./menu-button";
 
 export function Navbar() {
@@ -48,38 +46,9 @@ export function Navbar() {
 }
 
 function CityPickerButton() {
-  const params = useSearchParams();
-  const pathname = usePathname();
-  const { replace } = useRouter();
+  const { preferences, setPreferences } = usePreferences();
 
   const [open, setOpen] = useState<boolean>(false);
-  const [cityName, setCityName] = useState<string>("");
-
-  const city = params.get("city");
-
-  useEffect(() => {
-    const cityId = localStorage.getItem(LOCAL_STORAGE_CITY_ID);
-    getCities().then((res) => {
-      const found = res.allCities.find((c) => c.id === Number(cityId));
-      if (found) {
-        setCityName(found.name);
-      }
-    });
-  }, []);
-
-  useEffect(() => {
-    if (city) {
-      // Find city id from city name
-      getCities().then((res) => {
-        const found = res.allCities.find((c) => c.name === city);
-        if (found) {
-          setCityName(found.name);
-          localStorage.setItem(LOCAL_STORAGE_CITY_ID, String(found.id));
-          replace(pathname);
-        }
-      });
-    }
-  }, [city, pathname, replace]);
 
   return (
     <>
@@ -90,11 +59,15 @@ function CityPickerButton() {
         onClick={() => setOpen(true)}
       >
         <Globe className="size-5" />
-        {cityName || "Pick City"}
+        {preferences.city !== null ? preferences.city.name : "Pick City"}
         <ChevronDown className="size-4" />
       </Button>
 
-      <CityDialog open={open} onOpenChange={setOpen} />
+      <CityPickerDialog
+        open={open}
+        onOpenChange={setOpen}
+        onSelectCity={(city) => setPreferences({ ...preferences, city })}
+      />
     </>
   );
 }
