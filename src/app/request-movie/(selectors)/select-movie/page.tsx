@@ -1,3 +1,5 @@
+import { Suspense } from "react";
+
 import { getSuggestions } from "@/services/suggestions";
 import { getTrendingMovies } from "@/services/trending";
 
@@ -29,7 +31,9 @@ export default async function SelectMoviePage({ searchParams }: Props) {
   return (
     <div className="flex h-screen flex-col">
       <div className="container sticky top-0 bg-background py-3">
-        <Searchbox />
+        <Suspense fallback={<h1>Loading...</h1>}>
+          <Searchbox />
+        </Suspense>
       </div>
 
       <div className="mt-2 flex-1 space-y-2">

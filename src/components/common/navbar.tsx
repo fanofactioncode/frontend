@@ -2,7 +2,7 @@
 
 import { ChevronDown, Globe } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 
 import { cn } from "@/lib/utils";
 import { useNavigation } from "@/provider/navigation-provider";
@@ -39,7 +39,9 @@ export function Navbar() {
           </Button>
         </div>
 
-        <MenuButton />
+        <Suspense fallback={<div className="h-4 w-8 animate-pulse bg-text" />}>
+          <MenuButton />
+        </Suspense>
       </div>
     </div>
   );
