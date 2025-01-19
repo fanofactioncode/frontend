@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { Suspense } from "react";
 
 import PageLayout from "@/components/layout/page-layout";
 
@@ -29,7 +30,9 @@ export default function RequestMoviePage() {
           re-release in theaters
         </p>
 
-        <MovieRequestForm />
+        <Suspense fallback={<h1>Loading...</h1>}>
+          <MovieRequestForm />
+        </Suspense>
       </main>
     </PageLayout>
   );
