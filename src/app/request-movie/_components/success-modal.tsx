@@ -53,7 +53,7 @@ export function SuccessModal({ open, onOpenChange }: SuccessModalProps) {
 
         <DialogFooter className="mx-auto mt-8">
           <DialogClose asChild>
-            <Button className="px-8 sm:min-w-[245px]">Subscribe</Button>
+            <Button className="px-8 sm:min-w-[245px]">Close</Button>
           </DialogClose>
         </DialogFooter>
       </DialogContent>

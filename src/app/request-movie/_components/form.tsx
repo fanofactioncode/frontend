@@ -86,7 +86,7 @@ export default function MovieRequestForm() {
               <div className="w-full flex-1">
                 <Input
                   className="!h-[3.5rem] !rounded-xl !px-4"
-                  placeholder="Pick you movie"
+                  placeholder="Enter movie name"
                   id="movie"
                   {...field}
                 />
@@ -109,7 +109,7 @@ export default function MovieRequestForm() {
               <div className="w-full flex-1">
                 <Input
                   className="!h-[3.5rem] !rounded-xl !px-4"
-                  placeholder="Email Address"
+                  placeholder="Enter email address"
                   type="email"
                   {...field}
                 />
