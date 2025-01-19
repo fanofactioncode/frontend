@@ -115,17 +115,12 @@ export function NotifyOrBookingButton() {
             )}
           </Button>
         </DialogTrigger>
-        <DialogContent
-          className="max-w-[95%] rounded-2xl sm:max-w-[600px]"
-          onOpenAutoFocus={(e) => e.preventDefault()}
-        >
+        <DialogContent className="max-w-[95%] rounded-2xl sm:max-w-[600px]">
           <form onSubmit={handleSubmit(onSubmit)}>
             <DialogHeader className="mb-4">
               <DialogTitle className="text-left">Notify Me</DialogTitle>
               <DialogDescription className="text-left">
-                Don’t miss out! Enter your email to receive updates and
-                reminders about this event. We’ll ensure you&apos;re the first
-                to know about any important details or changes.
+                Enter your email to get notified on show updates
               </DialogDescription>
             </DialogHeader>
 
@@ -147,7 +142,7 @@ export function NotifyOrBookingButton() {
 
             <DialogFooter className="mt-5">
               <Button type="submit" disabled={isSubmitting}>
-                {isSubmitting ? "Saving...." : "Save"}
+                {isSubmitting ? "Submitting...." : "Submit"}
               </Button>
             </DialogFooter>
           </form>

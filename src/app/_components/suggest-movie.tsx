@@ -9,7 +9,8 @@ export function SuggestMovie() {
       <div className="flex flex-col items-center justify-center gap-2">
         <Badge>Share your favorite</Badge>
         <h2 className="text-center text-4xl font-bold text-text">
-          Ready to suggest a movie !
+          Request Your Favorite Movie for a<br />
+          Big-Screen Rerelease
         </h2>
         <p className="text-center text-sm text-text-sub">
           Missed the chance to watch your favorite movie in theaters? Or just
@@ -20,7 +21,7 @@ export function SuggestMovie() {
 
       <div className="flex items-center justify-center">
         <Button asChild>
-          <Link href="/request-movie">Request Your Movie</Link>
+          <Link href="/request-movie">Request Movie</Link>
         </Button>
       </div>
     </section>

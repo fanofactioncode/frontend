@@ -117,7 +117,7 @@ export default function MobileNavigation() {
             <li>
               <Button asChild>
                 <Link href="/request-movie" onClick={() => toggleNavigation()}>
-                  Request Your Movie
+                  Request Movie
                 </Link>
               </Button>
             </li>
