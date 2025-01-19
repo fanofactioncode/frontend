@@ -2,9 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
+import env from "@/lib/env";
 
 async function verifyEmail(token: string) {
-  const url = "https://dev-api-v2.fanofaction.com/subscription/verify";
+  const url = env.NEXT_PUBLIC_API_URL + "/subscription/verify";
   const options = {
     method: "POST",
     headers: {
