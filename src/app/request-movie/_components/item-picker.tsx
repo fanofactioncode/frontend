@@ -6,12 +6,15 @@ import { cn } from "@/lib/utils";
 const Picker = forwardRef<
   HTMLButtonElement,
   React.HTMLAttributes<HTMLButtonElement>
->(({ children, ...props }, ref) => {
+>(({ children, className, ...props }, ref) => {
   return (
     <button
       ref={ref}
       type="button"
-      className="flex cursor-pointer flex-col gap-2 p-6 sm:flex-1"
+      className={cn(
+        "flex cursor-pointer flex-col gap-2 p-6 sm:flex-1",
+        className
+      )}
       {...props}
     >
       {children}
@@ -23,9 +26,13 @@ Picker.displayName = "Picker";
 const PickerHeader = forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
->(({ children, ...props }, ref) => {
+>(({ children, className, ...props }, ref) => {
   return (
-    <div ref={ref} className="flex flex-row items-center gap-2" {...props}>
+    <div
+      ref={ref}
+      className={cn("flex flex-row items-center gap-2", className)}
+      {...props}
+    >
       {children}
     </div>
   );
@@ -35,11 +42,11 @@ PickerHeader.displayName = "PickerHeader";
 const PickerTitle = forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLParagraphElement>
->(({ children, ...props }, ref) => {
+>(({ children, className, ...props }, ref) => {
   return (
     <p
       ref={ref}
-      className="select-none text-base font-semibold text-text"
+      className={cn("select-none text-base font-semibold text-text", className)}
       {...props}
     >
       {children}

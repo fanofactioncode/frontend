@@ -1,8 +1,10 @@
 import { Metadata } from "next";
+import { cookies } from "next/headers";
 import { Suspense } from "react";
 
 import PageLayout from "@/components/layout/page-layout";
 
+import { CityPicker } from "./_components/city-picker";
 import MovieRequestForm from "./_components/form";
 
 export const metadata: Metadata = {
@@ -13,7 +15,18 @@ export const metadata: Metadata = {
     "rereleases, movie rereleases, request a movie, bring movies back to theaters, FanOfAction, favorite movie rereleases, iconic films, cinema requests, theater rereleases, cult classics FanOfAction, fan of action, fan action, fanofaction",
 };
 
-export default function RequestMoviePage() {
+export default async function RequestMoviePage() {
+  const cookieStore = await cookies();
+  let willDialogOpen = false;
+
+  if (!cookieStore.get("city")) {
+    willDialogOpen = true;
+  }
+
+  if (cookieStore.get("city")?.value === undefined) {
+    willDialogOpen = true;
+  }
+
   return (
     <PageLayout>
       <main className="container py-16 sm:py-24 sm:pb-40">
@@ -32,6 +45,9 @@ export default function RequestMoviePage() {
 
         <Suspense fallback={<h1>Loading...</h1>}>
           <MovieRequestForm />
+        </Suspense>
+        <Suspense fallback={<h1>City Loader...</h1>}>
+          <CityPicker willDialogOpen={willDialogOpen} />
         </Suspense>
       </main>
     </PageLayout>
