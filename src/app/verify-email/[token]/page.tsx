@@ -18,12 +18,11 @@ async function verifyEmail(token: string) {
 }
 
 type Props = {
-  params: {
-    token: string;
-  };
+  params: Promise<{ token: string }>;
 };
 
-export default async function VerifyEmail({ params: { token } }: Props) {
+export default async function VerifyEmail({ params }: Props) {
+  const token = (await params).token;
   const data = await verifyEmail(token);
 
   return (
