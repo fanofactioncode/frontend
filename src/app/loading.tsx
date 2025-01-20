@@ -1,6 +1,6 @@
 export default function Loading() {
   return (
-    <div className="main flex w-full items-center justify-center">
+    <div className="flex w-full items-center justify-center bg-green">
       <div
         role="status"
         className="absolute left-2/4 top-2/4 flex h-20 w-20 -translate-x-2/4 -translate-y-2/4 items-center justify-center"
