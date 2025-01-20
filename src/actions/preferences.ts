@@ -29,7 +29,12 @@ export async function setPreferences(
     if (value === null) {
       cookieStore.delete(key);
     } else {
-      cookieStore.set(key, JSON.stringify(value));
+      cookieStore.set({
+        name: key,
+        value: JSON.stringify(value),
+        maxAge: 60 * 60 * 24 * 365 * 1000,
+        expires: new Date(Date.now() + 60 * 60 * 24 * 365 * 1000),
+      });
     }
   });
 
