@@ -2,7 +2,6 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 
-import { revalidatePathAction } from "@/actions/revalidate";
 import { usePreferences } from "@/provider/preferences-provider";
 import { City } from "@/types/cities";
 
@@ -16,11 +15,8 @@ export function AvailableListItem({ city }: { city: City }) {
   function handleSelect() {
     setPreferences({ ...preferences, city });
 
-    if (path) {
-      revalidatePathAction(path).then(() => {
-        replace(path);
-      });
-    } else back();
+    if (path) replace(path);
+    else back();
   }
 
   return (

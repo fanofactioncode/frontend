@@ -2,33 +2,29 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 
-import { revalidatePathAction } from "@/actions/revalidate";
 import { usePreferences } from "@/provider/preferences-provider";
 import { City } from "@/types/cities";
 
-export function AvailableListItem({ city }: { city: City }) {
+export function ListItem({ city }: { city: City }) {
   const searchParams = useSearchParams();
-  const { replace, back } = useRouter();
   const { preferences, setPreferences } = usePreferences();
+  const { back, replace } = useRouter();
 
   const path = searchParams.get("path");
 
   function handleSelect() {
     setPreferences({ ...preferences, city });
 
-    if (path) {
-      revalidatePathAction(path).then(() => {
-        replace(path);
-      });
-    } else back();
+    if (path) replace(path);
+    else back();
   }
 
   return (
     <button
       onClick={handleSelect}
-      className="flex items-center justify-center truncate rounded-xl border border-secondary bg-secondary/30 p-2 text-center text-sm text-text-sub dark:bg-secondary"
+      className="block w-full border-b-[0.5px] border-secondary px-4 py-3 text-left text-sm text-text-sub"
     >
-      {city.name}
+      <span>{city.name}</span>
     </button>
   );
 }
