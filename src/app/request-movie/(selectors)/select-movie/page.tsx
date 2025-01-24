@@ -48,8 +48,8 @@ export default async function SelectMoviePage({ searchParams }: Props) {
               <ListItem key={title} title={title} />
             ))}
 
-          {suggestions?.map(({ title }) => (
-            <ListItem key={title} title={title} />
+          {suggestions?.map(({ id, name }) => (
+            <ListItem key={id} title={name} />
           ))}
         </div>
       </div>
