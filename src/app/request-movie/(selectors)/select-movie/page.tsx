@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 
-import { getSuggestions } from "@/services/suggestions";
+import { getSearchSuggestions } from "@/services/suggestions";
 import { getTrendingMovies } from "@/services/trending";
 
 import { ListItem } from "./list-item";
@@ -26,7 +26,8 @@ export default async function SelectMoviePage({ searchParams }: Props) {
 
   const trendingMovies = await getTrendingMovies();
   let suggestions = null;
-  if (search) suggestions = await getSuggestions({ search: search as string });
+  if (search)
+    suggestions = await getSearchSuggestions({ search: search as string });
 
   return (
     <div className="flex h-screen flex-col">

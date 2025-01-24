@@ -2,13 +2,12 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 
-import { setPreferences } from "@/actions/preferences";
 import { usePreferences } from "@/provider/preferences-provider";
 import { City } from "@/types/cities";
 
 export function ListItem({ city }: { city: City }) {
   const searchParams = useSearchParams();
-  const { preferences } = usePreferences();
+  const { preferences, setPreferences } = usePreferences();
   const { back, replace } = useRouter();
 
   const path = searchParams.get("path");

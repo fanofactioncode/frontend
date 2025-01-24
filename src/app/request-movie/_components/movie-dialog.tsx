@@ -13,7 +13,7 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useDebounce } from "@/hooks/use-debounce";
 import { cn } from "@/lib/utils";
-import { getSuggestions } from "@/services/suggestions";
+import { getSearchSuggestions } from "@/services/suggestions";
 import { getTrendingMovies } from "@/services/trending";
 import { SuggestionMovie } from "@/types/suggestions";
 import { TrendingMovie } from "@/types/trending";
@@ -43,9 +43,10 @@ export function MovieDialog({
   useEffect(() => {
     if (!debouncedQuery) return;
 
-    getSuggestions({ search: debouncedQuery }).then(({ data }) =>
-      setSearchedResults(data)
-    );
+    getSearchSuggestions({ search: debouncedQuery }).then((data) => {
+      if (!data) return;
+      setSearchedResults(data);
+    });
   }, [debouncedQuery]);
 
   useEffect(() => {

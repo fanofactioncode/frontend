@@ -8,8 +8,11 @@ import { z } from "zod";
 import { makeMovieRequest } from "@/actions/movie-requests";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useDebounce } from "@/hooks/use-debounce";
 import { cn } from "@/lib/utils";
 import { usePreferences } from "@/provider/preferences-provider";
+import { getSearchSuggestions } from "@/services/suggestions";
+import { SuggestionMovie } from "@/types/suggestions";
 
 import { CityDialog } from "./city-dialog";
 import { MovieDialog } from "./movie-dialog";
@@ -40,6 +43,22 @@ export default function MovieRequestForm() {
   const [isSuccessDialogOpen, setIsSuccessDialogOpen] =
     useState<boolean>(false);
   const [isPending, setIsPending] = useState<boolean>(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
+  const [searchedResults, setSearchedResults] = useState<SuggestionMovie[]>([]);
+  const [query, setQuery] = useState<string>("");
+  const debouncedQuery = useDebounce(query, 300);
+
+  useEffect(() => {
+    if (!debouncedQuery) return;
+
+    getSearchSuggestions({ search: debouncedQuery }).then((data) => {
+      console.log("data = ", data);
+
+      setSearchedResults(data);
+    });
+  }, [debouncedQuery]);
+
+  console.log("search Results = ", searchedResults);
 
   useEffect(() => {
     if (preferences.email) setValue("email", preferences.email);
@@ -82,14 +101,25 @@ export default function MovieRequestForm() {
           <Controller
             name="suggested_movie"
             control={control}
-            render={({ field, fieldState: { error } }) => (
-              <div className="w-full flex-1">
+            render={({
+              field: { onChange, ...field },
+              fieldState: { error },
+            }) => (
+              <div className="relative w-full flex-1">
                 <Input
                   className="!h-[3.5rem] !rounded-xl !px-4"
                   placeholder="Enter movie name"
                   id="movie"
+                  onChange={(e) => {
+                    onChange(e);
+                    setQuery(e.target.value);
+                    if (!isDropdownOpen && e.target.value.length > 2) {
+                      setIsDropdownOpen(true);
+                    }
+                  }}
                   {...field}
                 />
+
                 <p
                   className={cn(
                     "invisible ms-1 text-sm text-red-400",
