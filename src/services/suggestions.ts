@@ -1,6 +1,6 @@
 import env from "@/lib/env";
 import { Pagination } from "@/types/pagination";
-import { SuggestionMovie } from "@/types/suggestions";
+import { SuggestionMovie, SuggestionSearch } from "@/types/suggestions";
 
 type PaginationProps = {
   search?: string;
@@ -24,7 +24,7 @@ export async function getSuggestions(
 
 export async function getSearchSuggestions(
   props: PaginationProps
-): Promise<SuggestionMovie[]> {
+): Promise<SuggestionSearch[]> {
   const url = new URL(env.NEXT_PUBLIC_API_URL + "/movie/search-suggestions");
 
   const { search, page, limit } = props;

@@ -1,6 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { z } from "zod";
@@ -8,11 +9,10 @@ import { z } from "zod";
 import { makeMovieRequest } from "@/actions/movie-requests";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useDebounce } from "@/hooks/use-debounce";
 import { cn } from "@/lib/utils";
 import { usePreferences } from "@/provider/preferences-provider";
 import { getSearchSuggestions } from "@/services/suggestions";
-import { SuggestionMovie } from "@/types/suggestions";
+import { SuggestionSearch } from "@/types/suggestions";
 
 import { CityDialog } from "./city-dialog";
 import { MovieDialog } from "./movie-dialog";
@@ -31,7 +31,7 @@ const schema = z.object({
 type FormSchema = z.infer<typeof schema>;
 
 export default function MovieRequestForm() {
-  const { control, reset, setError, setValue, handleSubmit } =
+  const { control, reset, setError, setValue, setFocus, handleSubmit } =
     useForm<FormSchema>({
       resolver: zodResolver(schema),
     });
@@ -44,25 +44,23 @@ export default function MovieRequestForm() {
     useState<boolean>(false);
   const [isPending, setIsPending] = useState<boolean>(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
-  const [searchedResults, setSearchedResults] = useState<SuggestionMovie[]>([]);
-  const [query, setQuery] = useState<string>("");
-  const debouncedQuery = useDebounce(query, 300);
+  const [searchedResults, setSearchedResults] = useState<SuggestionSearch[]>(
+    []
+  );
 
-  useEffect(() => {
-    if (!debouncedQuery) return;
+  async function handleSearch(term: string) {
+    if (!term) return;
 
-    getSearchSuggestions({ search: debouncedQuery }).then((data) => {
-      console.log("data = ", data);
+    const data = await getSearchSuggestions({ search: term });
 
-      setSearchedResults(data);
-    });
-  }, [debouncedQuery]);
+    setSearchedResults(data);
 
-  console.log("search Results = ", searchedResults);
+    if (!isDropdownOpen && data.length > 0) setIsDropdownOpen(true);
+  }
 
   useEffect(() => {
     if (preferences.email) setValue("email", preferences.email);
-  }, [preferences.email]);
+  }, [preferences.email, setValue]);
 
   async function onSubmit({ email, suggested_movie }: FormSchema) {
     const payload = {
@@ -87,6 +85,7 @@ export default function MovieRequestForm() {
       setPreferences({ ...preferences, email });
       setIsSuccessDialogOpen(true);
       reset({ email: "", suggested_movie: "" });
+      setSearchedResults([]);
     } catch (err) {
       console.log("Error : ", err);
     } finally {
@@ -97,7 +96,7 @@ export default function MovieRequestForm() {
   return (
     <>
       <form method="POST" onSubmit={handleSubmit(onSubmit)}>
-        <div className="mx-auto mt-8 flex max-w-[890px] flex-col items-center gap-3 sm:mt-12 sm:flex-row">
+        <div className="mx-auto mt-8 flex max-w-[890px] flex-col items-center sm:mt-12 sm:flex-row sm:gap-3">
           <Controller
             name="suggested_movie"
             control={control}
@@ -110,19 +109,45 @@ export default function MovieRequestForm() {
                   className="!h-[3.5rem] !rounded-xl !px-4"
                   placeholder="Enter movie name"
                   id="movie"
+                  autoComplete="off"
                   onChange={(e) => {
                     onChange(e);
-                    setQuery(e.target.value);
-                    if (!isDropdownOpen && e.target.value.length > 2) {
-                      setIsDropdownOpen(true);
-                    }
+                    handleSearch(e.target.value);
                   }}
                   {...field}
                 />
 
+                <AnimatePresence>
+                  {isDropdownOpen && searchedResults.length > 0 && (
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      className="absolute mt-1 max-h-48 w-full overflow-auto rounded-lg border bg-white py-1 shadow-sm"
+                    >
+                      {searchedResults.map((result) => (
+                        <button
+                          type="button"
+                          key={result.id}
+                          tabIndex={-1}
+                          aria-label={result.name}
+                          className="flex w-full items-start justify-start p-4"
+                          onClick={() => {
+                            setValue("suggested_movie", result.name);
+                            setIsDropdownOpen(false);
+                            setFocus("email");
+                          }}
+                        >
+                          {result.name}
+                        </button>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
                 <p
                   className={cn(
-                    "invisible ms-1 text-sm text-red-400",
+                    "invisible ms-1 text-sm text-red-400 sm:mt-2",
                     error && "visible"
                   )}
                 >
@@ -145,7 +170,7 @@ export default function MovieRequestForm() {
                 />
                 <p
                   className={cn(
-                    "invisible ms-1 text-sm text-red-400",
+                    "invisible ms-1 text-sm text-red-400 sm:mt-2",
                     error && "visible"
                   )}
                 >
@@ -163,7 +188,7 @@ export default function MovieRequestForm() {
             >
               {isPending ? "Submitting..." : "Submit"}
             </Button>
-            <p className="invisible text-sm">Submit button</p>
+            <p className="invisible mt-2 text-sm">Submit button</p>
           </div>
         </div>
       </form>
