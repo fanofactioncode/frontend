@@ -31,10 +31,6 @@ export function AvailableListItem({ city }: { city: City }) {
       className="flex items-center justify-center truncate rounded-xl border border-secondary bg-secondary/30 p-2 text-center text-sm text-text-sub dark:bg-secondary"
     >
       {city.name}
-
-      {isPending && (
-        <div className="h-6 w-6 animate-spin rounded-full border-4 border-r-primary" />
-      )}
     </button>
   );
 }
