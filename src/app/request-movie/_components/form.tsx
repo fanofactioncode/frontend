@@ -123,7 +123,7 @@ export default function MovieRequestForm() {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
-                      className="absolute mt-1 max-h-48 w-full overflow-auto rounded-lg border bg-white py-1 shadow-sm"
+                      className="absolute mt-1 max-h-48 w-full overflow-auto rounded-lg border bg-background py-1 shadow-sm"
                     >
                       {searchedResults.map((result) => (
                         <button
@@ -131,7 +131,7 @@ export default function MovieRequestForm() {
                           key={result.id}
                           tabIndex={-1}
                           aria-label={result.name}
-                          className="flex w-full items-start justify-start p-4"
+                          className="flex w-full items-start justify-start p-4 text-text transition-colors duration-300 hover:bg-secondary/50"
                           onClick={() => {
                             setValue("suggested_movie", result.name);
                             setIsDropdownOpen(false);
