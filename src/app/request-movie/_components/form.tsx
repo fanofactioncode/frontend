@@ -9,6 +9,7 @@ import { z } from "zod";
 import { makeMovieRequest } from "@/actions/movie-requests";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useClickOutside } from "@/hooks/use-clickoutside";
 import { cn } from "@/lib/utils";
 import { usePreferences } from "@/provider/preferences-provider";
 import { getSearchSuggestions } from "@/services/suggestions";
@@ -55,6 +56,13 @@ export default function MovieRequestForm() {
   const [searchedResults, setSearchedResults] = useState<SuggestionSearch[]>(
     []
   );
+  const [focusedIndex, setFocusedIndex] = useState<number>(-1);
+
+  const ref = useClickOutside<HTMLDivElement>({
+    onClickOutside: () => {
+      setIsDropdownOpen(false);
+    },
+  });
 
   const debouncedSearch = debounce(async (term: string) => {
     if (!term) {
@@ -118,7 +126,7 @@ export default function MovieRequestForm() {
               field: { onChange, ...field },
               fieldState: { error },
             }) => (
-              <div className="relative w-full flex-1">
+              <div ref={ref} className="relative w-full flex-1">
                 <Input
                   className="!h-[3.5rem] !rounded-xl !px-4"
                   placeholder="Enter movie name"
@@ -127,6 +135,50 @@ export default function MovieRequestForm() {
                   onChange={(e) => {
                     onChange(e);
                     debouncedSearch(e.target.value);
+                  }}
+                  onKeyDown={(e) => {
+                    if (!isDropdownOpen || searchedResults.length === 0) return;
+
+                    switch (e.key) {
+                      case "ArrowDown":
+                        e.preventDefault();
+                        setFocusedIndex((prev) => {
+                          const nextIndex = Math.min(
+                            prev + 1,
+                            searchedResults.length - 1
+                          );
+                          document
+                            .querySelector(`[data-index="${nextIndex}"]`)
+                            ?.scrollIntoView({ block: "nearest" });
+                          return nextIndex;
+                        });
+                        break;
+                      case "ArrowUp":
+                        e.preventDefault();
+                        setFocusedIndex((prev) => {
+                          const prevIndex = Math.max(prev - 1, 0);
+                          document
+                            .querySelector(`[data-index="${prevIndex}"]`)
+                            ?.scrollIntoView({ block: "nearest" });
+                          return prevIndex;
+                        });
+                        break;
+                      case "Enter":
+                        e.preventDefault();
+                        if (focusedIndex >= 0) {
+                          const selected = searchedResults[focusedIndex];
+                          setValue("suggested_movie", selected.name);
+                          setIsDropdownOpen(false);
+                          setFocusedIndex(-1);
+                          setFocus("email");
+                        }
+                        break;
+                      case "Escape":
+                        e.preventDefault();
+                        setIsDropdownOpen(false);
+                        setFocusedIndex(-1);
+                        break;
+                    }
                   }}
                   {...field}
                 />
@@ -139,18 +191,23 @@ export default function MovieRequestForm() {
                       exit={{ opacity: 0 }}
                       className="absolute mt-1 max-h-48 w-full overflow-auto rounded-lg border bg-background py-1 shadow-sm"
                     >
-                      {searchedResults.map((result) => (
+                      {searchedResults.map((result, index) => (
                         <button
                           type="button"
                           key={result.id}
                           tabIndex={-1}
+                          data-index={index}
                           aria-label={result.name}
-                          className="flex w-full items-start justify-start p-4 text-text transition-colors duration-300 hover:bg-secondary/50"
+                          className={cn(
+                            "flex w-full items-start justify-start p-4 text-text transition-colors duration-300 hover:bg-secondary/50",
+                            focusedIndex === index && "bg-secondary/50"
+                          )}
                           onClick={() => {
                             setValue("suggested_movie", result.name);
                             setIsDropdownOpen(false);
                             setFocus("email");
                           }}
+                          onMouseEnter={() => setFocusedIndex(index)} // Optional for hover
                         >
                           {result.name}
                         </button>
