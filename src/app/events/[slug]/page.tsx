@@ -47,18 +47,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function EventDetailsPage({ params }: Props) {
   const storedCookies = await cookies();
+  const willShowCityPicker = !storedCookies.has("city");
+
   const slug = (await params).slug;
-  let willShowCityPicker = false;
-
-  // If the city cookie is not set, show the city picker
-  if (storedCookies.get("city") === undefined) {
-    willShowCityPicker = true;
-  }
-
-  // If the city cookie is set to null, show the city picker
-  if (storedCookies.get("city")?.value === undefined) {
-    willShowCityPicker = true;
-  }
 
   return (
     <>

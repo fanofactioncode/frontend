@@ -20,7 +20,7 @@ type Preferences = {
 
 type PreferencesContextProps = {
   preferences: Preferences;
-  setPreferences: (preferences: Preferences) => void;
+  setPreferences: (preferences: Preferences) => Promise<void>;
   resetPreferences: () => void;
 };
 
@@ -55,9 +55,9 @@ export function PreferencesProvider({ children }: React.PropsWithChildren) {
     setPreferences(defaultPreferences);
   }, []);
 
-  const updatePreferences = useCallback((preferences: Preferences) => {
+  const updatePreferences = useCallback(async (preferences: Preferences) => {
     setPreferences(preferences);
-    setPreferencesAction(preferences);
+    await setPreferencesAction(preferences);
   }, []);
 
   const value: PreferencesContextProps = useMemo(() => {

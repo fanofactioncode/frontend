@@ -1,8 +1,7 @@
 "use client";
 
 import { AlertCircle } from "lucide-react";
-import { createRef, useEffect } from "react";
-import { useFormState } from "react-dom";
+import { createRef, useActionState, useEffect } from "react";
 
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Input } from "@/components/ui/input";
@@ -17,7 +16,7 @@ const initialState = {
 };
 
 export function ContactForm() {
-  const [state, formAction] = useFormState(createContact, initialState);
+  const [state, formAction] = useActionState(createContact, initialState);
   const formRef = createRef<HTMLFormElement>();
 
   useEffect(() => {

@@ -19,9 +19,9 @@ export function CityPicker({ willDialogOpen }: { willDialogOpen: boolean }) {
     if (screenWidth >= 768) {
       setIsCityPickerOpen(willDialogOpen);
     } else if (screenWidth > 0 && screenWidth < 768 && willDialogOpen) {
-      router.push(`/request-movie/select-city?path=${pathname}`);
+      router.push(`/select-city?path=${pathname}`);
     }
-  }, [willDialogOpen, screenWidth, router]);
+  }, [willDialogOpen, screenWidth, router, pathname]);
 
   return (
     <CityPickerDialog

@@ -6,5 +6,8 @@ export async function getTrendingMovies(): Promise<TrendingMovie[]> {
     env.NEXT_PUBLIC_API_URL + "/movie-requests/trending",
     { next: { revalidate: 60 } }
   );
-  return await res.json();
+
+  if (!res.ok) return [];
+
+  return res.json();
 }

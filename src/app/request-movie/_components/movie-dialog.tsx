@@ -13,9 +13,9 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useDebounce } from "@/hooks/use-debounce";
 import { cn } from "@/lib/utils";
-import { getSuggestions } from "@/services/suggestions";
+import { getSearchSuggestions } from "@/services/suggestions";
 import { getTrendingMovies } from "@/services/trending";
-import { SuggestionMovie } from "@/types/suggestions";
+import { SuggestionSearch } from "@/types/suggestions";
 import { TrendingMovie } from "@/types/trending";
 
 import SearchInput from "../(selectors)/_components/search-input";
@@ -36,16 +36,19 @@ export function MovieDialog({
   const { replace } = useRouter();
 
   const [movies, setMovies] = useState<TrendingMovie[]>([]);
-  const [searchedResults, setSearchedResults] = useState<SuggestionMovie[]>([]);
+  const [searchedResults, setSearchedResults] = useState<SuggestionSearch[]>(
+    []
+  );
   const [query, setQuery] = useState<string>();
   const debouncedQuery = useDebounce(query, 300);
 
   useEffect(() => {
     if (!debouncedQuery) return;
 
-    getSuggestions({ search: debouncedQuery }).then(({ data }) =>
-      setSearchedResults(data)
-    );
+    getSearchSuggestions({ search: debouncedQuery }).then((data) => {
+      if (!data) return;
+      setSearchedResults(data);
+    });
   }, [debouncedQuery]);
 
   useEffect(() => {
@@ -108,15 +111,15 @@ export function MovieDialog({
               </h2>
 
               <ScrollArea className="max-h-[300px]">
-                {searchedResults?.map(({ title, id }) => (
+                {searchedResults?.map(({ id, name }) => (
                   <button
                     key={id}
                     className="flex w-full items-center justify-between border-b border-secondary py-3 text-text transition-colors duration-300 focus-within:bg-foreground/5 focus-within:outline-none"
-                    onClick={() => handleMovieSelect(title)}
-                    aria-label={title}
-                    aria-labelledby={title}
+                    onClick={() => handleMovieSelect(name)}
+                    aria-label={name}
+                    aria-labelledby={name}
                   >
-                    {title}
+                    {name}
                   </button>
                 ))}
 

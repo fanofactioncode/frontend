@@ -12,3 +12,8 @@ export type SuggestionMovie = {
   cover_poster_url: string | null;
   logo_url: string | null;
 };
+
+export type SuggestionSearch = {
+  id: number;
+  name: string;
+};

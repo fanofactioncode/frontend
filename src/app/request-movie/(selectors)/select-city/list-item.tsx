@@ -2,6 +2,7 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 
+import { revalidatePathAction } from "@/actions/revalidate";
 import { usePreferences } from "@/provider/preferences-provider";
 import { City } from "@/types/cities";
 
@@ -10,13 +11,16 @@ export function ListItem({ city }: { city: City }) {
   const { preferences, setPreferences } = usePreferences();
   const { back, replace } = useRouter();
 
+  const path = searchParams.get("path");
+
   function handleSelect() {
     setPreferences({ ...preferences, city });
 
-    const path = searchParams.get("path");
-
-    if (path) replace(path);
-    else back();
+    if (path) {
+      revalidatePathAction(path).then(() => {
+        replace(path);
+      });
+    } else back();
   }
 
   return (

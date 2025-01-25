@@ -8,16 +8,22 @@ import { Preferences } from "@/types/preferences.type";
 export async function getPreferences(): Promise<Preferences> {
   const cookieStore = await cookies();
 
+  const cityCookie = cookieStore.get("city")?.value;
+  const emailCookie = cookieStore.get("email")?.value;
+
   return {
-    city:
-      cookieStore.get("city")?.value !== undefined
-        ? (JSON.parse(cookieStore.get("city")?.value as string) as City)
-        : null,
-    email:
-      cookieStore.get("email")?.value !== undefined
-        ? JSON.parse(cookieStore.get("email")?.value as string)
-        : null,
+    city: cityCookie ? (safeParseJSON(cityCookie) as City) : null,
+    email: emailCookie ? safeParseJSON(emailCookie) : null,
   };
+}
+
+function safeParseJSON(value: string): any {
+  try {
+    return JSON.parse(value);
+  } catch (error) {
+    console.error("Invalid JSON in cookie:", value, error);
+    return null;
+  }
 }
 
 export async function setPreferences(
@@ -29,18 +35,18 @@ export async function setPreferences(
     if (value === null) {
       cookieStore.delete(key);
     } else {
-      cookieStore.set(key, JSON.stringify(value));
+      try {
+        cookieStore.set({
+          name: key,
+          value: JSON.stringify(value),
+          maxAge: 60 * 60 * 24 * 365 * 1000,
+          expires: new Date(Date.now() + 60 * 60 * 24 * 365 * 1000),
+        });
+      } catch (error) {
+        console.error(`Failed to set cookie for key: ${key}`, error);
+      }
     }
   });
 
-  return {
-    city:
-      cookieStore.get("city")?.value !== undefined
-        ? (JSON.parse(cookieStore.get("city")?.value as string) as City)
-        : null,
-    email:
-      cookieStore.get("email")?.value !== undefined
-        ? JSON.parse(cookieStore.get("email")?.value as string)
-        : null,
-  };
+  return getPreferences();
 }
