@@ -30,6 +30,14 @@ const schema = z.object({
 
 type FormSchema = z.infer<typeof schema>;
 
+function debounce(func: (...args: any[]) => void, delay: number) {
+  let timer: NodeJS.Timeout;
+  return (...args: any[]) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => func(...args), delay);
+  };
+}
+
 export default function MovieRequestForm() {
   const { control, reset, setError, setValue, setFocus, handleSubmit } =
     useForm<FormSchema>({
@@ -48,15 +56,21 @@ export default function MovieRequestForm() {
     []
   );
 
-  async function handleSearch(term: string) {
-    if (!term) return;
+  const debouncedSearch = debounce(async (term: string) => {
+    if (!term) {
+      setSearchedResults([]);
+      setIsDropdownOpen(false);
+      return;
+    }
 
     const data = await getSearchSuggestions({ search: term });
 
     setSearchedResults(data);
 
-    if (!isDropdownOpen && data.length > 0) setIsDropdownOpen(true);
-  }
+    if (!isDropdownOpen && data.length > 0) {
+      setIsDropdownOpen(true);
+    }
+  }, 300); // Adjust the debounce delay as needed
 
   useEffect(() => {
     if (preferences.email) setValue("email", preferences.email);
@@ -112,7 +126,7 @@ export default function MovieRequestForm() {
                   autoComplete="off"
                   onChange={(e) => {
                     onChange(e);
-                    handleSearch(e.target.value);
+                    debouncedSearch(e.target.value);
                   }}
                   {...field}
                 />
