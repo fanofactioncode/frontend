@@ -57,7 +57,7 @@ export function HeroSection() {
           <VideoPlayer
             src={FOA_INTRO_VIDEO_URL}
             accentColor={VIDEO_PLAYER_ACCENT_COLOR}
-            poster="/assets/video-thumbnail.png"
+            poster="/assets/video-thumbnail.webp"
             controls={true}
           />
         </div>

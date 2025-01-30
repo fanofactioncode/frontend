@@ -27,12 +27,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 0.5,
-      images: ["https://www.fanofaction.com/assets/video-thumbnail.png"],
+      images: ["https://www.fanofaction.com/assets/video-thumbnail.webp"],
       videos: [
         {
           description: "About fanofaction",
           thumbnail_loc:
-            "https://www.fanofaction.com/assets/video-thumbnail.png",
+            "https://www.fanofaction.com/assets/video-thumbnail.webp",
           title: "About FanOfAction",
           content_loc: FOA_INTRO_VIDEO_URL,
           family_friendly: "yes",
