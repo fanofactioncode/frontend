@@ -51,7 +51,12 @@ export async function MovieSysnopsisMobile({ id }: { id: string }) {
               {numberToMovieRuntime(movieDetails.duration)}
             </Badge>
             <Badge className="flex items-center gap-2 border-[0.5px]">
-              <Image src="/imdb-logo.svg" width={26} height={26} alt="IMDb" />
+              <Image
+                src="/svgs/imdb-logo.svg"
+                width={26}
+                height={26}
+                alt="IMDb"
+              />
               {Math.floor(Number(movieDetails.rating))}
             </Badge>
           </div>

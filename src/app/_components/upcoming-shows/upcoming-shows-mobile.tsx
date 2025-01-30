@@ -43,7 +43,12 @@ export function UpcomingShowsMobile({ getShows }: UpcomingShowsMobileProps) {
                 {movie.original_language}
               </p>
               <div className="flex items-center gap-2">
-                <Image src="/imdb-logo.svg" width={30} height={30} alt="IMDb" />
+                <Image
+                  src="/svgs/imdb-logo.svg"
+                  width={30}
+                  height={30}
+                  alt="IMDb"
+                />
                 <p className="text-xs text-text-sub">{movie.rating}/10</p>
               </div>
             </div>

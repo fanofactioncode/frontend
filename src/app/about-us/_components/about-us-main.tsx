@@ -24,7 +24,7 @@ export function AboutUsMain() {
         <VideoPlayer
           src={FOA_INTRO_VIDEO_URL}
           accentColor={VIDEO_PLAYER_ACCENT_COLOR}
-          poster="/video-thumbnail.png"
+          poster="/assets/video-thumbnail.png"
           controls={true}
         />
       </div>
