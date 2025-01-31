@@ -31,7 +31,7 @@ export default function PreviousEventsCarousel() {
         <div className="touce-action-pinch-zoom ml-4 mr-4 flex gap-4 md:container md:gap-12">
           <div className="w-full shrink-0 rounded-2xl border border-secondary bg-[#F8F8F8] p-3 dark:bg-secondary/50 md:w-[600px]">
             <Image
-              src="/assets/phir-hera-pheri-cover.png"
+              src="/assets/phir-hera-pheri-cover.webp"
               alt="previous event"
               width={0}
               height={0}
@@ -43,7 +43,7 @@ export default function PreviousEventsCarousel() {
               <div className="mt-3 flex flex-1 gap-4">
                 <div className="relative w-20">
                   <Image
-                    src="/assets/phir-hera-pheri-poster.jpg"
+                    src="/assets/phir-hera-pheri-poster.webp"
                     alt="previous event"
                     width={0}
                     height={0}
